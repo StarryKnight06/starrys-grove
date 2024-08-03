@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/style.css">
+        <link rel="icon" href="/images/icon-green-plant.ico">
+        <title>Blog Archive - Starry's Grove</title>
+        <style>
+            :root{
+                --headercolor: #08582b;
+                --boxbgcolor: #f9f3fd;
+                --maintextcolor: #2e1806;
+                /*border info*/
+                --bordermain: 6px double #690b71; 
+                --borderaside: 2px solid #4a085f;
+                --borderheader: 2px solid #4a085f;
+            }
+            .custom-bullets2{
+                list-style-image: url("https://files.catbox.moe/nctx6o.gif");
+                font-family:"main-text-font";
+                color: var(--maintextcolor);
+            }
+            a:link{
+                color: #0663c0;
+                text-decoration: none;
+            }
+            @media only screen and (max-width: 700px) {
+                .flex-middle {
+                  flex-direction:  column;
+                }
+                .flex-rightside {
+                    flex-direction: row;
+                }
+                .main {
+                    width: auto;
+                }
+                .new-content-sticker, .blinkies {
+                    display: none;
+                }
+                nav ul li {
+                    padding-right:10px;
+                    font-size:0.7em !important;
+                    padding-top: 6px;
+                }
+                h1 {
+                    font-size: 1.2em;
+                    max-width:36ch;
+                    /* idk if this does anything or not BUT it works so we leaving it there */
+                    text-wrap: wrap !important;
+                    display: inline-block;
+                }
+                h2, h3 {
+                    font-size: 1.3em;
+                    text-wrap: wrap;
+                }
+                p {
+                    font-size: 1em;
+                }
+                #room-nav {
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    font-size: 1.2em;
+                }
+                #room-nav {
+                  width: 100% ;
+                }
+            }
+            @media only screen and (max-width: 500px) {
+                .flex-main {
+                  flex-direction: column-reverse;
+                  margin-left: 0.5em;
+                  margin-right: auto;
+                }
+                #picrew-pfp {
+                    width: 100%;
+                }
+                h1 {
+                    margin-top: 0px;
+                    margin-bottom: 0px;
+                    display: inline-block;
+                    line-height: 1.2;
+                }
+                .entries {
+                    width: 100% !important;
+                }
+                .space-divider {
+                    width: 100%;
+                }
+                .rightside {
+                    display: none;
+                }
+                
+            }
+            /*pulled from stack overflow, allows the home nav link to hide on desktop and show on mobile*/
+            @media screen and (max-width: 480px) {
+                .show-on-desktop {
+                    display: none;
+                }
+            }
+            @media screen and (min-width: 700px) {
+                .hide-on-desktop {
+                    display: none;
+                    }
+            }
+            .rightside {
+                border-style: none;
+                background: transparent;
+            }
+            .blog-entry p {
+                text-align: left; 
+                margin-left: 1em; 
+                margin-right: 1em;
+            }
+            #picrew-pfp {
+                width: 17em;
+                height: 17em;
+                border: 2.5px dashed #4f6c38;
+                border-radius: 10px; 
+                margin: 1em;
+                display: block;
+            }
+            #shroom-pet {
+                margin:auto;
+            }
+            .jukebox {
+                height: auto;
+            }
+            .custom-bullets {
+                list-style: none;
+            }
+            .navbar {
+                width: auto;
+            }
+            nav ul {
+                /*this takes away the bullet points*/
+                list-style-type:none;
+                padding-left:0;
+                display:flex;
+                flex-wrap:wrap;
+                justify-content: center;
+            }
+            nav ul li {
+                padding-right:10px;
+                margin: auto;
+            }
+            #room-nav {
+                font-family: "main-text-font";
+                list-style-type: none;
+            }
+            #room-nav h2 {
+                margin-bottom: -15px;
+            }
+            #room-nav li {
+                display: block;
+                margin-top: 0.5em;
+                margin-bottom: 0.5em;
+                margin-left: 0;
+                margin-right: 0;
+                font-weight: bold;
+            }
+            .entries p {
+                font-size: 1.2em;
+            }
+            html {
+                background-image: url("https://files.catbox.moe/vu01a3.gif");
+            }          
+        </style>
+        <script>
+            /* this is also solaria's script for the jukebox */
+            function stopmusic() {
+                var y = document.getElementsByTagName('audio');
+                for(var j=0; j<y.length; j++) {
+                    y[j].pause();
+                }
+                document.getElementById('marq').innerHTML = 'no music is playing';
+            }  
+            function playsong() {
+                var y = document.getElementsByTagName('audio');
+                for(var j=0; j<y.length; j++) {
+                    y[j].pause();
+                }
+                var songvalue = event.target.value;
+                    document.getElementsByTagName('audio')[songvalue].currentTime = 0;
+                    document.getElementsByTagName('audio')[songvalue].play();
+                    document.getElementById('marq').innerHTML = event.target.title;
+            }
+        </script>        
+    </head>
+    <body>
+        <div class="flex-body">
+            <div class="banner" alt="" style="background-image: url(https://files.catbox.moe/pvf8er.gif); height: 20px;"></div>
+        </div>
+        <!-- use multiple classes to differientiate between similar names -->
+        <div class="flex-body body-main">
+            <header class="header">
+                <div class="flex-row">
+                    <img src="https://files.catbox.moe/kzqvnq.gif" alt="" style="width: 5%; height: 5%; margin:auto;transform: scaleX(-1);">
+                    <h1>
+                        Blog Archive
+                    </h1>
+                    <img src="https://files.catbox.moe/kzqvnq.gif" alt="" style="width: 5%; height: 5%; margin:auto;">
+                </div> 
+            </header>
+            <div class="leftside navbar">
+                <nav>
+                    <ul class="custom-bullets">
+                        <li>
+                            <a href="https://starry-knight.neocities.org">
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://starry-knight.neocities.org/library">
+                                Library
+                            </a>
+                        </li>                                   
+                        <li>
+                            <a href="https://starry-knight.neocities.org/art-gallery">
+                                Art Gallery
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://starry-knight.neocities.org/my-room">
+                                My Room
+                            </a>
+                        </li>
+                        <li>
+                            <a href="link.here">
+                            Greenhouse
+                            </a>
+                        </li>
+                        <li>
+                            <a href="link.goes.here">
+                                Scrapbook
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://starry-knight.neocities.org/resources">
+                                Resources
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="flex-row flex-middle">
+                <div class="flex-column flex-rightside">
+                    <!-- left aside starts here -->
+                    <aside class="leftside leftside-jukebox">
+                        <!-- this is solaria's script for a jukebox -->
+                        <div class="jukebox">
+                            <button class="activate">
+                                <img src="/images/img-green-radio.gif" alt="Open for song options for the music player.">
+                            </button>
+                            <ul>
+                                <button onclick="stopmusic()">stop music</button>
+                                <li><button value="0" title="Lost Girl - Deltarune Chapter 2" onclick="playsong()">deltarune-lost-girl.mp3	
+                                    <audio><source src="https://files.catbox.moe/ekqh7s.mp3" type="audio/mp3"></audio>
+                                </button></li>
+                            </ul>
+                            <marquee> 
+                                <p id="marq">☆ select a song! ☆</p>
+                            </marquee>
+                            <script>
+                                var y = document.getElementsByTagName('audio');
+                                for(var j=0; j<y.length; j++) {
+                                    y[j].onended = function() {
+                                        document.getElementById('marq').innerHTML = 'select a song!';
+                                    };
+                                }
+                            </script>
+                        </div> 
+                    </aside>
+                    <aside class="leftside" id="room-nav">
+                        <h2 style="background-color: transparent;">
+                            Bookshelf
+                        </h2>
+                        <nav class="flex-column" style=" justify-content: space-evenly; flex-direction: column;">
+                            <ul>
+                                <li>
+                                    <a href="https://starry-knight.neocities.org/my-room-links/fanlists">
+                                        Fanlistings
+                                    </a>
+                                </li>
+                                <li style="color: #b9283b;">
+                                    <i>Blog Archive</i> (Here!)
+                                </li>
+                                <li style="color: #4a0543;">
+                                    Brain Rot Central<br> (WIP)
+                                </li>
+                            </ul>       
+                        </nav>
+                    </aside>
+                </div>
+                <main class="main blog-entry">
+                        <article>
+                            <h2>
+                                "I wish I had this when I was a kid."
+                            </h2>
+                            <p>
+                                <b>Mood:</b> Bittersweet / Melancholy<br>
+                                <b>Time:</b> 8:00pm (sunset)<br>
+                                <b>Listening to:</b> Lost Girl - Deltarune Chpt. 2<br>
+                            </p>    
+                            <p>
+                                I had a thought cross my mind while I was working, "I wish I had this when I was a kid."
+                                Which now that I'm thinking about it, is kind of a double egded sword as is any situation where a child has unrestricted internet access.
+                                But.. now that I think about it, I didn't really have the experience of any kinda of online community except Google + (when it was still alive).<br>
+                                <br>
+                                I would have loved to get into Tumblr when I was in middle school and fangirl with everybody else about Undertale when it came out. 
+                                Really influential things that happened around that time, I kinda had to celebrate by myself. 
+                                I had friends, of course, but I don't think I had it established in my brain then that I could just yap to my friends about things I liked. 
+                                I suppose I think it may have done me some good to be social outside of school and only school.<br>
+                                <br>
+                                Maybe this site can be a homage to my inner child / younger self. ( ´ ω ` )	
+                            </p>
+                            <h3>
+                                Lil Off-Topic
+                            </h3>
+                            <p>
+                                I recently made a tumblr account to find graphics and HTML resources and I also got into some old fandom stuff like Undertale. 
+                                I don't really interact with people but it's nice being in a space where people are really interested in the same thing as you. 
+                                I haven't seen any toxicity (yet,I'm sure it's bound to happen as it is with any social media) but it seems like a nice enviornment. 
+                            </p>
+                            <p>
+                                It's also very different from Twitter which I really like. 
+                                I feel like Tumblr is a lil bit more community oriented and you're incouraged to interact a bit more than just liking a post. 
+                                Also your "for you page" is ACTUALLY a for you page.. UNLIKE TWITTER, THAT NO MATTER WHICH ACCOUNT I'M ON, THAT ARE VERY DIFFERENT IN WHO I FOLLOW, I STILL SEE THE SAME SHIT. ヽ( `д´*)ノ
+                            </p>
+                            <p>
+                                Not even a "for you page" man. More like "for everyone."
+                                I'm trying to stop using Twitter so much since almost everything on my FYP is something negative and it makes me feel like shit after ESSENTIALLY DOOM SCROLLING MY HOME FEED. 
+                            </p>
+                            <p>
+                                I will probably only keep my Twitter so I can support my favorite artists but MAN DO I HATE THAT HELLSITE. (╬ Ò﹏Ó)	
+                            </p>
+                            <p>
+                                Okay that's all for today folks. I'm gonna go <s>back to coding</s> nope I'm going to sleep. At the time of uploading it is 2am. Goodnight...<br>
+                                <br>
+                                <em>-Starry</em> ╰(*´︶`*)╯♡	
+                            </p>
+                            <p style="text-align: center; font-size: 1.1em;">
+                                <a href="https://starry-knight.neocities.org/my-room-links/blog-archive">Go back to the list of entries</a>
+                            </p>
+                            <img src="https://files.catbox.moe/xlsy6w.gif" alt="" style="display: block; margin: auto">
+                        </article>
+                </main>
+                <aside class="rightside" style="width: 25%; justify-content: space-evenly;">
+                    <div class="flex-column">
+                        <img src="https://files.catbox.moe/pai0da.gif" alt="" style="width: 80%;">
+                    </div>
+                </aside>
+            </div>
+            <footer class="footer">
+                <p style="margin: -0.5em;">
+                    ♡ Lovingly crafted by Starry - May 2024
+                </p>
+                <div class="flex-row" style="justify-content: space-evenly; width: 18em; margin: auto;">
+                    <img src="https://files.catbox.moe/b5sdd7.gif" alt="">
+                    <a href="#top">Back to top</a>
+                    <img src="https://files.catbox.moe/b5sdd7.gif" alt="" style="transform: scaleX(-1)">
+                </div>
+            </footer>
+        </div>            
+    </body>
+</html>

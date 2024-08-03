@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/style.css">
+        <link rel="icon" href="/images/icon-green-plant.ico">
+        <title>Fanlistings - Starry's Grove</title>
+        <style>
+            @media only screen and (max-width: 700px) {
+                .flex-middle {
+                  flex-direction:  column;
+                }
+              .flex-rightside {
+                flex-direction: row;
+              }
+              .main {
+                width: auto;
+              }
+              .new-content-sticker {
+                    display: none;
+                }
+                nav ul li {
+                    padding-right:10px;
+                    font-size:0.7em !important;
+                    padding-top: 6px;
+                }
+                h1 {
+                    font-size: 1.2em;
+                    max-width:36ch;
+                    /* idk if this does anything or not BUT it works so we leaving it there */
+                    text-wrap: wrap !important;
+                    display: inline-block;
+                }
+                h2, h3 {
+                    font-size: 1.3em;
+                    text-wrap: wrap;
+                }
+                p {
+                    font-size: 1em;
+                }
+                #room-nav {
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    font-size: 1.1em;
+                }
+                #room-nav {
+                  width: 100%;
+                }
+            }
+            @media only screen and (max-width: 500px) {
+                li {
+                    margin: 0.4em;
+                }
+                h1 {
+                    margin-top: 0px;
+                    margin-bottom: 0px;
+                    display: inline-block;
+                    line-height: 1.2;
+                }
+            }
+            .fanlist-games > a >img {
+                margin: 0.3em;
+            }
+            /*pulled from stack overflow, allows the home nav link to hide on desktop and show on mobile*/
+            @media screen and (max-width: 480px) {
+                .show-on-desktop {
+                    display: none;
+                }
+            }
+            @media screen and (min-width: 700px) {
+                .hide-on-desktop {
+                    display: none;
+                    }
+            }
+            .jukebox {
+                height: auto;
+            }
+            .leftside-navbar {
+                width: auto;
+            }
+            .custom-bullets {
+                list-style: none;
+            }
+            nav ul {
+                /*this takes away the bullet points*/
+                list-style-type:none;
+                padding-left:0;
+                display:flex;
+                flex-wrap:wrap;
+                justify-content: center;
+            }
+            nav ul li {
+                padding-right:10px;
+                margin: auto;
+            }
+            #room-nav {
+                font-family: "main-text-font";
+                list-style-type: none;
+            }
+            #room-nav h2 {
+                margin-bottom: -15px;
+            }
+            #room-nav li {
+                display: block;
+                margin-top: 0.5em;
+                margin-bottom: 0.5em;
+                margin-left: 0;
+                margin-right: 0;
+                font-weight: bold;
+            }
+            html {
+                background-image: url("https://files.catbox.moe/x9k56y.gif");
+            }          
+        </style>
+        <script>
+            /* this is also solaria's script for the jukebox */
+            function stopmusic() {
+                var y = document.getElementsByTagName('audio');
+                for(var j=0; j<y.length; j++) {
+                    y[j].pause();
+                }
+                document.getElementById('marq').innerHTML = 'no music is playing';
+            }  
+            function playsong() {
+                var y = document.getElementsByTagName('audio');
+                for(var j=0; j<y.length; j++) {
+                    y[j].pause();
+                }
+                var songvalue = event.target.value;
+                    document.getElementsByTagName('audio')[songvalue].currentTime = 0;
+                    document.getElementsByTagName('audio')[songvalue].play();
+                    document.getElementById('marq').innerHTML = event.target.title;
+            }
+        </script>        
+    </head>
+    <body>
+        <div class="flex-body">
+            <div class="banner" style="background-image: url(/images/fanlists-imgs/div-sprout-chicks.gif); height: 25px"></div>
+        </div>
+        <!-- use multiple classes to differientiate between similar names -->
+        <div class="flex-body body-main">
+            <header class="header">
+                <div class="flex-row">
+                    <img src="/images/fanlists-imgs/img-floating-hearts.gif" style="height: 5%; width: 5%; margin-top: auto; margin-bottom: auto;">
+                    <h1>
+                        Fanlistings
+                    </h1>
+                    <img src="/images/fanlists-imgs/img-floating-hearts.gif" style="height: 5%; width: 5%; margin-top: auto; margin-bottom: auto; transform: scaleX(-1)">
+                </div> 
+            </header>
+            <div class="leftside navbar">
+                <nav>
+                    <ul class="custom-bullets">
+                        <li>
+                            <a href="https://starry-knight.neocities.org">
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://starry-knight.neocities.org/library">
+                                Library
+                            </a>
+                        </li>                                   
+                        <li>
+                            <a href="https://starry-knight.neocities.org/art-gallery">
+                                Art Gallery
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://starry-knight.neocities.org/my-room">
+                                My Room
+                            </a>
+                        </li>
+                        <li>
+                            <a href="link.here">
+                            Greenhouse
+                            </a>
+                        </li>
+                        <li>
+                            <a href="link.goes.here">
+                                Scrapbook
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://starry-knight.neocities.org/resources">
+                                Resources
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="flex-row flex-middle">
+                <div class="flex-column flex-rightside">
+                    <!-- left aside starts here -->
+                    <aside class="leftside leftside-jukebox">
+                        <!-- this is solaria's script for a jukebox -->
+                        <div class="jukebox">
+                            <button class="activate">
+                                <img src="/images/img-green-radio.gif" alt="Open for song options for the music player.">
+                            </button>
+                            <ul>
+                                <button onclick="stopmusic()">stop music</button>
+                                <li><button value="0" title="Katamari Damacy - Que Sera Sera" onclick="playsong()">katamari-que-sera-sera.mp3	
+                                    <audio><source src="https://files.catbox.moe/ekum7k.mp3" type="audio/mp3"></audio>
+                                </button></li>
+                            </ul>
+                            <marquee> 
+                                <p id="marq">☆ select a song! ☆</p>
+                            </marquee>
+                            <script>
+                                var y = document.getElementsByTagName('audio');
+                                for(var j=0; j<y.length; j++) {
+                                    y[j].onended = function() {
+                                        document.getElementById('marq').innerHTML = 'select a song!';
+                                    };
+                                }
+                            </script>
+                        </div> 
+                    </aside>
+                    <aside class="leftside" id="room-nav">
+                        <h2 style="background-color: transparent;">
+                            Bookshelf
+                        </h2>
+                        <nav class="flex-column" style=" justify-content: space-evenly;">
+                            <ul>
+                                <li style="color: #b9283b;">
+                                    <i>Fanlistings</i> (Here!)
+                                </li>
+                                <li>
+                                    <a href="https://starry-knight.neocities.org/my-room-links/blog-archive">
+                                        Blog Archive
+                                    </a>
+                                </li>
+                                <li style="color: #4a0543;">
+                                    Brain Rot Central<br> (WIP)
+                                </li>
+
+                            </ul>       
+                        </nav>
+                    </aside>
+                </div>
+                <main class="main">
+                    <h2 style="margin-bottom: -10px;">What's that?</h2>
+                    <div class="flex-row" style="justify-content: space-between; margin-top: auto; margin-bottom: auto;">
+                        <img src="/images/fanlists-imgs/div-vertical-pink-flower-vine.gif" style="width: 20%; height: 20%; transform: scaleX(-1);">
+                        <p style="margin-left: 1em; margin-right: 1em; text-align: left;">
+                            A <strong>fanlisting</strong> is a very literally, a list of fans from all over the world.
+                            Fans of what? Well <strong>anything</strong> and <strong>everything</strong> you could think of!
+                            A character, TV show, food, season of the year, hobby, you name it!<br>
+                            <br>
+                            It's a nice way to connect fans of things and share websites or emails, if you want.
+                            Here's some of the fanlistings I've joined. Click the image to learn more about it<br>
+                            o(〃＾▽＾〃)o
+                        </p>
+                        <img src="/images/fanlists-imgs/div-vertical-pink-flower-vine.gif" style="width: 20%; height: 20%;">
+                       <!-- <a href="">
+                            <img src="/images/fanlists-imgs/img-picrew-starry-silly.png" title="made with @reelrollsweat's picrew"
+                            style="height: 40%; margin: 0.5em; border: 2px dashed #4f6c38;; border-radius: 5px;">
+                        </a> -->
+                        
+                    </div>  
+                    <div class="flex-column">    
+                        <h3 style="margin-bottom: -2px;">
+                            Misc.
+                        </h3> 
+                        <div class="flex-row" style="justify-content: space-evenly; margin: 0.5em; flex-wrap: wrap;">
+                            <a href="https://10-31.net/fans/late/index.php">
+                                <img loading="lazy" src="/images/fanlists-imgs/button-fanlisting-staying-up-late.gif" title="Staying up late fanlisting" alt="">
+                            </a>
+                            <a href="https://precious-memory.net/blankets/index.php">
+                                <img loading="lazy" src="/images/fanlists-imgs/button-fanlisting-blankets.gif" title="Blankets fanlisting" alt="">
+                            </a>
+                            <a href="https://www.ladyrose.buruma.net/stuffedanimals/general/index.php">
+                                <img loading="lazy" src="/images/fanlists-imgs/button-fanlisting-stuffed-animals.jpg" title="Stuffed animals fanlisting" alt="">
+                            </a>
+                            <a href="https://silent.am/drawing/index.php">
+                                <img loading="lazy" src="/images/fanlists-imgs/button-fanlisting-drawing.png" title="Drawing fanlisting" alt="">
+                            </a>
+                            <a href="https://thewildrose.org/rice/index.php">
+                                <img loading="lazy" src="/images/fanlists-imgs/button-fanlisting-rice.gif" title="Rice fanlisting" alt="">
+                            </a>
+                            <a href="https://heartdreams.net/yellow/index.php">
+                                <img loading="lazy" src="/images/fanlists-imgs/button-fanlisting-yellow.png" title="Yellow fanlisting" alt="">
+                            </a>
+                        </div>  
+                    </div>
+                    <div class="flex-column">    
+                        <h3 style="margin-bottom: -2px;">
+                            Nature & Animals
+                        </h3> 
+                        <div class="flex-row" style="justify-content: space-evenly; margin: 0.5em; flex-wrap: wrap;">
+                            <a href="http://fan.winterlantern.net/willows/index.php">
+                                <img loading="lazy" src="/images/fanlists-imgs/button-fanlisting-willow-trees.gif" title="Willow trees fanlisting" alt="">
+                            </a>
+                            <a href="https://herotovillain.com/night/index.php">
+                                <img loading="lazy" src="/images/fanlists-imgs/button-fanlisting-night.png" title="Night fanlisting" alt="">
+                            </a>
+                            <a href="http://10-31.net/annie/frogs">
+                                <img loading="lazy" src="/images/fanlists-imgs/button-fanlisting-frogs.png" title="Frogs fanlisting" alt="">
+                            </a>
+                            <a href="https://fan.drinkingsouls.com/cacti/index">
+                                <img loading="lazy" src="/images/fanlists-imgs/button-fanlisting-cacti.jpg" title="Cacti fanlisting" alt="">
+                            </a>
+                            <a href="http://nature.i-heart-you.net/forests">
+                                <img loading="lazy" src="/images/fanlists-imgs/button-fanlisting-forests.gif" title="Forests fanlisting" alt="">
+                            </a>
+                            <a href="https://silent.am/mushrooms/index.php">
+                                <img loading="lazy" src="/images/fanlists-imgs/button-fanlisting-mushrooms.png" title="Mushrooms fanlisting" alt="">
+                            </a>
+                            <a href="http://fangirl.altervista.org/autumn/">
+                                <img loading="lazy" src="/images/fanlists-imgs/button-fanlisting-autumn.gif" title="Autumn fanlisting" alt="">
+                            </a>
+                        </div>  
+                    </div> 
+                    <div class="flex-column">
+                        <h3 style="margin-bottom: -2px;">
+                            Games
+                        </h3>
+                        <div class="flex-row fanlist-games" style="justify-content: space-evenly; margin: 0.5em; flex-wrap: wrap;">
+                            <a href="https://creativeburst.org/animalcrossing/index.php">
+                                <img loading="lazy" src="/images/fanlists-imgs/button-fanlisting-acnh2.jpg" title="Animal Crossing: New Horizons fanlisting" alt="">
+                            </a>
+                            <a href="https://fan.surlybutterfly.net/stardewvalley/">
+                                <img loading="lazy" src="/images/fanlists-imgs/button-fanlisting-stardew.png" title="Stardew Valley fanlisting" alt="">
+                            </a>
+                            <a href="https://i-heart.net/lollipopchainsaw/">
+                                <img loading="lazy" src="/images/fanlists-imgs/button-fanlisting-lollipop-chainsaw.png" title="Lollipop Chainsaw fanlisting" alt="">
+                            </a>
+                            <a href="https://fan.hopeslair.haliya.net/fl/kirby/index.php">
+                                <img loading="lazy" src="/images/fanlists-imgs/button-fanlisting-kirby.png" title="Kirby fanlisting" alt="">
+                            </a>
+                            <a href="https://rabanastre.org/zero/">
+                                <img loading="lazy" src="/images/fanlists-imgs/button-fanlisting-twilight-princess.gif" title="LoZ Twilight Princessfanlisting" alt="">
+                            </a>                            
+                            <a href="https://fan.redcrown.net/katamari">
+                                <img loading="lazy" src="/images/fanlists-imgs/button-fanlisting-katamari-damacy.png" title="Katamari Damacy fanlisting" alt="">
+                            </a>
+                            <a href="https://www.pirate-queen.net/danganronpa/site.php?skin=1">
+                                <img loading="lazy" src="/images/fanlists-imgs/button-fanlisting-dangan.jpg" title="Danganronpa fanlisting" alt="">
+                            </a>
+                            <a href="https://zanarkand.neocities.org/stardust/yume/">
+                                <img loading="lazy" src="/images/fanlists-imgs/button-fanlisting-yume-nikki.png" title="Yume Nikki fanlisting" alt="">
+                            </a>
+                            <a href="https://fan.kalechips.net/pikmin/index.php">
+                                <img loading="lazy" src="/images/fanlists-imgs/button-fanlisting-pikmin2.png" title="Pikmin fanlisting" alt="">
+                            </a>
+                            <a href="https://sunnypark.buruma.net/splatoon//index.php">
+                                <img loading="lazy" src="/images/fanlists-imgs/button-fanlisting-splatoon.gif" title="Splatoon fanlisting" alt="">
+                            </a>
+                            <a href="https://fan.after-death.org/p3/index.php">
+                                <img loading="lazy" src="/images/fanlists-imgs/button-fanlisting-persona3.gif" title="Persona 3 fanlisting" alt="">
+                            </a>
+                            <a href="https://fan.glast-heim.net/undertale//index.php">
+                                <img loading="lazy" src="/images/fanlists-imgs/button-fanlisting-undertale.png" title="Undertale fanlisting" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="flex-column">    
+                        <h3 style="margin-bottom: -2px;">
+                            Game Characters
+                        </h3> 
+                        <div class="flex-row" style="justify-content: space-evenly; margin: 0.5em; flex-wrap: wrap;">
+                            <a href="https://sweetbrat.cc/genshin/yanfei/">
+                                <img loading="lazy" src="/images/fanlists-imgs/button-fanlisting-yanfei.png" title="Yanfei fanlisting" alt="">
+                            </a>
+                            <a href="https://hoshi.nu/midna/index.php">
+                                <img loading="lazy" src="/images/fanlists-imgs/button-fanlisting-midna.png" title="Midna fanlisting" alt="">
+                            </a>
+                            <a href="https://shinjiro.after-death.org/index.php">
+                                <img loading="lazy" src="/images/fanlists-imgs/button-fanlisting-shinji2.png" title="Shinjiro Aragaki fanlisting" alt="">
+                            </a>
+                            <a href="https://www.celes.net/link/index.php">
+                                <img loading="lazy" src="/images/fanlists-imgs/button-fanlisting-link-tp.jpg" title="Link fanlisting" alt="">
+                            </a>
+                            <a href="https://www.marheavenj.net/momota/">
+                                <img loading="lazy" src="/images/fanlists-imgs/button-fanlisting-kaito-dangan.jpg" title="Kaito Momota fanlisting" alt="">
+                            </a>
+                        </div>  
+                    </div> 
+                    <div class="flex-column">    
+                        <h3 style="margin-bottom: -2px;">
+                            Anime
+                        </h3> 
+                        <div class="flex-row" style="justify-content: space-evenly; margin: 0.5em; flex-wrap: wrap;">
+                            <a href="https://silent.am/hange/index.php">
+                                <img loading="lazy" src="/images/fanlists-imgs/button-fanlisting-hange-zoe.png" title="Hanze Zoe fanlisting" alt="">
+                            </a>
+                            <a href="https://fightingspirit.seaincense.com/">
+                                <img loading="lazy" src="/images/fanlists-imgs/button-fanlisting-jojo.gif" title="Jojo's Bizarre Adventure fanlisting" alt="">
+                            </a>
+                            <a href="https://fan.buruma.net/vegeta/index.php">
+                                <img loading="lazy" src="/images/fanlists-imgs/button-fanlisting-vegeta3.gif" title="Vegeta fanlisting" alt="">
+                            </a>
+                            <a href="https://www.marheavenj.net/jotaro/">
+                                <img loading="lazy" src="/images/fanlists-imgs/button-fanlisting-jotaro-kujo.jpg" title="Jotaro Kujo fanlisting" alt="">
+                            </a>
+                            <a href="https://fan.glast-heim.net/crona/index.php">
+                                <img loading="lazy" src="/images/fanlists-imgs/button-fanlisting-crona.png" title="Crona fanlisting" alt="">
+                            </a>
+                        </div>  
+                    </div>
+
+                </main>
+            </div>
+            <footer class="footer">
+                <p style="margin: -0.5em;">
+                    ♡ Lovingly crafted by Starry - May 2024
+                </p>
+                <div class="flex-row" style="justify-content: space-evenly; width: 18em; margin: auto;">
+                    <img src="https://files.catbox.moe/b5sdd7.gif" alt="">
+                    <a href="#top">Back to top</a>
+                    <img src="https://files.catbox.moe/b5sdd7.gif" alt="" style="transform: scaleX(-1)">
+                </div>
+            </footer>
+        </div>
+    </body>
+</html>

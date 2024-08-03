@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/style.css">
+        <link rel="icon" href="/images/icon-green-plant.ico">
+        <title>Library - Starry's Grove</title>
+        <style>
+            /* Note to self: put CSS specific to this file in the style element. CSS that applies to all files goes in the style sheet CSS */
+            @media only screen and (max-width: 700px) {
+                .new-content-sticker {
+                    display: none;
+                }
+                .flex-middle {
+                    flex-direction: column-reverse;
+                }
+                .navbar,.main, .leftside-jukebox {
+                    width: 100%;
+                }
+                #bookshelf, #entries {
+                /*adding !important makes this style priority over the base style*/
+                width: auto !important;
+                margin-bottom: 1em !important;
+                margin-left: 0px !important;
+                }
+                #book-img> a > img{
+                    width: 23% !important;
+                }
+                nav ul li {
+                    padding-right:10px;
+                    font-size:0.7em !important;
+                    padding-top: 6px;
+                }
+                h1 {
+                    font-size: 1.2em;
+                    max-width:36ch;
+                    /* idk if this does anything or not BUT it works so we leaving it there */
+                    text-wrap: wrap !important;
+                    display: inline-block;
+                }
+                h2, h3 {
+                    font-size: 1.3em;
+                    text-wrap: wrap;
+                }
+                p {
+                    font-size: 1em;
+                }
+            }
+            @media only screen and (max-width: 500px) {
+                #book-img> a > img{
+                    width: 30.2% !important;
+                }
+                li {
+                    margin: 0.4em;
+                }
+                h1 {
+                    margin-top: 0px;
+                    margin-bottom: 0px;
+                    display: inline-block;
+                    line-height: 1.2;
+                }
+            }
+            /*pulled from stack overflow, allows the home nav link to hide on desktop and show on mobile*/
+            @media screen and (max-width: 480px) {
+                .show-on-desktop {
+                    display: none;
+                }
+            }
+            @media screen and (min-width: 700px) {
+                .hide-on-desktop {
+                    display: none;
+                    }
+            }
+            html{
+                background-image: url("https://files.catbox.moe/zj4u1a.gif");
+            }
+            /*used sadgrl online's horizontal nav bar pencode snippet*/
+            nav ul {
+                /*this takes away the bullet points*/
+                list-style-type:none;
+                padding-left:0;
+                display:flex;
+                flex-wrap:wrap;
+                justify-content: center;
+            }
+            nav ul li {
+                padding-right:10px;
+                margin: auto;
+            }
+            .custom-bullets {list-style: none;}
+            .navbar, .leftside-jukebox {
+                width: auto;
+            }
+
+            h3 { text-decoration: none;}
+            /* css for the way the books look. the box shadow stuff i got from a stack overflow post. idk how it works */
+            #book-img> a > img {
+                width: 30.5%;
+                margin: 0.1em;
+                background: linear-gradient(to right, rgb(60, 13, 20) 3px, rgba(255, 255, 255, 0.5) 5px, rgba(255, 255, 255, 0.25) 7px, rgba(255, 255, 255, 0.25) 10px, transparent 12px, transparent 16px, rgba(255, 255, 255, 0.25) 17px, transparent 22px),;
+                box-shadow: 0 0 5px -1px black, inset -1px 1px 2px rgba(255, 255, 255, 0.5);
+                border-radius: 3px;
+                border: 2px solid rgb(255, 251, 240);
+                border-left: transparent;
+                border-bottom: transparent;
+            }
+            /*css for book image container*/
+            #book-img {
+                background-color:#d0b394;
+                border-radius: 5px;
+                box-shadow: inset 0px 0.5px 3px 3px #55473a;
+                padding: 0.8em;
+            }
+            #bookshelf {
+                padding: 1em;
+                width: 40%;
+                border:2px solid #543420;
+                border-radius: 5px;
+                background-image: url("/images/backgrounds/bg-wood-texture.jpg");
+            }
+            #entries { 
+                width: 60%;
+                /* sadgrl static blog entry code pen */    
+                [id] {
+                    display: none;
+                }
+                [id]:target {
+                    display:block;
+                }
+            }
+            #entries > div > h3 > a:link {
+                color: #20652e !important; text-decoration: none;
+            }
+            #entries > div > p > a:link {
+                color: #48008b !important; text-decoration: none;
+            }
+            #entries > div > h3 > a:hover, #entries > div > p > a:hover {
+                color: #d1495b !important; text-decoration: underline;
+            }
+            #entries > div > h3 > a:visited {
+                color: #20652e !important; text-decoration: none;
+            } 
+            #entries > div > p > a:visited {
+                color: #48008b !important; text-decoration: none;
+            }
+            .author-info {
+                margin-top: -30px;
+            }
+            .book-info {
+                margin-top: -18px;
+            }
+            .book-summary{
+                margin-top: -18px;
+                text-align: left;
+            }
+        </style>
+        <script>
+            /* this is also solaria's script for the jukebox */
+            function stopmusic() {
+                var y = document.getElementsByTagName('audio');
+                for(var j=0; j<y.length; j++) {
+                    y[j].pause();
+                }
+                document.getElementById('marq').innerHTML = 'no music is playing';
+            }  
+            function playsong() {
+                var y = document.getElementsByTagName('audio');
+                for(var j=0; j<y.length; j++) {
+                    y[j].pause();
+                }
+                var songvalue = event.target.value;
+                    document.getElementsByTagName('audio')[songvalue].currentTime = 0;
+                    document.getElementsByTagName('audio')[songvalue].play();
+                    document.getElementById('marq').innerHTML = event.target.title;
+            }
+        </script>
+    </head>
+    <body>
+        <div class="flex-body">
+            <div class="banner" style="background-image: url(https://files.catbox.moe/65jgjk.gif); height:40px;"></div>
+        </div>
+        <div class="flex-body">
+            <header class="header">
+                <div class="flex-row">
+                    <img src="https://files.catbox.moe/cnkv1t.gif" alt="" style="width:7%;height:7%;margin:auto;transform: scaleX(-1);">
+                    <h1>Library</h1>
+                    <img src="https://files.catbox.moe/cnkv1t.gif" alt="" style="width:7%;height:7%;margin:auto;">
+                </div> 
+            </header>
+            <div class="leftside navbar">
+                <nav>
+                    <ul class="custom-bullets">
+                        <li>
+                            <a href="https://starry-knight.neocities.org">
+                                Home
+                            </a>
+                        </li>
+                        <li style="color: #b9283b;">
+                            <i>Library</i> (Here!)
+                        </li>                                  
+                        <li>
+                            <a href="https://starry-knight.neocities.org/art-gallery">
+                                Art Gallery
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://starry-knight.neocities.org/my-room">
+                                My Room
+                            </a>
+                        </li>
+                        <li>
+                            <a href="link.here">
+                                Greenhouse
+                            </a>
+                        </li>
+                        <li>
+                            <a href="link.goes.here">
+                                Scrapbook
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://starry-knight.neocities.org/resources">
+                                Resources
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <!-- left aside starts here -->
+                <aside class="leftside leftside-jukebox">
+                    <!-- this is solaria's script for a jukebox -->
+                    <div class="jukebox">
+                        <button class="activate">
+                            <img src="/images/img-green-radio.gif" alt="Open for song options for the music player.">
+                        </button>
+                        <ul>
+                            <button onclick="stopmusic()">stop music</button>
+                            <li><button value="0" title="Main Menu Theme - Animal Crossing City Folk" onclick="playsong()">city-folk-theme.mp3	
+                                <audio><source src="https://files.catbox.moe/3yhkuo.mp3" type="audio/mp3"></audio>
+                            </button></li>
+                            <li><button value="1" title="Coffee Break - Kid Music Museum" onclick="playsong()">coffee-break.mp3
+                                <audio><source src="https://files.catbox.moe/88qegz.mp3" type="audio/mp3"></audio>
+                            </button></li>
+                        </ul>
+                        <marquee> 
+                            <p id="marq">☆ select a song! ☆</p>
+                        </marquee>
+                        <script>
+                            var y = document.getElementsByTagName('audio');
+                            for(var j=0; j<y.length; j++) {
+                                y[j].onended = function() {
+                                    document.getElementById('marq').innerHTML = 'select a song!';
+                                };
+                            }
+                        </script>
+                    </div> 
+                </aside>
+            <!-- flex-middle contains all left asides, main, and right asides -->
+            <main class="main flex-middle" style="width: auto ;justify-content:space-evenly; border: none; background-color: transparent;">
+                <div id="bookshelf" style="height: fit-content;">
+                    <div id="book-img" style="flex-wrap: wrap;flex-direction: row;">    
+                        <a href="#1"><img src="/images/library-imgs/cover-cursed-princess-club.jpg" alt="Cursed Princess Club comic cover" title="Cursed Princess Club"></a>
+                        <a href="#2"><img src="/images/library-imgs/cover-daybreak.jpg" alt="Daybreak comic cover" title="Daybreak"></a>
+                        <a href="#3"><img src="/images/library-imgs/cover-deathsitter.jpg" alt="DeathSitter comic cover" title="DeathSitter"></a>
+                        <a href="#4"><img src="/images/library-imgs/cover-hand-jumper.jpg" alt="Hand Jumper comic cover" title="Hand Jumper"></a>
+                        <a href="#5"><img src="/images/library-imgs/cover-homesick.jpg" alt="Homesick comic cover" title="Homesick"></a> 
+                        <a href="#6"><img src="/images/library-imgs/cover-hooky.jpg" alt="Hooky comic cover" title="Hooky"></a>
+                        <a href="#7"><img src="/images/library-imgs/cover-its-mine.jpg" alt="It's Mine comic cover" title="It's Mine"></a>
+                        <a href="#8"><img src="/images/library-imgs/cover-love-me-to-death.jpg" alt="Love Me to Death comic cover" title="Love Me to Death"></a>
+                        <a href="#9"><img src="/images/library-imgs/cover-mage-and-demon-queen.jpg" alt="Mage & Demon Queen comic cover" title="Mage & Demon Queen"></a>
+                        <a href="#10"><img src="/images/library-imgs/cover-the-mafia-nanny.jpg" alt="The Mafia Nanny comic cover" title="The Mafia Nanny"></a>
+                        <a href="#11"><img src="/images/library-imgs/cover-muted.jpg" alt="The Mafia Nanny  comic cover" title="Muted"></a>
+                        <a href="#12"><img src="/images/library-imgs/cover-nevermore.jpg" alt="Nevermore comic cover" title="Nevermore"></a>
+                        <a href="#13"><img src="/images/library-imgs/cover-sable-curse.jpg" alt="Sable Curse comic cover" title="Sable Curse"></a> 
+                        <a href="#14"><img src="/images/library-imgs/cover-school-bus-graveyard.jpg" alt="School Bus Graveyard comic cover" title="School Bus Graveyard"></a> 
+                        <a href="#15"><img src="/images/library-imgs/cover-stagtown.jpg" alt="Stagtown comic cover" title="Stagtown"></a> 
+                    </div>
+                </div>
+                <div id="entries" style="margin-left: 1em; background-color: var(--boxbgcolor); border: var(--bordermain); border-radius: 5px; height: fit-content;">
+                    <img src="/images/library-imgs/div-fancy-pearls.gif" alt="" style="width: 60%; display: block; margin-left: auto; margin-right: auto;margin-top: 0.5em;">
+                    <p>
+                        <strong>Welcome to my library of my favorite webtoons!</strong><br>
+                        <br>
+                        Click on a <strong>book</strong> to learn more about it and see what I think about it.<br>
+                        Click the <strong>title</strong> to read the webtoon :3<br>
+                        <strong>Some reviews are scattered so click around!</strong>
+                        <br>
+                        All my comments will be free of major spoilers if you decide to check them out.
+                        Still, if any of these look interesting to you, maybe go take a look before you read my thoughts & comments (✿´ ꒳ ` )
+                    </p>
+                    <img src="/images/library-imgs/div-fancy-pearls.gif" alt="" style="width: 60%; display: block; margin-left: auto; margin-right: auto;">
+                    <div id="1">
+                        <h3><a href="https://www.webtoons.com/en/comedy/cursed-princess-club/list?title_no=1537" title="Link to the webtoon">Cursed Princess Club</a></h3>
+                        <p class="author-info">by <a href="https://twitter.com/iamlambcat" title="Author's socials">LambCat</a></p>
+                        <p class="book-info">
+                            <strong>Genre:</strong> Comedy
+                            <br>
+                            <strong>Status:</strong> Completed
+                        </p>
+                        <p class="book-summary">    
+                            <strong>Summary:</strong>
+                            "Meet Gwendolyn – living proof that princesses don’t always have it all. 
+                            See, although she lives in a castle and her father is the King, Gwendolyn isn’t like a movie princess, or even a fairly-tale princess. 
+                            She’s got a big heart, but isn’t particularly attractive and doesn’t have a Disney-quality singing voice.<br>
+                            <br>
+                            But one night, she accidentally stumbles upon the twisted world of the Cursed Princess Club, and her life will never be the same.
+                            Hexed and cast out, the ladies of the club are just the people Gwendolyn needs to show her that just because she doesn’t “fit the mold” does not mean she’s any less of a princess."
+                        </p>
+                        <p class="book-summary">
+                            <strong>My ramblings:</strong>
+                            Cursed Princess Club is an oldie but a goodie! 
+                            The first chapter released in 2019 and it just recently wrapped up earlier this year.<br>
+                            <br>
+                            The story was very impactful and I *really* felt for the characters when they were going through it. This is a story of learning self-love, the importance of family, and acceptance.<br>
+                            <br>
+                            I have definitely cried a couple times reading this ( ˘•̥ _•̥ ˘ )<br>
+                            If comedy, then why tears? ( ˘•̥ _•̥ ˘ )
+                        </p>
+                    </div>
+                    <div id="2">
+                        <h3><a href="https://www.webtoons.com/en/slice-of-life/daybreak/list?title_no=4089" title="Link to webtoon">Daybreak</a></h3>
+                        <p class="author-info">by <a href="https://twitter.com/moosopp/" title="Author's socials">Moosopp</a></p>
+                        <p class="book-info">
+                            <strong>Genre:</strong> Slice of life
+                            <br>
+                            <strong>Status:</strong> Ongoing
+                        </p>
+                        <p class="book-summary">    
+                            <strong>Summary:</strong>
+                            "Marcus has a crush, and Cog is completely unprepared for the hijinks that follow. Hopefully in their efforts to grow closer, they can brighten each other's day."
+                        </p>
+                        <p class="book-summary">
+                            <strong>My ramblings:</strong>
+                            Daybreak is a really nice feel good webtoon. It's not happy go lucky *all the time*, but I enjoy reading about Marcus' and Cog's<br>
+                            cute moments together.
+                        </p>
+                    </div>
+                    <div id="3">
+                        <h3><a href="https://www.webtoons.com/en/canvas/deathsitter/list?title_no=293285" title="Link to the webtoon">DeathSitter</a></h3>
+                        <p class="author-info">by <a href="https://twitter.com/puppetology" title="Author's socials">Puppetology</a></p>
+                        <p class="book-info">
+                            <strong>Genre:</strong> Horror / Comedy
+                            <br>
+                            <strong>Status:</strong> Ongoing
+                        </p>
+                        <p class="book-summary">    
+                            <strong>Summary:</strong>
+                            "A deadbeat drug addict with seemingly supernatural luck gets a job babysitting the daughter of the city's local grim reaper.<br>
+                            <strong>(Series will contain strong language, drug use and violence with <br>
+                            instances of gore)"</strong>
+                        </p>
+                        <p class="book-summary">
+                            <strong>My ramblings:</strong>
+                            One of my favorite horror webtoons! The story is really interesting, grim reapers are their own species and they run a funeral service. 
+                            Then the MC is just a guy (lmao) who unfortunatly get's wrapped up in all of the chaos.
+                            Actually the chaos is largely HIS fault but yknow. Nobody's perfect.<br>
+                            <br>
+                            Puppetology does something really cool with their art style in that when Felix (the MC), is or isn't high on something, you can tell by the artstyle and the colors.
+                            Early on in the story, everything is sickeningly bright / semi-neon because bro is high off his rocker lol (´ ∀ ` *)<br>
+                            I won't say what happens when he sobers up (eventually), you'll just have to see :)
+                        </p>
+                    </div>
+                    <div id="4">
+                        <h3><a href="https://www.webtoons.com/en/thriller/hand-jumper/list?title_no=2702" title="Link to the webtoon">Hand Jumper</a></h3>
+                        <p class="author-info">by <a href="https://twitter.com/sleepacross" title="Author's socials">SLEEPACROSS</a></p>
+                        <p class="book-info">
+                            <strong>Genre:</strong> Thriller
+                            <br>
+                            <strong>Status:</strong> Ongoing
+                        </p>
+                        <p class="book-summary">    
+                            <strong>Summary:</strong>
+                            "Sayeon Lee despises Aberrants. 
+                            They wreak havoc on society with their strange, unthinkable powers. 
+                            It's just too bad she happens to be an Aberrant herself! Forced to fend for her life in the deadly Aberrant Corps, she's determined to make it to the top, and her unusual ability should help her -- if she can figure out how to use it in time." 
+                        </p>
+                        <p class="book-summary">
+                            <strong>My ramblings:</strong>
+                            Oh BOY I love the gifted kid / forced to be gifted to going apeshit pipeline (-ω-、)<br>
+                            I guess I should have seen it coming seeing who her family is tbh. I guess I wasn't really surprised maybe more like OH OKAY. Moving along then.<br>
+                            <br>
+                            Aside from that nonsense, I love the essense powers the characters have in this world! Essense's have different colors and they all mean / do different things.
+                            How Aberrants are treated also feels like if they were to exist, this would probably happen.
+                        </p>
+                    </div>
+                    <div id="5">
+                        <h3><a href="https://www.webtoons.com/en/thriller/homesick/list?title_no=2759" title="Link to the webtoon">Homesick</a></h3>
+                        <p class="author-info">by Ms.Freaky</p>
+                        <p class="book-info">
+                            <strong>Genre:</strong> Thriller
+                            <br>
+                            <strong>Status:</strong> Ongoing
+                        </p>
+                        <p class="book-summary">    
+                            <strong>Summary:</strong> 
+                            "Rayne woke up with no memories of the apocalypse. 
+                            Samael is just... a delinquent, who happened to find Rayne at a rooftop. 
+                            They both ended up making a deal in order to survive in a world where cannibalistic monsters roam."
+                        </p>
+                        <p class="book-summary">
+                            <strong>My ramblings:</strong>
+                            Coming soon!
+                        </p>
+                    </div>
+                    <div id="6">
+                        <h3><a href="https://www.webtoons.com/en/fantasy/hooky/list?title_no=425" title="Link to the webtoon">Hooky</a></h3>
+                        <p class="author-info">by <a href="https://www.instagram.com/miriambonastre/?hl=es" title="Author's socials">Míriam Bonastre Tur</a></p>
+                        <p class="book-info">
+                            <strong>Genre:</strong> Fantasy
+                            <br>
+                            <strong>Status:</strong> Completed
+                        </p>
+                        <p class="book-summary">    
+                            <strong>Summary:</strong>
+                            "Dani and Dorian have missed the bus of the school of magic. 
+                            Now, they must find someone who teach them how to be a great and good witches... Or maybe not.​"
+                        </p>
+                        <p class="book-summary">
+                            <strong>My ramblings:</strong>
+                            Coming soon!
+                        </p>
+                    </div>
+                    <div id="7">
+                        <h3><a href="https://www.webtoons.com/en/thriller/its-mine/list?title_no=2010" title="Link to the webtoon">It's Mine</a></h3>
+                        <p class="author-info">by <a href="https://www.instagram.com/hony19999/?hl=en" title="Author's socials">LuckS</a></p>
+                        <p class="book-info">
+                            <strong>Genre:</strong> Thriller
+                            <br>
+                            <strong>Status:</strong> Completed
+                        </p>
+                        <p class="book-summary">    
+                            <strong>Summary:</strong>
+                            There’s nothing that Yohan Do doesn’t know about his crush, Dajeong. 
+                            Where she sits in class, works after school... and even where she lives. 
+                            But unable to approach her, he watches her every move from afar and will do anything to protect her. 
+                            Anything." 
+                        </p>
+                        <p class="book-summary">
+                            <strong>My ramblings:</strong>
+                            Coming soon!
+                        </p>
+                    </div>
+                    <div id="8">
+                        <h3><a href="https://www.webtoons.com/en/fantasy/love-me-to-death/list?title_no=3203" title="Link to the webtoon">Love Me to Death</a></h3>
+                        <p class="author-info">by <a href="https://twitter.com/Toonimated" title="Author's socials">Toonimated</a></p>
+                        <p class="book-info">
+                            <strong>Genre:</strong> Fantasy
+                            <br>
+                            <strong>Status:</strong> Ongoing
+                        </p>
+                        <p class="book-summary">    
+                            <strong>Summary:</strong> 
+                            "A lonely necromancer named Victor is hired to resurrect a wealthy man’s bride. 
+                            Victor accepts, hoping to get the job done quickly, only to find himself magically entangled with the bride and groom and caught in the middle of more romance than he knows what to do with."
+                        </p>
+                        <p class="book-summary">
+                            <strong>My ramblings:</strong>
+                            Coming soon!
+                        </p>
+                    </div>
+                    <div id="9">
+                        <h3><a href="https://www.webtoons.com/en/comedy/mage-and-demon-queen/list?title_no=1438" title="Link to the webtoon">Mage & Demon Queen</a></h3>
+                        <p class="author-info">by <a href="https://twitter.com/Color_LES" title="Author's socials">Color_LES</a></p>
+                        <p class="book-info">
+                            <strong>Genre:</strong> Comedy / Fantasy
+                            <br>
+                            <strong>Status:</strong> Completed
+                        </p>
+                        <p class="book-summary">    
+                            <strong>Summary:</strong>
+                            "Adventurers seek to take the demon queen’s head, but a love-struck young female mage wishes to take her hand. 
+                            Join us won’t you, for this bawdy tale of love and persistence set inside a real-life RPG."
+                        </p>
+                        <p class="book-summary">
+                            <strong>My ramblings:</strong>
+                            This webtoon is the literal opposite of doomed yuri (hopefull yuri???) Malori and Velverosa are so cute together ( ˘͈ ᵕ ˘͈♡)<br>
+                            <br>
+                            I love reading about Malori's shenanigans. 
+                            But MAN the world building / lore building in this story is great! 
+                            You really start to get a feel for the kingdom like it's a real place.<br>
+                            <br>
+                            Oh and we actually get to see the MC have *character development* and actually learn from her mistakes or short comings :D 
+                            (sorry i binged the first season of Re:Zero and *tried* to watch season 2. I'm still kinda salty that Subaru didn't really change at all man. It was like he was back at square one (¬_¬)
+                        </p>
+                    </div>
+                    <div id="10">
+                        <h3><a href="https://www.webtoons.com/en/romance/the-mafia-nanny/list?title_no=5879" title="Link to the webtoon">The Mafia Nanny</a></h3>
+                        <p class="author-info">by <a href="https://twitter.com/matter_violet" title="Author's socials">Violet Matter</a> and <a href="https://www.instagram.com/sh0d03/?hl=en" title="Artist's socials">sh00</a></p>
+                        <p class="book-info">
+                            <strong>Genre:</strong> Romance<br>
+                            <strong>Status:</strong> Ongoing
+                        </p>
+                        <p class="book-summary">    
+                            <strong>Summary:</strong> 
+                            "Being an Elite Nanny is simple: protect the charge, obey the principle, and don’t get emotionally attached. 
+                            Easier said than done when Davina’s first client is a dangerously compelling Venetian underboss who’s determined to get under her skin. 
+                            What he wants from her, she can’t imagine, but Gabriel Angelini drags her back into the glittering world of organized crime she thought she’d left behind forever. 
+                            She might get answers about her past if she digs deep enough, but can she protect Mikey from his father’s ambitions and keep her heart from getting tangled up in their treacherous web?"
+                        </p>
+                        <p class="book-summary">
+                            <strong>My ramblings:</strong>
+                            Another BANGER of a webtoon. I know the genre is romance but it's more like a romance / action! Davina is a super nanny (to be continued)  
+                        </p>
+                    </div>
+                    <div id="11">
+                        <h3><a href="https://www.webtoons.com/en/supernatural/muted/list?title_no=1566" title="Link to the webtoon">Muted</a></h3>
+                        <p class="author-info">by <a href="https://twitter.com/mundt_miranda" title="Author's socials">Miranda Mundt</a></p>
+                        <p class="book-info">
+                            <strong>Genre:</strong> Supernatural
+                            <br>
+                            <strong>Status:</strong> Completed
+                        </p>
+                        <p class="book-summary">    
+                            <strong>Summary:</strong> 
+                            "On the full moon of her 21st year, the young witch, Camille Severin, is expected to perform the traditional ritual to summon forth a winged demon for her families success and prosperity.
+                            But when the ritual goes wrong, it reveals the terrifying truths about herself and the secrets that threaten to tear her family apart."
+                        </p>
+                        <p class="book-summary">
+                            <strong>My ramblings:</strong>
+                            It's been a minute since I've read this webtoon so I don't remember too many details about it.. BUT I *do* remember that I enjoyed it a lot!
+                            Mundt's artstyle is beautiful and has edges and curves all in the right places 	( ´ ∀ `)ノ～ ♡<br>
+                            <br>
+                            The colors are BOLD when they need to be or downed out if need be.
+                            I love the MC's red hair too. So pretty (´｡• ᵕ •｡`)<br>
+                            <br>
+                            Really good story telling too! I like the concepts of the different powers each group has. 
+                            Ah.. I'm running out of things to say lol. Just go read it yourself if you might be interested :3
+                        </p>
+                    </div>
+                    <div id="12">
+                        <h3><a href="https://www.webtoons.com/en/supernatural/nevermore/list?title_no=2740" title="Link to the webtoon">Nevermore</a></h3>
+                        <p class="author-info">by <a href="https://twitter.com/rednflynn" title="Authors' socials">Kate Flynn and Kit Trace</a></p>
+                        <p class="book-info">
+                            <strong>Genre:</strong> Supernatural<br>
+                            <strong>Status:</strong> Ongoing<br>
+                            <strong>Fave Characters:</strong> Annabel Lee & Lenore (´,,•ω•,,)♡	
+                        </p>
+                        <p class="book-summary">    
+                            <strong>Summary:</strong> 
+                            "There is nothing definitive about life after death, except the involuntary enrollment at the mysterious Nevermore Academy. 
+                            Now Lenore and Annabel Lee must begin their curriculum to recover the memories of their tragic demise. 
+                            Between the Dean's macabre demeanor and the tell-tale dangers of Final Exams, both girls must learn to rely on one another and their newly acquired ghost forms, or Spectres, to not only graduate from the academy… but to earn a second chance at life."
+                        </p>
+                        <p class="book-summary">
+                            <strong>My ramblings:</strong>
+                            OKAY! Nevermore has to be ONE OF MY FAVORITE WEBTOONS. 
+                            I love the characters, the story is engaging and suspenseful, the art is beautiful (and so are the characters. 
+                            I love Lenore and Annabel Lee so much (´∀｀)♡ <br>
+                            <br>
+                            Also I called another webtoon couple hopefull yuri... THESE TWO. THEY ARE THE DOOMED YURI AND I HATE IT FOR THEM（┬┬＿┬┬）<br>
+                            <br>
+                            Doomed yuri aside, they are also very cute while.. trying to survive the academy... and try not to die *AGAIN*. 
+                            I will also give props to the specter idea / mechanic. I won't go too in depth about it because *spoilers* but it's so cool! 
+                            If you don't check out any other stories, definitely look at this one and see if you like it. My yapping will not do it's due justice!
+                        </p>
+                    </div>
+                    <div id="13">
+                        <h3><a href="https://www.webtoons.com/en/fantasy/sable-curse/list?title_no=2735" title="Link to the webtoon">Sable Curse</a></h3>
+                        <p class="author-info">by <a href="https://www.instagram.com/theimaginativeillustrator/?hl=en" title="Author's socials">Little Melon</a></p>
+                        <p class="book-info">
+                            <strong>Genre:</strong> Fantasy<br>
+                            <strong>Status:</strong> Ongoing
+                        </p>
+                        <p class="book-summary">    
+                            <strong>Summary:</strong>
+                            "Dead at 19-years old. 
+                            That's the fate that Terron Vogel has been dealt by her curse, unless she can somehow find a way to undo the spell. 
+                            A seemingly impossible task, until her family decides to escape society and stay at a mysterious and magical holiday retreat, where she will discover the secrets of the estate and its wealthy guests… and perhaps find out how to lift her deadly curse before her time is up."
+                        </p>
+                        <p class="book-summary">
+                            <strong>My ramblings:</strong>
+                            Mmm the artstyle is very yommy, I would like to eat it pls ⍩<br>
+                            Funnies aside, another one of my top webtoons. Honestly, all of these are pretty high on the scale but I gotta give credit when credit's due!
+                            My girl Terron could use a break （ つ﹏╰<br>
+                            <br>
+                            I'm so glad she's been able to get some answers recently (o˘◡˘o)
+                        </p>
+                    </div>
+                    <div id="14">
+                        <h3><a href="https://www.webtoons.com/en/thriller/school-bus-graveyard/list?title_no=2705" title="Link to the webtoon">School Bus Graveyard</a></h3>
+                        <p class="author-info">by <a href="https://www.instagram.com/lilredbeany/" title="Author's socials">Red</a></p>
+                        <p class="book-info">
+                            <strong>Genre:</strong> Thriller<br>
+                            <strong>Status:</strong> Ongoing
+                        </p>
+                        <p class="book-summary">    
+                            <strong>Summary:</strong>
+                            "Ashlyn is a loner in high school with no friends. 
+                            But when a fateful visit to a haunted house causes her and her classmates to see monsters at night, she'll be forced to forge bonds to survive."
+                        </p>
+                        <p class="book-summary">
+                            <strong>My ramblings:</strong>
+                            Coming soon!
+                        </p>
+                    </div>
+                    <div id="15">
+                        <h3><a href="https://www.webtoons.com/en/horror/stagtown/list?title_no=2532" title="Link to the webtoon">Stagtown</a></h3>
+                        <p class="author-info">by <a href="https://www.instagram.com/funwithpunko/" title="Author's socials">Punko</a></p>
+                        <p class="book-info">
+                            <strong>Genre:</strong> Horror<br>
+                            <strong>Status:</strong> Completed
+                        </p>
+                        <p class="book-summary">    
+                            <strong>Summary:</strong> 
+                            "Something is wrong with the town Frankie grew up in. 
+                            Hidden away from the world on the other side of an old stone bridge, the people of Stagtown spend every day trying not to see the strange things that go on around them."
+                        </p>
+                        <p class="book-summary">
+                            <strong>My ramblings:</strong>
+                            Stagtown was SUCH a fun read. I really like a lot thriller / horror comics and this one is definitely in my top 3.
+                            The suspense and plot twists (oh boy the *plot twists*) had me hooked on the story.<br>
+                            <br>
+                            The characters are written very well too! They all feel like real people in this crazy situation.
+                            Punko's use of color is also something of note.
+                            A lot of the colors in the background, characters, etc are some variation of black, grey, or white.<br>
+                            So when she uses some pops of color, you know something is about to go down.
+                        </p>
+                    </div>
+                    <div class="flex-column" style="max-height:74.3%; height: 100%;">
+                        <div class="flex-row" style="justify-content: space-evenly;  margin-top: 0.2em;">
+                            <img src="/images/library-imgs/img-fireplace.gif" alt="" style="transform: scaleX(-1); height: 80%; margin-bottom: 0.5em;">
+                        </div>
+                    </div>
+                </div>
+                
+            </main>
+            <footer class="footer">
+                <p style="margin: -0.5em;">
+                    ♡ Lovingly crafted by Starry - May 2024
+                </p>
+                <div class="flex-row" style="justify-content: space-evenly; width: 18em; margin: auto;">
+                    <img src="https://files.catbox.moe/b5sdd7.gif" alt="">
+                    <a href="#top">Back to top</a>
+                    <img src="https://files.catbox.moe/b5sdd7.gif" alt="" style="transform: scaleX(-1)">
+                </div>
+            </footer>
+        </div>
+    </body>
+</html>    

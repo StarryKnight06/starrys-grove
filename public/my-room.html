@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/style.css">
+        <link rel="icon" href="/images/icon-green-plant.ico">
+        <title>My Room - Starry's Grove</title>
+        <style>
+            :root{
+                --headercolor: #08582b;
+                --boxbgcolor: #f9f3fd;
+                --maintextcolor: #2e1806;
+                /*border info*/
+                --bordermain: 6px double #690b71; 
+                --borderaside: 2px solid #4a085f;
+                --borderheader: 2px solid #4a085f;
+            }
+            .custom-bullets2{
+                list-style-image: url("https://files.catbox.moe/nctx6o.gif");
+                font-family:"main-text-font";
+                color: var(--maintextcolor);
+            }
+            a:link{
+                color: #0663c0;
+                text-decoration: none;
+            }
+            @media only screen and (max-width: 700px) {
+                .flex-middle {
+                  flex-direction:  column;
+                }
+                .flex-rightside {
+                    flex-direction: row;
+                }
+                .main {
+                    width: auto;
+                }
+                .new-content-sticker, .blinkies-container {
+                    display: none;
+                }
+                nav ul li {
+                    padding-right:10px;
+                    font-size:0.7em !important;
+                    padding-top: 6px;
+                }
+                h1 {
+                    font-size: 1.2em;
+                    max-width:36ch;
+                    /* idk if this does anything or not BUT it works so we leaving it there */
+                    text-wrap: wrap !important;
+                    display: inline-block;
+                }
+                h2, h3 {
+                    font-size: 1.3em;
+                    text-wrap: wrap;
+                }
+                p {
+                    font-size: 1em;
+                }
+                #room-nav {
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    font-size: 1.2em;
+                }
+                #room-nav {
+                  width: 100%;
+                }
+            }
+            @media only screen and (max-width: 500px) {
+                .flex-main {
+                  flex-direction:  column;
+                }
+                #starry-picrew-pfp {
+                    width: 100%;
+                }
+                #status {
+                    width: 100%;
+                }
+                #status-username {
+                    font-size: 0.9em;
+                }
+                #status-content {
+                    font-size: 0.87em;
+                }
+                h1 {
+                    margin-top: 0px;
+                    margin-bottom: 0px;
+                    display: inline-block;
+                    line-height: 1.2;
+                }
+            }
+            /*pulled from stack overflow, allows the home nav link to hide on desktop and show on mobile*/
+            @media screen and (max-width: 480px) {
+                .show-on-desktop {
+                    display: none;
+                }
+            }
+            @media screen and (min-width: 700px) {
+                .hide-on-desktop {
+                    display: none;
+                    }
+            }
+            .blinkies img{
+                margin-top: 0.1em;
+                margin-bottom: 0.1em;
+            }
+            .blinkies-container{
+                background-color: #57386c;
+                border-style: none;
+            }
+            #shroom-pet {
+                margin:auto;
+            }
+            .jukebox {
+                height: auto;
+            }
+            .custom-bullets {
+                list-style: none;
+            }
+            .navbar {
+                width: auto;
+            }
+            nav ul {
+                /*this takes away the bullet points*/
+                list-style-type:none;
+                padding-left:0;
+                display:flex;
+                flex-wrap:wrap;
+                justify-content: center;
+            }
+            nav ul li {
+                padding-right:10px;
+                margin: auto;
+            }
+            /*status css*/
+            #status-iframe {
+                background-color: #e0f8fb;
+                border: 5px double midnightblue;
+                width: 266px;
+                height: 90px;
+                margin-top: 0em;
+                margin-bottom: 0.8em;
+                border-radius: 5px;
+                padding: 0px;
+            }
+            #status {
+                padding: .5em;
+                background-color: #e0f8fb;
+                border: 5px double midnightblue;
+                width: 15.6em;
+                margin-top: 0em;
+                margin-bottom: 0.8em;
+                border-radius: 5px;
+            }
+            #status-username {
+                margin-bottom: .5em;
+                font-family: "subheader-font";
+            }
+            #status-content {
+                margin: 0 1em 0.5em 1em;
+                font-family:"main-text-font"; 
+            }
+            #room-nav {
+                font-family: "main-text-font";
+                list-style-type: none;
+            }
+            #room-nav h2 {
+                margin-bottom: -15px;
+            }
+            #room-nav li {
+                display: block;
+                margin-top: 0.5em;
+                margin-bottom: 0.5em;
+                margin-left: 0;
+                margin-right: 0;
+                font-weight: bold;
+            }
+            html {
+                background-image: url("https://files.catbox.moe/vu01a3.gif");
+            }          
+        </style>
+        <script>
+            /* this is also solaria's script for the jukebox */
+            function stopmusic() {
+                var y = document.getElementsByTagName('audio');
+                for(var j=0; j<y.length; j++) {
+                    y[j].pause();
+                }
+                document.getElementById('marq').innerHTML = 'no music is playing';
+            }  
+            function playsong() {
+                var y = document.getElementsByTagName('audio');
+                for(var j=0; j<y.length; j++) {
+                    y[j].pause();
+                }
+                var songvalue = event.target.value;
+                    document.getElementsByTagName('audio')[songvalue].currentTime = 0;
+                    document.getElementsByTagName('audio')[songvalue].play();
+                    document.getElementById('marq').innerHTML = event.target.title;
+            }
+        </script>
+        <script>
+            /* solaria's script for pausing gifs */
+            function freezegifs() {
+              var x = document.querySelectorAll('.freeze img, img.freeze'); 
+              for(var i=0; i<x.length; i++) {
+                x[i].src = x[i].src.slice(0, -3) + 'png' ;}}
+                  
+            function resumegifs() {
+              var x = document.querySelectorAll('.freeze img, img.freeze'); 
+              for(var i=0; i<x.length; i++) {
+                x[i].src = x[i].src.slice(0, -3) + 'gif' ;}}
+          </script>       
+    </head>
+    <body>
+        <div class="flex-body">
+            <div class="banner" alt="" style="background-image: url(https://files.catbox.moe/73ar7d.gif); height: 16px;"></div>
+        </div>
+        <!-- use multiple classes to differientiate between similar names -->
+        <div class="flex-body body-main">
+            <header class="header">
+                <div class="flex-row">
+                    <img src="https://files.catbox.moe/w7me4h.gif" alt="" style="width: 5%; height: 5%; margin:auto;transform: scaleX(-1);">
+                    <h1>
+                        Starry's Room
+                    </h1>
+                    <img src="https://files.catbox.moe/w7me4h.gif" alt="" style="width: 5%; height: 5%; margin:auto;">
+                </div> 
+            </header>
+            <div class="leftside navbar">
+                <nav>
+                    <ul class="custom-bullets">
+                        <li>
+                            <a href="https://starry-knight.neocities.org">
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://starry-knight.neocities.org/library">
+                                Library
+                            </a>
+                        </li>                                   
+                        <li>
+                            <a href="https://starry-knight.neocities.org/art-gallery">
+                                Art Gallery
+                            </a>
+                        </li>
+                        <li style="color: #b9283b;">
+                            <i>My Room</i> (Here!)
+                        </li>
+                        <li>
+                            <a href="link.here">
+                            Greenhouse
+                            </a>
+                        </li>
+                        <li>
+                            <a href="link.goes.here">
+                                Scrapbook
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://starry-knight.neocities.org/resources">
+                                Resources
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="flex-row flex-middle">
+                <div class="flex-column flex-rightside">
+                    <!-- left aside starts here -->
+                    <aside class="leftside leftside-jukebox">
+                        <!-- this is solaria's script for a jukebox -->
+                        <div class="jukebox">
+                            <button class="activate">
+                                <img src="/images/img-green-radio.gif" alt="Open for song options for the music player.">
+                            </button>
+                            <ul>
+                                <button onclick="stopmusic()">stop music</button>
+                                <li><button value="0" title="You Are Smart - Katamari Damacy" onclick="playsong()">katamari-you-are-smart.mp3	
+                                    <audio><source src="https://files.catbox.moe/3zbiql.mp3" type="audio/mp3"></audio>
+                                </button></li>
+                                <li><button value="1" title="Sayonara Rolling Star (Yuri‘s Mixx) - Katamari Forever" onclick="playsong()">katamari-sayonara-rolling-star.mp3	
+                                    <audio><source src="https://files.catbox.moe/vi64pc.mp3" type="audio/mp3"></audio>
+                                </button></li>
+                            </ul>
+                            <marquee> 
+                                <p id="marq">☆ select a song! ☆</p>
+                            </marquee>
+                            <script>
+                                var y = document.getElementsByTagName('audio');
+                                for(var j=0; j<y.length; j++) {
+                                    y[j].onended = function() {
+                                        document.getElementById('marq').innerHTML = 'select a song!';
+                                    };
+                                }
+                            </script>
+                        </div> 
+                    </aside>
+                    <aside class="leftside" id="room-nav">
+                        <h2 style="background-color: transparent;">
+                            Bookshelf
+                        </h2>
+                        <nav class="flex-column" style=" justify-content: space-evenly; flex-direction: column;">
+                            <ul>
+                                <li>
+                                    <a href="https://starry-knight.neocities.org/my-room-links/fanlists">
+                                        Fanlistings
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://starry-knight.neocities.org/my-room-links/blog-archive">
+                                        Blog Archive
+                                    </a>
+                                </li>
+                                <li style="color: #4a0543;">
+                                    Brain Rot Central<br> (WIP)
+                                </li>
+                            </ul>       
+                        </nav>
+                    </aside>
+                    <aside class="leftside blinkies-container">
+                        <article style="background-color: #f9f3fd;">
+                        <h2 style="margin-bottom: -1.5px; margin-top: -1px;">
+                            Blinkies!!
+                        </h2>
+                        </article>
+                        <div class="flex-row" style="justify-content: space-between; margin: 0.3em;">
+                            <button onclick="freezegifs()">pause gifs</button>
+                            <button onclick="resumegifs()">play gifs</button>
+                        </div>
+                        <div class="flex-column blinkies freeze">
+                            <img loading="lazy" src="/images/my-room-imgs/blinkies/blinkie-anti-nft.gif" alt="This page is: anti-NFT, anti crypto, and anti-ai art.">
+                            <img loading="lazy" src="/images/my-room-imgs/blinkies/blinkie-trans-rights.gif" alt="Trans rights.">
+                            <img loading="lazy" src="/images/my-room-imgs/blinkies/blinkie-dino-nuggies.gif" alt="Dino nuggies dancing.">
+                            <img loading="lazy" src="/images/my-room-imgs/blinkies/blinkie-owo.gif" alt="owo.">
+                            <img loading="lazy" src="/images/my-room-imgs/blinkies/blinkie-spongebob.gif" alt="Who's got square pants?">
+                            <img loading="lazy" src="/images/my-room-imgs/blinkies/blinkie-strawberries.gif" alt="Yummy strawberries">
+                            <img loading="lazy" src="/images/my-room-imgs/blinkies/blinkie-yippie-creature.gif" alt="Im so fucking normal right now.">
+                            <img loading="lazy" src="/images/my-room-imgs/blinkies/blinkie-eat-the-rich.gif" alt="Eat the rich. Feed the poor.">
+                            <img loading="lazy" src="/images/my-room-imgs/blinkies/blinkie-girlboss.gif" alt="Gaslight gatekeep girlboss.">
+                            <img loading="lazy" src="/images/my-room-imgs/blinkies/blinkie-hate-Terfs.gif" alt="I hate terfs.">
+                            <img loading="lazy" src="/images/my-room-imgs/blinkies/blinkie-corporate-invasion.gif" alt="I feel violated by corperate invasion on my attention span.">
+                            <img loading="lazy" src="/images/my-room-imgs/blinkies/blinkie-apples.gif" alt="I heart apples.">
+                            <img loading="lazy" src="/images/my-room-imgs/blinkies/blinkie-rocks.gif" alt="Rocks. Mmmm.">
+                            <img loading="lazy" src="/images/my-room-imgs/blinkies/blinkie-ditto.gif" alt="Ditto.">
+                            <img loading="lazy" src="/images/my-room-imgs/blinkies/blinkie-what-the-fuck.gif" alt="WTF is going on!">
+                            <img loading="lazy" src="/images/my-room-imgs/blinkies/blinkie-im-silly.gif" alt="Silly!">
+                            <img loading="lazy" src="/images/my-room-imgs/blinkies/blinkie-brain-fog.gif" alt="Brainfog.">
+                            <img loading="lazy" src="/images/my-room-imgs/blinkies/blinkie-dumbass.gif" alt="Dumbass rights!">
+                            <img loading="lazy" src="/images/my-room-imgs/blinkies/blinkie-social-anxiety.gif" alt="I have social anxiety. Yeah.">
+                            <img loading="lazy" src="/images/my-room-imgs/blinkies/blinkie-oreos.gif" alt="Oreo.">
+                            <img loading="lazy" src="/images/my-room-imgs/blinkies/blinkie-eyeless-jack.gif" alt="Eyeless Jack.">
+                            <img loading="lazy" src="/images/my-room-imgs/blinkies/blinkie-breathing-sux.gif" alt="Breathing sux.">
+                            <img loading="lazy" src="/images/my-room-imgs/blinkies/blinkie-be-creative.gif" alt="Be creative.">
+                            <img loading="lazy" src="/images/my-room-imgs/blinkies/blinkie-i-block-ads.gif" alt="I block ads.">
+                            <a href="https://oceanservice.noaa.gov/ocean/earthday.html">
+                                <img loading="lazy" src="/images/my-room-imgs/blinkies/blinkie-save-Earth.gif" alt="Save the Earth. Some ways you can help protect our planet." style="width: 100%; height: 100%;">
+                            </a>
+                            <img loading="lazy" src="/images/my-room-imgs/blinkies/blinkie-tummy-hurt.gif" alt="Why my tummy hurt?">
+                            <img loading="lazy" src="/images/my-room-imgs/blinkies/blinkie-typo-queen.gif" alt="Typo queen.">
+                            <img loading="lazy" src="/images/my-room-imgs/blinkies/blinkie-science-luvr.gif" alt="Science luvr.">
+                            <img loading="lazy" src="/images/my-room-imgs/blinkies/blinkie-be-kind-animals.gif" alt="Be kind to animals.">
+                            <img loading="lazy" src="/images/my-room-imgs/blinkies/blinkie-code-wont-work.gif" alt="My code won't work.">
+                            <img loading="lazy" src="/images/my-room-imgs/blinkies/blinkie-wash-hands.gif" alt="Wash your damn hands.">
+                            <img loading="lazy" src="/images/my-room-imgs/blinkies/blinkie-love-iguanas.gif" alt="I heart iguanas.">
+                            <img loading="lazy" src="/images/my-room-imgs/blinkies/blinkie-illegal.gif" alt="Nothing is illegal until you get caught.">
+                            <a href="https://ublockorigin.com/">
+                                <img loading="lazy" src="/images/my-room-imgs/blinkies/blinkie-ublock.gif" alt="Install my favorite ad blocker, ublock origin." style="width: 100%; height: auto;">
+                            </a>
+                        </div>
+                    </aside>
+                </div>
+                <main class="main" style="height: fit-content;">
+                    <div class="flex-row">
+                        <!-- rainbow star divider here -->
+                        <img class="show-on-desktop" src="https://files.catbox.moe/x1svup.gif" alt="">
+                        <img src="https://files.catbox.moe/x1svup.gif" alt="">
+                    </div>
+                    <div class="flex-row flex-main" style="justify-content: space-between;">
+                        <div class="flex-column" style="justify-content: space-evenly; justify-content: start; width: 17em; margin: 1em;">
+                            <a href="https://picrew.me/en/image_maker/2069970">
+                                <img id="starry-picrew-pfp" alt="Picrew character by @reelrollsweat on Tumblr. A chibi character inspire by my OC, Starry. She is sitting down, smiling with a yellow and orange snake next to her on the ground. She is wearing a black crop top underneath a yellow jacket, dark green pants, black sneakers, and a black beanie with green buttons on it. Her hair is orange and short, and her eyes are green. The background has a light colored circle centered behind the character surrounded by a pattern of tan hearts on a light orange background." 
+                                title="picrew by @reelrollsweat on Tumblr!" src="/images/my-room-imgs/img-picrew-starry-silly.png" 
+                                style="width: 17em; height: 17em; border: 2.5px dashed #4f6c38; border-radius: 10px;">
+                            </a>
+                            <!-- <iframe id="status-iframe" src="https://starryknight06.github.io/neocities/status-cafe.html">
+                            </iframe> -->
+                            <div id="status" style="margin-top: 0.5em;">
+                                <div id="status-username" style="flex-direction: row; display: flex; flex-wrap: wrap; justify-content: space-between;">
+                                    <div style="color: #0012b6; text-decoration: underline;">
+                                        Starry_Knight
+                                    </div>
+                                    <div style="font-family:main-text-font">
+                                        (－ω－) zzZ		
+                                    </div>
+                                    <div style="font-family:main-text-font;">
+                                        <b>Aug 1</b>	
+                                    </div>
+                                </div>
+                                <div id="status-content">
+                                        <li>happy with my progress today. also tired</li>
+                                </div>
+                            </div>
+                            <div class="flex-row" style="flex-wrap: wrap;">
+                                <img loading="lazy" src="/images/my-room-imgs/badge-night-coder.png" alt="Night coder.">
+                                <img loading="lazy" src="/images/my-room-imgs/badge-march.gif" alt="March.">
+                                <img loading="lazy" src="/images/my-room-imgs/badge-love-powered.gif" alt="Love powered.">
+                                <img loading="lazy" src="/images/my-room-imgs/badge-lgbt-friendly-bdg.png" alt="Lgbt friendly.">
+                                <img loading="lazy" src="/images/my-room-imgs/badge-love-anime.gif" alt="Love anime.">
+                                <img loading="lazy" src="/images/my-room-imgs/badge-i-luv-boobs.gif" alt="I heart my boobs.">
+                                <a href="https://zapatopi.net/treeoctopus/">
+                                    <img loading="lazy" src="/images/my-room-imgs/badge-tree-octopus.png" style="width: 100%; height: 15px;" alt="Info about the Pacific Northwest Tree Octopus." title="I support the Pacific Northwest Tree Octopus!">
+                                </a>
+                                <img loading="lazy" style="height: 15px;" src="/images/my-room-imgs/badge-heart-nurses.gif" alt="Heart nurses.">
+                                <img loading="lazy" style="height: 15px;" src="/images/my-room-imgs/badge-i-heart-bks.png" alt="I heart books.">
+                            </div>
+                            <div class="flex-column" style="justify-content: center;">
+                                <h3 style="margin-bottom: 0px; margin-top: 1em;">
+                                    Recent Blog Entry
+                                </h3>
+                                <p style="font-size: 1.2em; margin-top: -3px;">
+                                    <a href="https://starry-knight.neocities.org/my-room-links/blog-entries/2024-08-01"><b>August 08 - 2024</b></a>
+                                </p><br>           
+                            </div>
+                            <h2>
+                                Pixel Pets
+                            </h2>
+                            <div class="flex-row" style="justify-content: space-between;">
+                                <a href="https://kelpeater.neocities.org/collections/isopods.html">
+                                    <img src="/images/my-room-imgs/img-pet-isopod.png" alt="A rainbow colored isopod. Art by kelpeater." title="this isopod is GAY ♡" style="width: 6em;">
+                                </a>
+                                <a href="https://thegardenofmadeline.neocities.org/pages/adopts">
+                                    <img src="/images/my-room-imgs/img-pet-strawberry.gif" alt="A strawberry with a tiny smiley face. It has small green thin arms and legs and is bouncing up and down on loop. Art by the garden of madeline." style="width: 3em;">
+                                </a>
+                                <a href="https://cinnamuff.neocities.org/kerpuffle">
+                                    <img src="/images/my-room-imgs/img-pet-kerpuffle.png" alt="A yellow space creature called kerpuffle with three eyes, six stubby legs, and two puff balls on the top of it's head. It's smiling cutely. Art by cinnamuff." style="width: 5em;">
+                                </a>
+                            </div>
+                            <div class="flex-row" style="justify-content: space-evenly;">
+                                <a href="https://spiders.neocities.org/z-adopts">
+                                    <img src="/images/my-room-imgs/img-pet-pink-heart-cat.png" alt="Pixel art of a light pink cat with a cream colored underbelly, sitting and looking down and to the right. Art by spiders" style="width: 3em;">
+                                </a>
+                                <a href="https://theenderdraco.neocities.org/pound.html">
+                                    <img src="/images/my-room-imgs/img-pet-mooshes.png" alt="Three smiling mushroom creatures. There is a taller one in the center, one standing on the left, and one sitting on the right. They are mostly light grey with blue spots on the mushroom cap. Art by the ender draco." style="width: 5em;">
+                                </a>
+                                <a href="https://thegardenofmadeline.neocities.org/pages/adopts">
+                                    <img src="/images/my-room-imgs/img-pet-sleepy-fox.gif" alt="A red fox with its' eyes closed, holding a candle. It is wearing a blue night gown with matching slippers and a night cap. Art by the garden of madeline." style="width: 5em;">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="flex-column" style="width: 100%;">
+                            <article>
+                                <h2 style="margin-bottom: 0px;">
+                                    Yappin
+                                </h2>
+                                <p class="main-info" style="text-align: left; word-wrap: break-word; margin: 1em;">
+                                    Hey my name is Starry! (if you didn't read the front page)<br>
+                                    <br>
+                                    I started learning how to code in HTML on a whim in June and started making this wonderful site
+                                     you're wandering on right now.
+                                    I was really surprised by the ease of access and availability of resources on website making.<br>
+                                    <br>
+                                    There's SO much out there to find! Collections of cute images to add to your site, decorative borders, fun gifs, and so much more.
+                                    There's even forums like the <a href="https://discourse.32bit.cafe/">32-Bit Cafe</a> for webweaving hobbyists and web developers alike<br>
+                                    ＼(＾▽＾)／<br>
+                                    <br>
+                                    I meant to talk about myself more here but that's kinda hard.. so here's some things I love :3
+                                </p>
+                            </article>
+                            <div class="flex-row">
+                                <div class="flex-column">
+                                    <article>
+                                    <h3>
+                                        Loved Things
+                                    </h3>
+                                    <ul class="custom-bullets2">
+                                        <li>
+                                            <b>Games:</b> LoZ: Twilight Princess or Splatoon 3 (i love salmon run)
+                                        </li>
+                                        <li>
+                                            <b>Colors:</b> Purple or blue
+                                        </li>
+                                        <li>
+                                            <b>Fave animals:</b> Lizards!!
+                                        </li>
+                                        <li>
+                                            <b>Food:</b> Poptarts (smores, chocolate, strawberry)
+                                        </li>
+                                        <li>
+                                            <b>Notable anime mention:</b> The Demon Girl Next Door<br>
+                                            (IT'S SO CUTE. I'M SAD NOT MANY PPL KNOW ABOUT IT)
+                                        </li>
+                                        <li>
+                                            <b>Manga:</b> Land of the Lustrous<br>
+                                             (IT'S SO GOOD! GO READ IT OR<br>
+                                              WATCH THE ANIME)
+                                        </li>
+                                        <li>
+                                            <b>Other manga:</b> Sakamoto Days<br>
+                                            (Getting an anime in 2025!!)
+                                        </li>
+                                        <li>
+                                            <b>
+                                                This lil guy:
+                                            </b>
+                                            <a href="https://pkmn.caelestis.nu/">
+                                                <img src="/images/my-room-imgs/img-pet-budew.png" alt="Sprite of budew the pokemon. Learn more about the 'I choose you' pokemon web clique.">
+                                            </a>
+                                        </li>
+                                            <li>
+                                                <b>
+                                                    My wives, Maru & Leah and my husband, Alex:<br>
+                                                </b>
+                                                <a href="">
+                                                    <img loading="lazy" src="https://files.catbox.moe/gtpr05.gif" style="width: 25%;" alt="Maru stardew valley wiki article. Loop of Maru smiling and open mouth smiling.">
+                                                </a>
+                                                <a href="">
+                                                    <img loading="lazy" src="https://files.catbox.moe/8lrl1j.gif" style="width: 28%;" alt="Leah stardew valley wiki article. Loop of Leah smiling and open mouth smiling.">
+                                                </a>
+                                                <a href="https://stardewvalleywiki.com/Alex">
+                                                    <img loading="lazy" src="https://files.catbox.moe/kqrd3q.gif" style="width: 27%;" alt="Alex stardew valley wiki article. Loop of Alex smiling and open mouth smiling.">
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </article>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-row">
+                        <!-- rainbow star divider here -->
+                        <img class="show-on-desktop" src="https://files.catbox.moe/x1svup.gif" style="height: auto" alt="">
+                        <img src="https://files.catbox.moe/x1svup.gif" style="height: auto; margin-top: auto;" alt="">
+                    </div>
+                </main>
+            </div>
+            <footer class="footer">
+                <p style="margin: -0.5em;">
+                    ♡ Lovingly crafted by Starry - May 2024
+                </p>
+                <div class="flex-row" style="justify-content: space-evenly; width: 18em; margin: auto;">
+                    <img src="https://files.catbox.moe/b5sdd7.gif" alt="">
+                    <a href="#top">Back to top</a>
+                    <img src="https://files.catbox.moe/b5sdd7.gif" alt="" style="transform: scaleX(-1)">
+                </div>
+            </footer>
+        </div>            
+    </body>
+</html>

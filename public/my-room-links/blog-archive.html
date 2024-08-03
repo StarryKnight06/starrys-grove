@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/style.css">
+        <link rel="icon" href="/images/icon-green-plant.ico">
+        <title>Blog Archive - Starry's Grove</title>
+        <style>
+            :root{
+                --headercolor: #08582b;
+                --boxbgcolor: #f9f3fd;
+                --maintextcolor: #2e1806;
+                /*border info*/
+                --bordermain: 6px double #690b71; 
+                --borderaside: 2px solid #4a085f;
+                --borderheader: 2px solid #4a085f;
+            }
+            .custom-bullets2{
+                list-style-image: url("https://files.catbox.moe/nctx6o.gif");
+                font-family:"main-text-font";
+                color: var(--maintextcolor);
+            }
+            a:link{
+                color: #0663c0;
+                text-decoration: none;
+            }
+            @media only screen and (max-width: 700px) {
+                .flex-middle {
+                  flex-direction:  column;
+                }
+                .flex-rightside {
+                    flex-direction: row;
+                }
+                .main {
+                    width: auto;
+                }
+                .new-content-sticker, .blinkies {
+                    display: none;
+                }
+                nav ul li {
+                    padding-right:10px;
+                    font-size:0.7em !important;
+                    padding-top: 6px;
+                }
+                h1 {
+                    font-size: 1.2em;
+                    max-width:36ch;
+                    /* idk if this does anything or not BUT it works so we leaving it there */
+                    text-wrap: wrap !important;
+                    display: inline-block;
+                }
+                h2, h3 {
+                    font-size: 1.3em;
+                    text-wrap: wrap;
+                }
+                p {
+                    font-size: 1em;
+                }
+                #room-nav {
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    font-size: 1.2em;
+                }
+                #room-nav {
+                  width: 100% ;
+                }
+            }
+            @media only screen and (max-width: 500px) {
+                .flex-main {
+                  flex-direction: column-reverse;
+                  margin-left: 0.5em;
+                  margin-right: auto;
+                }
+                #picrew-pfp {
+                    width: 100%;
+                }
+                h1 {
+                    margin-top: 0px;
+                    margin-bottom: 0px;
+                    display: inline-block;
+                    line-height: 1.2;
+                }
+                .entries {
+                    width: 100% !important;
+                }
+                .space-divider {
+                    width: 100%;
+                }
+                
+            }
+            /*pulled from stack overflow, allows the home nav link to hide on desktop and show on mobile*/
+            @media screen and (max-width: 480px) {
+                .show-on-desktop {
+                    display: none;
+                }
+            }
+            @media screen and (min-width: 700px) {
+                .hide-on-desktop {
+                    display: none;
+                    }
+            }
+            #picrew-pfp {
+                width: 17em;
+                height: 17em;
+                border: 2.5px dashed #4f6c38;
+                border-radius: 10px; 
+                margin: 1em;
+                display: block;
+            }
+            #shroom-pet {
+                margin:auto;
+            }
+            .jukebox {
+                height: auto;
+            }
+            .custom-bullets {
+                list-style: none;
+            }
+            .navbar {
+                width: auto;
+            }
+            nav ul {
+                /*this takes away the bullet points*/
+                list-style-type:none;
+                padding-left:0;
+                display:flex;
+                flex-wrap:wrap;
+                justify-content: center;
+            }
+            nav ul li {
+                padding-right:10px;
+                margin: auto;
+            }
+            #room-nav {
+                font-family: "main-text-font";
+                list-style-type: none;
+            }
+            #room-nav h2 {
+                margin-bottom: -15px;
+            }
+            #room-nav li {
+                display: block;
+                margin-top: 0.5em;
+                margin-bottom: 0.5em;
+                margin-left: 0;
+                margin-right: 0;
+                font-weight: bold;
+            }
+            .entries p {
+                font-size: 1.2em;
+            }
+            html {
+                background-image: url("https://files.catbox.moe/vu01a3.gif");
+            }          
+        </style>
+        <script>
+            /* this is also solaria's script for the jukebox */
+            function stopmusic() {
+                var y = document.getElementsByTagName('audio');
+                for(var j=0; j<y.length; j++) {
+                    y[j].pause();
+                }
+                document.getElementById('marq').innerHTML = 'no music is playing';
+            }  
+            function playsong() {
+                var y = document.getElementsByTagName('audio');
+                for(var j=0; j<y.length; j++) {
+                    y[j].pause();
+                }
+                var songvalue = event.target.value;
+                    document.getElementsByTagName('audio')[songvalue].currentTime = 0;
+                    document.getElementsByTagName('audio')[songvalue].play();
+                    document.getElementById('marq').innerHTML = event.target.title;
+            }
+        </script>        
+    </head>
+    <body>
+        <div class="flex-body">
+            <div class="banner" alt="" style="background-image: url(https://files.catbox.moe/pvf8er.gif); height: 20px;"></div>
+        </div>
+        <!-- use multiple classes to differientiate between similar names -->
+        <div class="flex-body body-main">
+            <header class="header">
+                <div class="flex-row">
+                    <img src="https://files.catbox.moe/kzqvnq.gif" alt="" style="width: 5%; height: 5%; margin:auto;transform: scaleX(-1);">
+                    <h1>
+                        Blog Archive
+                    </h1>
+                    <img src="https://files.catbox.moe/kzqvnq.gif" alt="" style="width: 5%; height: 5%; margin:auto;">
+                </div> 
+            </header>
+            <div class="leftside navbar">
+                <nav>
+                    <ul class="custom-bullets">
+                        <li>
+                            <a href="https://starry-knight.neocities.org">
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://starry-knight.neocities.org/library">
+                                Library
+                            </a>
+                        </li>                                   
+                        <li>
+                            <a href="https://starry-knight.neocities.org/art-gallery">
+                                Art Gallery
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://starry-knight.neocities.org/my-room">
+                                My Room
+                            </a>
+                        </li>
+                        <li>
+                            <a href="link.here">
+                            Greenhouse
+                            </a>
+                        </li>
+                        <li>
+                            <a href="link.goes.here">
+                                Scrapbook
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://starry-knight.neocities.org/resources">
+                                Resources
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="flex-row flex-middle">
+                <div class="flex-column flex-rightside">
+                    <!-- left aside starts here -->
+                    <aside class="leftside leftside-jukebox">
+                        <!-- this is solaria's script for a jukebox -->
+                        <div class="jukebox">
+                            <button class="activate">
+                                <img src="/images/img-green-radio.gif" alt="Open for song options for the music player.">
+                            </button>
+                            <ul>
+                                <button onclick="stopmusic()">stop music</button>
+                                <li><button value="0" title="My Castle Town - Deltarune" onclick="playsong()">deltarune-my-castle-town.mp3	
+                                    <audio><source src="https://files.catbox.moe/5d1oox.mp3" type="audio/mp3"></audio>
+                                </button></li>
+                            </ul>
+                            <marquee> 
+                                <p id="marq">☆ select a song! ☆</p>
+                            </marquee>
+                            <script>
+                                var y = document.getElementsByTagName('audio');
+                                for(var j=0; j<y.length; j++) {
+                                    y[j].onended = function() {
+                                        document.getElementById('marq').innerHTML = 'select a song!';
+                                    };
+                                }
+                            </script>
+                        </div> 
+                    </aside>
+                    <aside class="leftside" id="room-nav">
+                        <h2 style="background-color: transparent;">
+                            Bookshelf
+                        </h2>
+                        <nav class="flex-column" style=" justify-content: space-evenly; flex-direction: column;">
+                            <ul>
+                                <li>
+                                    <a href="https://starry-knight.neocities.org/my-room-links/fanlists">
+                                        Fanlistings
+                                    </a>
+                                </li>
+                                <li style="color: #b9283b;">
+                                    <i>Blog Archive</i> (Here!)
+                                </li>
+                                <li style="color: #4a0543;">
+                                    Brain Rot Central<br> (WIP)
+                                </li>
+                            </ul>       
+                        </nav>
+                    </aside>
+                </div>
+                <main class="main">
+                    <div class="flex-row">
+                        <!-- rainbow star divider here -->
+                        <img src="https://files.catbox.moe/wmfo9e.png" alt="" class="space-divider">
+                    </div>
+                    <div class="flex-row flex-main" style="justify-content: space-evenly;">
+                        <a href="https://picrew.me/en/image_maker/1469769/">
+                            <img src="/images/blog-archive-imgs/img-picrew-mabel-cool.png" id="picrew-pfp" 
+                            alt="Picrew character by @hellosunnycore on Tumblr. The character is inspired by my OC, Mabel. She is sitting down and leaning back with her knees up and her left hand on the ground, next to her hand is an open book. She is wearing two shirts layered on top of each other. The bottom shirt is a light blue long sleeve, turtleneck with a white t-shirt layered on top of it. Her pants are grey and are ripped at the knee, with dark red converse shoes and a dark red beanie with cat ears on it and a grey skull pin on the left side. She has long wavy blonde hair and brown eyes, she is smiling. The background is light purple with dark purple spots scattered throughout."
+                            title="picrew by @hellosunnycore on Tumblr!">
+                        </a>
+                        <article class="flex-column entries" style="width: 50%;">
+                            <h3>
+                                Entries from 2024
+                            </h3>
+                            <div class="flex-column">
+                                <p>
+                                    <a href="https://starry-knight.neocities.org/my-room-links/blog-entries/2024-08-01">August 01-2024 :<br> "I wish I had this when I was a kid." </a>
+                                </p>
+                            </div>
+                            <img src="https://files.catbox.moe/fwz01p.gif" alt="" style="width: 3em; margin-left: auto; margin-right: auto;">
+                        </article>
+                    </div>
+                    <div class="flex-row">
+                        <!-- rainbow star divider here -->
+                        <img src="https://files.catbox.moe/wmfo9e.png" alt="" class="space-divider">
+                    </div>
+                </main>
+            </div>
+            <footer class="footer">
+                <p style="margin: -0.5em;">
+                    ♡ Lovingly crafted by Starry - May 2024
+                </p>
+                <div class="flex-row" style="justify-content: space-evenly; width: 18em; margin: auto;">
+                    <img src="https://files.catbox.moe/b5sdd7.gif" alt="">
+                    <a href="#top">Back to top</a>
+                    <img src="https://files.catbox.moe/b5sdd7.gif" alt="" style="transform: scaleX(-1)">
+                </div>
+            </footer>
+        </div>            
+    </body>
+</html>

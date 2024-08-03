@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/style.css">
+        <link rel="icon" href="/images/icon-green-plant.ico">
+        <title>Resources - Starry's Grove</title>
+        <style>
+            :root{
+                --headercolor: #08582b;
+                --boxbgcolor: #fffee5;
+                --maintextcolor: #2e1806;
+                /*border info*/
+                --bordermain: 2px solid #4f6c38; 
+                --borderaside: 1.5px solid #4f6c38;
+                --borderheader: 3.5px solid #4f6c38;
+            }
+            /* Note to self: put CSS specific to this file in the style element. CSS that applies to all files goes in the style sheet CSS */
+            @media only screen and (max-width: 700px) {
+                .home-button {display: none;}
+                .flex-middle{flex-direction: column;}
+                .leftside-jukebox{width: auto;}
+                .navbar,.main{width: auto;}
+                .new-content-sticker{display: none;}
+                /*used sadgrl online's horizontal nav bar pencode snippet*/
+                .custom-bullets{
+                    list-style: none;
+                }
+                nav ul li {
+                    padding-right:10px;
+                    font-size:0.7em !important;
+                    padding-top: 6px;
+                }
+                h1 {
+                    font-size: 1.2em;
+                    max-width:36ch;
+                    /* idk if this does anything or not BUT it works so we leaving it there */
+                    text-wrap: wrap !important;
+                    display: inline-block;
+                }
+                h2, h3 {
+                    font-size: 1.3em;
+                    text-wrap: wrap;
+                }
+                p {
+                    font-size: 1em;
+                }
+            }
+            @media only screen and (max-width: 500px) {
+                li {margin: 0.4em;}
+                .resources {
+                    flex-direction: column;
+                }
+                .resource-links {
+                    width: 100% !important;
+                }
+                h1 {
+                    margin-top: 0px;
+                    margin-bottom: 0px;
+                    display: inline-block;
+                    line-height: 1.2;
+                }
+            }
+            /*pulled from stack overflow, allows the home nav link to hide on desktop and show on mobile*/
+            @media screen and (max-width: 480px) {
+                .show-on-desktop {
+                    display: none;
+                }
+            }
+            @media screen and (min-width: 700px) {
+                .hide-on-desktop {
+                    display: none;
+                    }
+            }
+            html {
+                background-image: url("https://files.catbox.moe/bpl5jp.gif");
+            }
+            nav ul {
+                /*this takes away the bullet points*/
+                list-style-type: none;
+                padding-left:0;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            nav ul li {
+                padding-right:10px;
+                margin: auto;
+            }
+            .resources ul li{
+                font-family: main-text-font;
+                color:var(--maintextcolor);
+            }   
+            .resource-links li {
+                font-size: 1em;
+            }    
+            .resource-links a {
+                font-size: 1.1em;
+                color: #026ca5;
+            }
+            .resource-links h2, h3 {
+                margin-bottom: -10px;
+                text-decoration: underline;
+            }
+        </style>
+        <script>
+            /* this is also solaria's script for the jukebox */
+            function stopmusic() {
+                var y = document.getElementsByTagName('audio');
+                for(var j=0; j<y.length; j++) {
+                    y[j].pause();
+                }
+                document.getElementById('marq').innerHTML = 'no music is playing';
+            }  
+            function playsong() {
+                var y = document.getElementsByTagName('audio');
+                for(var j=0; j<y.length; j++) {
+                    y[j].pause();
+                }
+                var songvalue = event.target.value;
+                    document.getElementsByTagName('audio')[songvalue].currentTime = 0;
+                    document.getElementsByTagName('audio')[songvalue].play();
+                    document.getElementById('marq').innerHTML = event.target.title;
+            }
+        </script>
+    </head>
+    <body>
+        <div class="flex-body">
+            <div class="banner" style="background-image: url('https://files.catbox.moe/vd09tn.gif'); height: 30px;">
+            </div>
+        </div>
+        <div class="flex-body">
+            <header class="header">
+                <div class="flex-row">
+                <img src="https://files.catbox.moe/c9rg0i.gif" alt="" style="width: 12%; height: 12%; margin:auto;transform: scaleX(-1);">
+                <h1>
+                    Helpful Resources
+                </h1>
+                <img src="https://files.catbox.moe/c9rg0i.gif" alt="" style="width: 12%; height: 12%; margin:auto;">
+                </div>
+            </header>
+            <div class="leftside navbar">
+                <nav>
+                    <ul class="custom-bullets">
+                        <li>
+                            <a href="https://starry-knight.neocities.org">
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://starry-knight.neocities.org/library">
+                                Library
+                            </a>
+                        </li>                                   
+                        <li>
+                            <a href="https://starry-knight.neocities.org/art-gallery">
+                                Art Gallery
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://starry-knight.neocities.org/my-room">
+                                My Room
+                            </a>
+                        </li>
+                        <li>
+                            <a href="link.here">
+                            Greenhouse
+                            </a>
+                        </li>
+                        <li>
+                            <a href="link.goes.here">
+                                Scrapbook
+                            </a>
+                        </li>
+                        <li style="color: #b9283b;">
+                            <i>Resources</i> (Here!)
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <!-- flex-middle contains all left asides, main, and right asides -->
+            <div class="flex-row flex-middle">
+                <div class="flex-column">
+                    <!-- left aside starts here -->
+                    <aside class="leftside leftside-jukebox">
+                        <!-- this is solaria's script for a jukebox -->
+                        <div class="jukebox">
+                            <button class="activate">
+                                <img src="/images/img-green-radio.gif" alt="Open for song options for the music player.">
+                            </button>
+                            <ul>
+                                <button onclick="stopmusic()">stop music</button>
+                                <li><button value="0" title="Fall - Harvest Moon: Island of Happiness" onclick="playsong()">harvest-moon-fall.mp3	
+                                    <audio><source src="https://files.catbox.moe/je9snl.mp3" type="audio/mp3"></audio>
+                                </button></li>
+                                <li><button value="1" title="Goddess Spring (Night)- Harvest Moon: Animal Parade" onclick="playsong()">harvest-moon-spring-goddess-night.mp3
+                                    <audio><source src="https://files.catbox.moe/yttm93.mp3" type="audio/mp3"></audio>
+                                </button></li>
+                            </ul>
+                            <marquee> 
+                                <p id="marq">☆ select a song! ☆</p>
+                            </marquee>
+                            <script>
+                                var y = document.getElementsByTagName('audio');
+                                for(var j=0; j<y.length; j++) {
+                                    y[j].onended = function() {
+                                        document.getElementById('marq').innerHTML = 'select a song!';
+                                    };
+                                }
+                            </script>
+                        </div> 
+                    </aside>
+                </div>
+                <main class="main">
+                    <p>
+                        Here's some resources I used to make / decorate my website!
+                        I wanted to share what I found so others can start their own journey down the rabbit hole. (´,,•ω•,,)♡
+                        If you want to do some searching on your own,<br>
+                        <b>Tumblr</b> and <b>DeviantArt</b> have a lot of resources and graphics to find.<br>
+                        <br>
+                        Also, I'm gonna be making my own free to use website template for anyone who might want to use it.<br>
+                        I'll link it here when I'm done. („• ᴗ •„)	
+                    </p>
+
+                    <div class="flex-row resources" style="justify-content: space-evenly;">
+                        <div class="flex-column resource-links" style="width: 50%;">
+                            <h2>
+                                HTML & CSS Guides
+                            </h2>
+                            <ul>
+                                <li>
+                                    <a href="https://www.w3schools.com/">
+                                        <b>w2schools:</b>
+                                    </a>
+                                    a great place to start if you're new to coding! teaches HTML, CSS, JavaScript, & more
+                                </li>
+                                <li>
+                                    <a href="https://goblin-heart.net/sadgrl/learn/articles/beginners-guide-neocities">
+                                        <b>Absolute beginner's guide to Neocities:</b>
+                                    </a><br>
+                                    a specific tutorial on how to get started on neocities
+                                </li>
+                                <li>
+                                    <a href="https://goblin-heart.net/sadgrl/learn/sections/html-and-css">
+                                        <b>Learn HTML & CSS:</b>
+                                    </a><br>
+                                    a collection of HTML & CSS guides, pretty easy to understand
+                                </li>
+                                <li>
+                                    <a href="https://32bit.cafe/">
+                                        <b>32-Bit Cafe:</b>
+                                    </a>
+                                    an intro to making your own website along with some additional resources
+                                </li>
+                                <li>
+                                    <a href="https://jgthms.com/web-design-in-4-minutes/#share">
+                                        <b>Web Design in 4 minutes:</b>
+                                    </a><br>
+                                    a hands on guide to web design, also gives you more resources on HTML and CSS
+                                </li>
+                                <li>
+                                    <a href="https://www.w3schools.com/html/html5_semantic_elements.asp">
+                                        <b>HTML Semantic Elements:</b>
+                                    </a>
+                                    semantic elements are elements with meaning like "aside" or "article"
+                                </li>
+                                <li>
+                                    <a href="https://www.w3schools.com/html/html5_semantic_elements.asp">
+                                        <b>CSS Terms and Definitions:</b>
+                                    </a>
+                                    helpful reference article
+                                </li>
+                            </ul>
+                            <h2>
+                                Graphics
+                            </h2>
+                            <ul>
+                                <li>
+                                    <a href="https://pixel-soup.tumblr.com/">
+                                        <b>pixel-soup:</b>
+                                    </a>
+                                    lots of cute gifs, pngs, backgrounds, and dividers
+                                </li>
+                                <li>
+                                    <a href="https://tora7.ciao.jp/mate322.html">
+                                        <b>tora*7kg:</b>
+                                    </a>
+                                    a variety of graphics made by the artist! (Japanese website)
+                                </li>
+                                <li>
+                                    <a href="https://bettysgraphics.neocities.org/">
+                                        <b>Betty's Graphics:</b>
+                                    </a>
+                                    HUGE archive of graphics
+                                </li>
+                                <li>
+                                    <a href="https://pixelsafari.neocities.org/">
+                                        <b>pixel safari:</b>
+                                    </a>
+                                    dividers, favicons, blinkies, buttons, etc.
+                                </li>
+                                <li>
+                                    <a href="https://gifcities.org/">
+                                        <b>GifCities:</b>
+                                    </a>
+                                    archive of old web GIFs
+                                </li>
+                                <li>
+                                    <a href="https://graphic.neocities.org/">
+                                        <b>Bonnibel's Graphic Collection:</b>
+                                    </a>
+                                    I used this a lot to find GIFs n such
+                                </li>
+                                <li>
+                                    <a href="https://www.glitter-graphics.com/">
+                                        <b>Glitter-Graphics:</b>
+                                    </a>
+                                    more GIFs, dividers, and icons
+                                </li>
+                                <li>
+                                    <a href="https://frames-design.com/">
+                                        <b>TopeconHeroes:</b>
+                                    </a>
+                                    icons, pngs, illustrations (Japanese website; use the buttons at the top to navigate)
+                                </li>
+                                <li>
+                                    <a href="https://animatedglittergraphics-n-more.tumblr.com/">
+                                        <b>animated glitter graphics:</b>
+                                    </a>
+                                    found a lot of my dividers and lil icons here
+                                </li>
+                                <li>
+                                    <a href="https://codepen.io/uchihaclan/full/QWZXLWa">
+                                        <b>Tiny Backgrounds:</b>
+                                    </a>
+                                    a collection of repeating / tiled backgrounds
+                                </li>
+                                <li>
+                                    <a href="https://www.deviantart.com/king-lulu-deer">
+                                        <b>King-Lulu-Deer:</b>
+                                    </a>
+                                    artist that makes pixel art (please credit them if you use their work!)
+                                </li>
+                                <li>
+                                    <a href="https://goblin-heart.net/sadgrl/webmastery/downloads/tiledbgs">
+                                        <b>sadgrl.online:</b>
+                                    </a>
+                                    more tiled backgrounds I've used (this site also has a lot of HTML resources and more)
+                                </li>
+                            </ul>
+                            <h2>
+                                Things to Add to Your Site
+                            </h2>
+                            <ul>
+                                <li>
+                                    <a href="https://solaria.neocities.org/jukeboxtut">
+                                        <b>Simple Javascript/CSS Jukebox Tutorial:</b>
+                                    </a><br>
+                                    this is the code I used for the music player,<br>
+                                     made by <a href="https://solaria.neocities.org/">Solaria</a>
+                                </li>
+                                <li>
+                                    <a href="https://gifypet.neocities.org/">
+                                        <b>GifyPet:</b>
+                                    </a>
+                                    make a pet for your webpage like my pet flower, Sunny 
+                                </li>
+                                <li>
+                                    <a href="https://atabook.org/">
+                                        <b>Atabook:</b>
+                                    </a>
+                                    a free, customizable guestbook (I use this, it's cool :3)
+                                </li>
+                                <li>
+                                    <a href="https://www.imood.com/">
+                                        <b>imood updater:</b>
+                                    </a>
+                                    status / mood updater 
+                                </li>
+                                <li>
+                                    <a href="https://counter.fc2.com/en/index.html">
+                                        <b>FC2 Counter:</b>
+                                    </a>
+                                    free visitor counter and online viewer counter
+                                </li>
+                                <li>
+                                    <a href="https://shroom.ink/">
+                                        <b>Shroom.Ink:</b>
+                                    </a>
+                                    adopt a mushroom to protect your website
+                                </li>
+                            </ul>
+                        </div> 
+                        <div class="flex-column resource-links" style="width: 50%;">
+                            <h2>
+                                Misc. Tips & Help
+                            </h2>
+                            <ul>
+                                <li>
+                                    <a href="https://code.visualstudio.com/docs/introvideos/basics">
+                                        <b>Getting started with Visual Studio Code:</b>
+                                    </a><br>
+                                    not a HTML guide BUT it's a good code editor and it's free. <b>highly</b> recommend using VSC
+                                </li>
+                                <li>
+                                    <a href="https://datamanagement.hms.harvard.edu/plan-design/file-naming-conventions">
+                                        <b>File Naming Tips:</b>
+                                    </a>
+                                    guide on how you can consistanly name your files<br>
+                                     (do this early on so you don't have to rename all your files later)
+                                </li>
+                                <li>
+                                    <a href="https://discourse.32bit.cafe/latest">
+                                        <b>32-Bit Cafe Forum:</b>
+                                    </a>
+                                    a great community for web hobbyists and professionals<br>
+                                    (has a lot of resources, you can also ask questions and get help on things here)
+                                </li>
+                                <li>
+                                    <a href="https://nestify.io/blog/common-html-errors-to-avoid-how-to-check-them/#:~:text=Most%20modern%20browsers%20come%20equipped,errors%20will%20be%20displayed%20here.">
+                                        <b>Common HTML Errors & How to Fix / Avoid Them:</b>
+                                    </a>
+                                    the name says all, a very helpful resource
+                                </li>
+                            </ul>
+                            <h2>
+                                Helpful Tools
+                            </h2>
+                            <ul>
+                                <li>
+                                    <a href="https://catbox.moe/">
+                                        <b>catbox:</b>
+                                    </a>
+                                    you can upload up to 200MB of files here and link them elsewhere
+                                </li>
+                                <li>
+                                    <a href="https://htmlcheatsheet.com/">
+                                        <b>HTML Cheat Sheet:</b>
+                                    </a>
+                                    quick references for HTML, CSS, and JavaScript (I use this <i>ALOT</i>)
+                                </li>
+                                <li>
+                                    <a href="https://kaomoji.ru/en/">
+                                        <b>Kaomoji:</b>
+                                    </a>
+                                    a collection of Japanese emoticons like this one (*・ω・)ﾉ		
+                                </li>
+                                <li>
+                                    <a href="https://www.messletters.com/en/">
+                                        <b>MessLetters:</b>
+                                    </a>
+                                    symbols, emojis, emoticons, and alter your text here
+                                </li>
+                                <li>
+                                    <a href="https://ytmp3s.nu/BhJT/">
+                                        <b>ytmp3:</b>
+                                    </a>
+                                    converts youtube videos into mp3s
+                                </li>
+                                <li>
+                                    <a href="https://photokit.com/colors/eyedropper/">
+                                        <b>EyeDropper:</b>
+                                    </a>
+                                    allows you to color pick from anything on your screen
+                                </li>
+                                <li>
+                                    <a href="https://placekitten.com/">
+                                        <b>placekitten:</b>
+                                    </a>
+                                    place holder images but cats :3
+                                </li>
+                                <li>
+                                    <a href="https://ezgif.com/webp-to-gif">
+                                        <b>ezgif:</b>
+                                    </a>
+                                    WEBP to GIF, JPG, PNG, etc (I HATE WEBP FILES BURN THEM ALL)
+                                </li>
+                                <li>
+                                    <a href="https://coolors.co/">
+                                        <b>Coolors:</b>
+                                    </a>
+                                    a color palette generator
+                                </li>
+                                <li>
+                                    <a href="https://imageresizer.com/crop-image">
+                                        <b>Image Resizer:</b>
+                                    </a>
+                                    crop, resize, and compress images
+                                </li>
+                                <li>
+                                    <a href="https://theinspirationgallery.com/composer/wpcc_intro.htm">
+                                        <b>Web page color composer:</b>
+                                    </a>
+                                    create a color scheme for your webpage and generate HTML and CSS to be inserted into your page
+                                </li>
+                            </ul>
+                            <h2>
+                                Fonts
+                            </h2>
+                            <ul>
+                                <li>
+                                    <a href="https://www.dafont.com/">
+                                        <b>dafont:</b>
+                                    </a>
+                                    free fonts to use
+                                </li>
+                                <li>
+                                    <a href="https://www.1001freefonts.com/">
+                                        <b>1001 Free Fonts:</b>
+                                    </a>
+                                    more free fonts
+                                </li>
+                                <li>
+                                    <a href="https://www.1001freefonts.com/">
+                                        <b>Font Space:</b>
+                                    </a>
+                                    MOREE free fonts
+                                </li>
+                            </ul>
+                            <h3>
+                                Fonts Used on My Site
+                            </h3>
+                            <ul>
+                                <li style="margin-top: 0.5em;">
+                                    <a href="https://www.fontspace.com/columbus-font-f6126">
+                                        <b>Columbus font:</b>
+                                    </a>
+                                    header font
+                                </li>
+                                <li>
+                                    <a href="https://www.dafont.com/goudy-bookletter.font">
+                                        <b>Goudy Bookletter font:</b>
+                                    </a>
+                                    main text font
+                                </li>
+                                <li>
+                                    <a href="https://www.dafont.com/blue-cashews.font?text=Subheader">
+                                        <b>Blue Cashews font:</b>
+                                    </a>
+                                    subheader font
+                                </li>
+                            </ul>
+                            <h2>
+                                Custom Cursors
+                            </h2>
+                            <ul>
+                                <li>
+                                    <a href="https://www.totallyfreecursors.com/">
+                                        <b>Totally Free Cursors</b>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.cursors-4u.com/">
+                                        <b>Cursors-4u</b>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>    
+                    </div>
+                </main>
+            </div>
+            <footer class="footer">
+                <p style="margin: -0.5em;">
+                    ♡ Lovingly crafted by Starry - May 2024
+                </p>
+                <div class="flex-row" style="justify-content: space-evenly; width: 18em; margin: auto;">
+                    <img src="https://files.catbox.moe/b5sdd7.gif" alt="">
+                    <a href="#top">Back to top</a>
+                    <img src="https://files.catbox.moe/b5sdd7.gif" alt="" style="transform: scaleX(-1)">
+                </div>
+            </footer>
+        </div>
+    </body>
+</html>
