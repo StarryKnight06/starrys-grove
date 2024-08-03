@@ -1,4 +1,6 @@
-
+html{
+    size:1em;
+}
 
 @font-face {
     font-family: "header-font"; 
