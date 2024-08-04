@@ -305,7 +305,16 @@
                         <div class="scrolling-box">
                             <section>
                                 <p>
+                                    ❥ Finish main nav links (5/7 done!)
+                                </p>
+                                <p>
                                     ❥ Finish making webpages (8 out of ?? done!)
+                                </p>
+                                <p>
+                                    ❥ Change layout of the art gallery
+                                </p>
+                                <p>
+                                    ❥ Make a site button - then join the responsive web listing and small world listing :3
                                 </p>
                                 <p>
                                     ❥ Work on accessibility (in progress)
@@ -394,8 +403,8 @@
                                     I was inspired by a creator on neocities called <a href="https://loveweb.neocities.org">Loveweb</a> to make my own website
                                     and add some more creativity to the web.<br>
                                     <br>
-                                    <b>Currently working on:</b> Cleaning my messy code & adding alt text to images<br>
-                                    <b>Last updated:</b> Aug 1, 2024 (I often update things everyday)<br>
+                                    <b>Currently working on:</b> Making a page for my brain rot characters lol<br>
+                                    <b>Last updated:</b> <span id="lastupdate"></span><br>
                                     Check out <a href="https://neocities.org/site/starry-knight"> my neocities profile</a>!
                                 </p>
                             </div>
@@ -560,14 +569,30 @@
                 <div class="flex-row" style="justify-content: space-evenly; width: 18em; margin: auto;">
                     <a href="https://code.visualstudio.com/">
                         <img src="https://files.catbox.moe/38kwe7.png" alt="Made with Visual Code Studio.">
-                    </a>    
-                    <img src="https://files.catbox.moe/oygz3d.png" alt="This site is mobile friendly.">
+                    </a>  
+                    <img src="/images/index-imgs/button-capybara-club.gif" alt="Capybara now!" style="height: 31px;">
                     <a href="https://neocities.org/">
                         <img src="https://files.catbox.moe/2nqsyz.gif" alt="Hosted on Neocities.">
                     </a>
                 </div>
             </footer>
         </div>
-        <script src="visitors.js"></script>
+        <script>
+            // java script made by dannarchy 
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+              if (this.readyState == 4 && this.status == 200) {
+                var site_data = JSON.parse(this.responseText);
+          
+                var date_obj = new Date(site_data.info.last_updated);
+                var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+                var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+                document.getElementById("lastupdate").innerHTML = days[date_obj.getDay()] + months[date_obj.getMonth()] + " " + date_obj.getDate() + ", " + date_obj.getFullYear();
+          
+              }
+            };
+            xhttp.open("GET", "https://weirdscifi.ratiosemper.com/neocities.php?sitename=starry-knight", true);
+            xhttp.send();
+        </script>
     </body>
 </html>
