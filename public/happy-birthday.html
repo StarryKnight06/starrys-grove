@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/style.css">
+        <link rel="icon" href="/digital-birthday-card/img-cake.ico">
+        <title>What's this?</title>
+        <style>
+            .jukebox ul {
+                left: -120px;
+                width: 6em;
+            }
+            [id] {
+	            display: none;
+            }
+            [id]:target {
+                display:block;
+            }            
+            html {
+                background-image: url('https://files.catbox.moe/k1iez1.gif');
+            }
+            .main {
+                background-image: url('https://files.catbox.moe/phgynu.png');
+            }
+            .main, .footer {
+                display: block;
+                margin: auto;
+                width: 60%;
+                font-size: 1.1em;
+                background-color: #fefef9;
+                border: 2px solid #16a2ae;
+                border-radius: 15px;
+            }
+            .main p {
+                text-align: left;
+            }
+            .banner2 {
+                width: 60%;
+                margin: auto;
+                border-radius: 0px;
+            }
+            .banner {
+                width: 60%;
+                margin: auto;
+                border-radius: 13px;
+            }
+            .img-hor-vert {
+                -moz-transform: scale(-1, -1);
+                -o-transform: scale(-1, -1);
+                -webkit-transform: scale(-1, -1);
+                transform: scale(-1, -1);
+            }
+            .happybd img {
+                width:20%;
+                height:20%; 
+                margin:auto;  
+            }
+            .stamps {
+                justify-content: space-evenly;
+                margin-bottom: 0.5em;
+                flex-wrap: wrap;
+            }
+            @media only screen and (max-width: 700px) {
+                .main, .footer {
+                    width: 70%;
+                }
+                .banner {
+                    width: 70%;
+                }
+                .banner2 {
+                    width: 70%;
+                    margin: auto;
+                    border-radius: 0px;
+                }
+            }
+            @media only screen and (max-width: 500px) {
+                .main, .footer {
+                    width: 90%;
+                }
+                .banner {
+                    width: 90%;
+                }
+                .banner2 {
+                    width: 90%;
+                    margin: auto;
+                    border-radius: 0px;
+                }
+                .stamps {
+                   justify-content: center;
+                }
+                .happybd img {
+                    width:25%;
+                    height:25%; 
+                    margin:auto;
+                }
+            }
+        </style>
+        <script>
+            /* this is also solaria's script for the jukebox. I CANNOT WRITE JAVASCRIPT */
+            function stopmusic() {
+                var y = document.getElementsByTagName('audio');
+                for(var j=0; j<y.length; j++) {
+                    y[j].pause();
+                }
+                document.getElementById('marq').innerHTML = 'no music is playing';
+            }  
+            function playsong() {
+                var y = document.getElementsByTagName('audio');
+                for(var j=0; j<y.length; j++) {
+                    y[j].pause();
+                }
+                var songvalue = event.target.value;
+                    document.getElementsByTagName('audio')[songvalue].currentTime = 0;
+                    document.getElementsByTagName('audio')[songvalue].play();
+                    document.getElementById('marq').innerHTML = event.target.title;
+            }
+        </script>
+    </head>
+    <body>
+        <div class="flex-body">
+            <div class="banner2" style="background-image:url('https://files.catbox.moe/rfpwqm.gif'); height: 30px;">
+            </div>
+        </div>
+        <div class="flex-body body-main">
+            <main class="main">
+                <div class="banner" style="background-image: url('https://files.catbox.moe/gcvt1s.png'); height: 45px; width: 100%;">
+                </div>
+                <div class="flex-row" style="justify-content: space-between;">
+                    <p>
+                        <b>From:</b> Heather<br>
+                        <b>To:</b> Johnnie 
+                        <img src="https://files.catbox.moe/98bc1n.gif">
+                    </p>
+                    <div class="jukebox">
+                        <button class="activate">
+                            <img src="/images/img-green-radio.gif" alt="Open for song options for the music player.">
+                        </button>
+                        <ul>
+                            <button onclick="stopmusic()">
+                                stop music
+                            </button>
+                            <li>
+                                <button value="0" title="Happy Birthday But EPIC!!1!" onclick="playsong()">
+                                    EPIC-BIRTHDAY-SONG.mp3	
+                                    <audio>
+                                        <source src="https://files.catbox.moe/cve34w.mp3" type="audio/mp3">
+                                    </audio>
+                                </button>
+                            </li>
+                            <li>
+                                <button value="1" title="Super Bell Hill - Super Mario 3D World" onclick="playsong()">
+                                    mario-super-bell-hill.mp3
+                                    <audio>
+                                        <source src="https://files.catbox.moe/3c1g2k.mp3" type="audio/mp3">
+                                    </audio>
+                                </button>
+                            </li>
+                        </ul>
+                        <marquee> 
+                            <p id="marq">☆ select a song! ☆</p>
+                        </marquee>
+                        <script>
+                            var y = document.getElementsByTagName('audio');
+                            for(var j=0; j<y.length; j++) {
+                                y[j].onended = function() {
+                                    document.getElementById('marq').innerHTML = 'select a song!';
+                                };
+                            }
+                        </script>
+                    </div>
+                </div>
+                <p>
+                    I hope you have a wonderful birthday today because you deserve it!
+                    It's always a delight to chat with you and see what you've been up to.
+                    <img src="https://files.catbox.moe/11hwvs.gif"><br>
+                    <br>
+                    I hope you continue to find happiness in the coming years and continue to grow as you have been.<br>
+                    <br>
+                    Also the lil radio in the top right plays music! 
+                    There's two songs to choose from, just click or tap on it and pick one (◕‿◕)	
+                </p>
+                <p>
+                    <a href="#1"><em>Click me for a surprise :3c</em></a><br>
+                </p>
+                <div id="1">
+                    <div class="flex-row happybd">
+                        <img src="https://files.catbox.moe/j1rhkh.png" style="transform: scaleX(-1);">
+                        <h2 style="font-size: 1.5em; color: #005d16;">
+                            Happy birthday!
+                        </h2>
+                        <img src="https://files.catbox.moe/j1rhkh.png">
+                    </div>
+                    <div class="flex-row" style="justify-content: space-around; justify-content: center;">
+                        
+                        <img src="https://files.catbox.moe/uf1fn4.gif" style="width: 30px; height:30px; margin-top: auto; margin-left: auto; margin-right: auto;">
+                        <img src="https://files.catbox.moe/in5l73.gif" style="width: 30px; height:30px; margin: auto;">
+                        <img src="https://files.catbox.moe/b9do5e.gif" style="width: 30%;">
+                        <img src="https://files.catbox.moe/in5l73.gif" style="width: 30px; height:30px; margin: auto; transform: scaleX(-1);"> 
+                        <img src="https://files.catbox.moe/uf1fn4.gif" style="width: 30px; height:30px; margin-top: auto; margin-left: auto; margin-right: auto; transform: scaleX(-1);">
+                    </div>
+                    <div class="flex-row" style="margin-top: 1em;"> 
+                        <img src="https://files.catbox.moe/q58nzu.gif">
+                    </div>
+                    <p style="text-align: center;">
+                       Enjoy your ice cream cake ヽ(o＾▽＾o)ノ	 <br>
+                    </p>
+                    <p style="text-align: center;">
+                            And here's the entirety of the first spongebob episode, on the house.
+                    </p>
+                    <div class="flex-row cartoon">
+                        <img src="https://files.catbox.moe/k4t4rr.gif" style="width: 30%;">
+                    </div>
+                    <p>
+                        <strong>P.S.</strong> when I woke up today I thought hmm "tommorow is Johnnie's birthday,
+                        I should remember to wish him a good one (´･ᴗ･ ` )"<br>
+                        THEN I HAD A <em>BRAIN BLAST!</em> <br>
+                        "I CAN CODE, I CAN MAKE HIM A VIRTUAL BIRTHDAY CARD!"<br>
+                        So that's what I did and I hope you like (＾• ω •＾)<br>
+                        <br>
+                        -Heather 
+                    </p>
+                </div>
+                <div class="flex-row stamps"> 
+                    <img src="https://files.catbox.moe/ws8ts4.gif">
+                    <img src="https://files.catbox.moe/5fotey.gif">
+                    <img src="https://files.catbox.moe/noreyf.gif">
+                    <img src="https://files.catbox.moe/wwgetp.gif">
+                </div>
+                <div class="banner img-hor-vert" style="background-image: url('https://files.catbox.moe/gcvt1s.png'); height: 45px; width: 100%;"></div>
+            </main>
+        </div>
+    </body>
+</html>
