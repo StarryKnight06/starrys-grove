@@ -5,33 +5,43 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="/style.css">
         <link rel="icon" href="/images/icon-green-plant.ico">
-        <title>Home - Starry's Grove</title>
-        <!-- Hi person looking at my code hiii. This is the culmunation of me hyperfixating on coding, a LOT of free time, and a month's worth of time and work :) -->
+        <title>Blog Archive - Starry's Grove</title>
         <style>
-            /* Note to self: put CSS specific to this file in the style element. CSS that applies to all files goes in the style sheet CSS */
+            :root{
+                --headercolor: #08582b;
+                --boxbgcolor: #f9f3fd;
+                --maintextcolor: #2e1806;
+                /*border info*/
+                --bordermain: 6px double #690b71; 
+                --borderaside: 2px solid #4a085f;
+                --borderheader: 2px solid #4a085f;
+            }
+            .custom-bullets2{
+                list-style-image: url("https://files.catbox.moe/nctx6o.gif");
+                font-family:"main-text-font";
+                color: var(--maintextcolor);
+            }
+            a:link{
+                color: #0663c0;
+                text-decoration: none;
+            }
             @media only screen and (max-width: 700px) {
-                #leftside-todo {
-                    display: none;
-                }
-                .leftside-jukebox {
-                    width: 100%;
-                }
                 .flex-middle {
-                    flex-direction: column;
+                  flex-direction:  column;
                 }
-                #flex-leftside{
+                .flex-rightside {
                     flex-direction: row;
                 }
-                .flex-plantpets > iframe { 
-                    display: block;
-                    margin-left: -10px;
-                    padding: 0px;
+                .main {
+                    width: auto;
                 }
-                .new-content-sticker {
+                .new-content-sticker, .blinkies {
                     display: none;
                 }
-                 #rightside-surfweb, #rightside-updates, .main {
-                    width: auto;
+                nav ul li {
+                    padding-right:10px;
+                    font-size:0.7em !important;
+                    padding-top: 6px;
                 }
                 h1 {
                     font-size: 1.2em;
@@ -47,54 +57,29 @@
                 p {
                     font-size: 1em;
                 }
-                nav ul li {
-                    padding-right:10px;
-                    font-size:0.7em !important;
-                    padding-top: 6px;
+                #room-nav {
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    font-size: 1.2em;
                 }
-
-                .marquee-images {
-                    height: 55px;
+                .leftside-jukebox {
+                    width: 45%;
+                    height: fit-content;
                 }
-                section > p {
-                    text-align: left;
-                }
-                /* for if i want to add a background to the container around the boxes */
-                .body-main {
-                    background-image: url("");
-                }
-                .flex-aboutme > p {
-                    text-align: left;
-                    padding:0px;
-                }
-                .flex-badges > img{
-                    margin-bottom: 0.2em;
-                }
-                .scrolling-box {
-                    border-top: 2px dashed #4f6c38;
-                }
-                #flex-portrait {
+                #room-nav {
                     width: 65%;
-                    height: 65%;
-                    margin-left: auto;
-                    margin-right: auto;
                 }
-                .decor {
-                    display: none;
+                #room-nav > h2 {
+                    margin-top: 5px;
                 }
             }
             @media only screen and (max-width: 500px) {
-                li {
-                    margin: 0.4em;
+                .flex-main {
+                  flex-direction: column-reverse;
+                  margin-left: 0.5em;
+                  margin-right: auto;
                 }
-                #stamps > img {
-                height: 40px;
-                }
-                #about-and-portrait {
-                    flex-direction: column;
-                    margin: 1em;
-                }
-                .flex-aboutme {
+                #picrew-pfp {
                     width: 100%;
                 }
                 h1 {
@@ -103,13 +88,12 @@
                     display: inline-block;
                     line-height: 1.2;
                 }
-                #flex-leftside {
-                    flex-wrap: wrap;
+                .entries {
+                    width: 100% !important;
                 }
-                .flex-counters {
-                    width: 8.7em;
+                .space-divider {
+                    width: 100%;
                 }
-
             }
             /*pulled from stack overflow, allows the home nav link to hide on desktop and show on mobile*/
             @media screen and (max-width: 480px) {
@@ -120,64 +104,64 @@
             @media screen and (min-width: 700px) {
                 .hide-on-desktop {
                     display: none;
-                }
+                    }
             }
-            .decor {
-                border-style: none;
-                background: transparent;
-                justify-content: space-between;
-            }
-            .decor-left {
-                justify-content: end;
-            }
-            li{
-                list-style: none;
-            }
-            html {
-                background-image: url('/images/backgrounds/bg-green-cat-clover.gif');
-            }
-            #leftside-todo, #rightside-updates {
-                background-image: url('/images/backgrounds/bg-green-white-flowers.gif');
-            }
-            #leftside-todo > h2, #rightside-updates > h2 {
-                color: rgb(14, 90, 25);
-            }
-            .scrolling-box {
-                background-image: url('/images/backgrounds/bg-pink-bunnies-stars.png');
-            }
-            section {
-                background-color:rgba(255, 255, 255, 0.733);
-                color: #0e0601;
-                border-radius: 10px;
-            }
-            .flex-plantpets > iframe {
+            #picrew-pfp {
+                width: 17em;
+                height: 17em;
+                border: 2.5px dashed #4f6c38;
+                border-radius: 10px; 
+                margin: 1em;
                 display: block;
-                margin: auto;
-                padding: 0px;
             }
-            #stamps > img {
-                margin: 0.3em;
+            #shroom-pet {
+                margin:auto;
+            }
+            .jukebox {
+                height: auto;
+            }
+            .custom-bullets {
+                list-style: none;
             }
             .navbar {
                 width: auto;
             }
-            /* used sadgrl's pencode for horizontal navbar*/
             nav ul {
                 /*this takes away the bullet points*/
-                list-style-type: none;
+                list-style-type:none;
                 padding-left:0;
-                display: flex;
-                flex-wrap: wrap;
+                display:flex;
+                flex-wrap:wrap;
                 justify-content: center;
             }
             nav ul li {
                 padding-right:10px;
                 margin: auto;
             }
-
+            #room-nav {
+                font-family: "main-text-font";
+                list-style-type: none;
+            }
+            #room-nav h2 {
+                margin-bottom: -15px;
+            }
+            #room-nav li {
+                display: block;
+                margin-top: 0.5em;
+                margin-bottom: 0.5em;
+                margin-left: 0;
+                margin-right: 0;
+                font-weight: bold;
+            }
+            .entries p {
+                font-size: 1.2em;
+            }
+            html {
+                background-image: url("https://files.catbox.moe/vu01a3.gif");
+            }          
         </style>
         <script>
-            /* this is also solaria's script for the jukebox. I CANNOT WRITE JAVASCRIPT */
+            /* this is also solaria's script for the jukebox */
             function stopmusic() {
                 var y = document.getElementsByTagName('audio');
                 for(var j=0; j<y.length; j++) {
@@ -195,29 +179,30 @@
                     document.getElementsByTagName('audio')[songvalue].play();
                     document.getElementById('marq').innerHTML = event.target.title;
             }
-        </script>
+        </script>        
     </head>
     <body>
         <div class="flex-body">
-            <div class="banner" style="background-image:url(/images/index-imgs/div-flower-field.gif); height: 50px;">
-            </div>
+            <div class="banner" alt="" style="background-image: url(https://files.catbox.moe/pvf8er.gif); height: 20px;"></div>
         </div>
         <!-- use multiple classes to differientiate between similar names -->
         <div class="flex-body body-main">
             <header class="header">
                 <div class="flex-row">
-                    <img src="/images/index-imgs/img-red-mush-garden.gif" alt="" style="width:10%; height:10%; margin:auto; transform: scaleX(-1)">
+                    <img src="https://files.catbox.moe/kzqvnq.gif" alt="" style="width: 5%; height: 5%; margin:auto;transform: scaleX(-1);">
                     <h1>
-                        Welcome to Starry's Grove
+                        Blog Archive
                     </h1>
-                    <img src="/images/index-imgs/img-red-mush-garden.gif"  alt="" style="width:10%; height:10%; margin:auto;">
-                </div>
+                    <img src="https://files.catbox.moe/kzqvnq.gif" alt="" style="width: 5%; height: 5%; margin:auto;">
+                </div> 
             </header>
             <div class="leftside navbar">
                 <nav>
                     <ul class="custom-bullets">
-                        <li style="color: #b9283b;">
-                            <i>Home</i> (Here!)
+                        <li>
+                            <a href="https://starry-knight.neocities.org">
+                                Home
+                            </a>
                         </li>
                         <li>
                             <a href="https://starry-knight.neocities.org/library">
@@ -233,11 +218,10 @@
                             <a href="https://starry-knight.neocities.org/my-room">
                                 My Room
                             </a>
-                            <img class="new-content-sticker" alt="New content sticker" src="/images/img-updated-postit.gif">
                         </li>
                         <li>
                             <a href="link.here">
-                                Greenhouse
+                            Greenhouse
                             </a>
                         </li>
                         <li>
@@ -249,14 +233,12 @@
                             <a href="https://starry-knight.neocities.org/resources">
                                 Resources
                             </a>
-                            <img class="new-content-sticker" alt="New content sticker" src="/images/img-new-postit.gif">
                         </li>
                     </ul>
                 </nav>
             </div>
-            <!-- flex-middle contains all left asides, main, and right asides -->
             <div class="flex-row flex-middle">
-                <div class="flex-column" id="flex-leftside">
+                <div class="flex-column flex-rightside">
                     <!-- left aside starts here -->
                     <aside class="leftside leftside-jukebox">
                         <!-- this is solaria's script for a jukebox -->
@@ -265,25 +247,10 @@
                                 <img src="/images/img-green-radio.gif" alt="Open for song options for the music player.">
                             </button>
                             <ul>
-                                <button onclick="stopmusic()">
-                                    stop music
-                                </button>
-                                <li>
-                                    <button value="0" title="Faron Woods - Twilight Princess" onclick="playsong()">
-                                        zelda-faron-woods.mp3	
-                                        <audio>
-                                            <source src="https://files.catbox.moe/rqjy2l.mp3" type="audio/mp3">
-                                        </audio>
-                                    </button>
-                                </li>
-                                <li>
-                                    <button value="1" title="Weird Woods - Kirby's Epic Yarn" onclick="playsong()">
-                                        kirby-weird-woods.mp3
-                                        <audio>
-                                            <source src="https://files.catbox.moe/5kgkhg.mp3" type="audio/mp3">
-                                        </audio>
-                                    </button>
-                                </li>
+                                <button onclick="stopmusic()">stop music</button>
+                                <li><button value="0" title="My Castle Town - Deltarune" onclick="playsong()">deltarune-my-castle-town.mp3	
+                                    <audio><source src="https://files.catbox.moe/5d1oox.mp3" type="audio/mp3"></audio>
+                                </button></li>
                             </ul>
                             <marquee> 
                                 <p id="marq">☆ select a song! ☆</p>
@@ -298,285 +265,66 @@
                             </script>
                         </div> 
                     </aside>
-                    <aside class="leftside" id="leftside-todo">
-                        <h2>
-                            To-Do List
+                    <aside class="leftside" id="room-nav">
+                        <h2 style="background-color: transparent;">
+                            Bookshelf
                         </h2>
-                        <div class="scrolling-box">
-                            <section>
-                                <p>
-                                    ❥ Finish main nav links (5/7 done!)
-                                </p>
-                                <p>
-                                    ❥ Finish making webpages (8 out of ?? done!)
-                                </p>
-                                <p>
-                                    ❥ Change layout of the art gallery
-                                </p>
-                                <p>
-                                    ❥ Make a site button - then join the responsive web listing and small world listing :3
-                                </p>
-                                <p>
-                                    ❥ Work on accessibility (in progress)
-                                </p>
-                                <p>
-                                    ❥ Finish book reviews in library
-                                </p>
-                                <p>
-                                    ❥ Add mudae comms?
-                                </p>
-                            </section>
-                        </div>
-                    </aside>
-                    <aside class="leftside" style="background-color:#d0eba6; border: 2.5px solid #3e5a26;">
-                        <iframe src="https://starryknight06.github.io/neocities/public/pollcode.html" width="175px" height="167px" style="border-style: none; margin-left: -7px;">
-                        </iframe>
-                    </aside>
-                    <aside class="leftside flex-counters">
-                        <p style="margin-bottom: -5px; margin-top: -2px;">
-                            <b>You are visitor number:</b>
-                        </p>
-                        <div class="flex-column" style="padding-left: 2em;">
-                        <!-- FC2 Counter  Starts here -->
-                        <script language="javascript" type="text/javascript" src="//counter1.fc2.com/counter.php?id=39765184&main=1"></script><noscript><img src="//counter1.fc2.com/counter_img.php?id=39765184&main=1" /></noscript>
-                        <!-- FC2 Counter  Ends here -->
-                        </div>
-                        <p style="margin-bottom: -5px; margin-top: -0.5px;">
-                            <b>Current Viewers:</b>
-                        </p>
-                        <div class="flex-column" style="padding-left: 2em;">
-                        <!-- FC2 Counter  Starts here -->
-                        <script language="javascript" type="text/javascript" src="//counter1.fc2.com/views.php?id=39765184&main=1"></script><noscript><img src="//counter1.fc2.com/counter_now.php?id=39765184&main=1" /></noscript>
-                        <!-- FC2 Counter  Ends here -->
-                        </div>
-                    </aside>
-                    <aside class="leftside flex-column decor decor-left">
-                        <img src="https://files.catbox.moe/6p7mg3.gif" alt="">
+                        <nav class="flex-column" style=" justify-content: space-evenly; flex-direction: column;">
+                            <ul>
+                                <li>
+                                    <a href="https://starry-knight.neocities.org/my-room-links/fanlists">
+                                        Fanlistings
+                                    </a>
+                                </li>
+                                <li style="color: #b9283b;">
+                                    <i>Blog Archive</i> (Here!)
+                                </li>
+                                <li style="color: #4a0543;">
+                                    Brainrot Central<br> (WIP)
+                                </li>
+                            </ul>       
+                        </nav>
                     </aside>
                 </div>
                 <main class="main">
-                    <article>
-                        <div class="flex-row" style="justify-content:space-between;">
-                            <h2 class="greeting" style="text-align: left;">
-                                Greetings Traveler
-                            </h2>
-                            <a href="https://www.mabsland.com/Adoption.html" id="censor-panda-button">
-                                <img src="/images/index-imgs/button-web14-panda.gif"  alt=" This website is rated Web 14. Read more about the web-rating pandas here." style="margin: 1em; width: auto; height: auto;">
-                            </a>
-                        </div>
-                        <div class="flex-row" style="margin-top: -30px;">
-                            <p style="text-align: left; padding: 1em;">
-                                <b>Welcome to my clearing in the forest!</b><br>
-                                <br>
-                                This site is meant to be a reflection of myself and my interests to share with others.
-                                Here you'll find my artwork, my favorite webcomics, cool plant and nature info, my pixel collection, and more.
-                                Feel free to look around and be curious! (✿◠‿◠)<br>
-                                <br>
-                                Also, this site contains <em><b>swearing</b></em> and is <em><b>not</b></em> intended for younger audiences.<br>
-                                <br>
-                                <em>If the site looks weird, please clear your cache
-                                or press ctrl + f5. I am constantly updating things.</em> 
-                            </p>                         
-                            <img src="/images/index-imgs/img-tree.gif" alt="" style="margin: auto; width: 30%; padding: 0.8em">
-                        </div>
-                    </article>
-                    <img src="/images/index-imgs/div-lily-valley.gif" alt="" style="width:100%; height: auto;">
-                    <article>
-                        <div class="flex-row" style="justify-content: right;">
-                            <h2 style="text-align: right; margin-right:1.5em;">
-                                Meet the Webmistress
-                            </h2>
-                        </div>
-                        <div class="flex-row" id="about-and-portrait">
-                            <div id="flex-portrait">
-                                <img id="portrait" src="/images/index-imgs/img-portrait-starry.jpg" alt="Portrait bust of my OC Starry. She is smiling at the viewer within a window frame with pink and purple hydrangas at the bottom of the frame. She has long, straight, orange hair with a bang on the right side of her face and a yellow star-shaped hair clip on the left side of her hair." 
-                                style="justify-content: center; width: 80%; height: auto; border:8px double #4f6c38; margin-left:0.8em; margin-right:auto;">
-                                <p style="margin-top: -10px;">
-                                    Drawn by my friend <a href="https://twitter.com/mini_cloudqueen">Bree</a>!
-                                </p>
-                            </div>
-                            <div class="flex-column flex-aboutme">
-                                <p style="text-align: left;">
-                                    Hi I'm <b>Starry!</b> (◍•ᴗ•◍)<br>
-                                    <br>
-                                    I'm your local shut-in artist with <em>too much</em> time on her hands. I like playing video games, plants, and other cool nature things.<br>
-                                    I was inspired by a creator on neocities called <a href="https://loveweb.neocities.org">Loveweb</a> to make my own website
-                                    and add some more creativity to the web.<br>
-                                    <br>
-                                    <b>Currently working on:</b> Making a page for my brain rot characters lol<br>
-                                    <b>Last updated:</b><br>
-                                    <iframe src="https://starryknight06.github.io/neocities/public/last-updated.html" scrolling="no" style="height: 35px; width: 180px; border-style: none;"></iframe><br>
-                                    Check out <a href="https://neocities.org/site/starry-knight"> my neocities profile</a>!
-                                </p>
-                            </div>
-                        </div>
-                    </article>
-                    <article>
-                        <h2 style="text-align: left; margin-bottom: -2px;">
-                            Update Logs
-                        </h2>
-                        <p style="text-align: left; margin-top: -2px;">
-                            Here's the link if you want to view the <a href="https://starry-knight.neocities.org/update-log">full log page.</a> <strong>Flashbang warning:</strong> this page is all white.
-                        </p>
-                        <iframe src="https://starry-knight.neocities.org/update-log" style="border: 2px solid #4f6c38; border-radius: 5px; width: 96%; display: block; margin:auto; background-image: url('https://files.catbox.moe/c2y8fi.gif');"></iframe>
-                    </article>
-                    <!--
-                    <article>
-                        <h2>
-                            ✰ My Featured Artwork ✰
-                        </h2>
-                        <div class="flex-column">
-                            <div class="flex-row">
-                                <img src="/images/index-imgs/div-butterflies-vertical.gif" alt="" style="margin-left: 1em;">
-                                <img src="/images/index-imgs/img-featured-2023OCT10-aris-fairy.jpg" alt="Portrait of my OC Aris the fairy, in a blue and white flower dress and her grey striped cat Albert" style="border: 3px solid #4f6c38; width: 38%; height:38%; margin:auto;">
-                                <img src="/images/index-imgs/div-butterflies-vertical.gif" alt="" style="transform: scaleX(-1); margin-right: 1em;">
-                            </div>
-                        </div>
-                    </article>
-                    -->
-                    <article>
-                        <h2>
-                            ✿ Meet my pet flower! ✿
-                        </h2>
-                        <div class="flex-row flex-plantpets" style="margin-bottom: 0.8em;">
-                            <iframe id="sunny-pet" width="314" height="321" scrolling="no" src="https://gifypet.neocities.org/pet/pet.html?name=Sunny&dob=1719954029&gender=f&element=Earth&pet=flower.gif&map=https%3A%2F%2Fstarry-knight.neocities.org%2Fimages%2Fbackgrounds%2Fbg-pvz-yard.png&background=https%3A%2F%2Fstarry-knight.neocities.org%2Fimages%2Fbackgrounds%2Fbg-pink-white-flowers.gif&tablecolor=%23bd006e&textcolor=%230e5700" frameborder="0;" style="border: var(--bordermain);"></iframe>
-                        </div>
-                    </article>
-                    <article>
-                        <h2>
-                            Thank you for visiting!
-                        </h2>
-                        <p>
-                            I hope you enjoyed looking around my lil corner on the web ( ´ ∀ ` )ﾉ
-                            Have some sweets on your way out and maybe sign my 
-                            <a href="https://starryknight.atabook.org/" title="Leave a comment or say hi">guestbook</a>
-                            to let me know you stopped by.
-                            If the mobile layout or anything on the site is broken or if you have a hard time navigating things, please <a href="mailto:starryknight066@gmail.com">shoot me an email</a>!
-                        </p>
-                        <div class="flex-row" style="justify-content: space-evenly; margin: 1em;">
-                            <img src="/images/index-imgs/img-kitchen-shelf.gif" alt="" style="width: 40%; height: 40%;">
-                            <img src="/images/index-imgs/img-chocolate-cake.gif" alt="" style="width: 30%; height: 30%;">
-                        </div>
-                    </article>    
-                    <div class="flex-row" style="justify-content: space-evenly; flex-wrap: wrap;">
-                        <div class="flex-column" style="justify-content: center;">
-                            <journal-ring icon="blue" style="margin-left: 1em;">
-                            </journal-ring>
-                            <script async src="https://cdn.jsdelivr.net/gh/js044/nenrikido@main/static/js/misc/journalring.js">
-                            </script> 
-                        </div>   
+                    <div class="flex-row">
+                        <!-- rainbow star divider here -->
+                        <img src="https://files.catbox.moe/wmfo9e.png" alt="" class="space-divider">
                     </div>
-                    <img src="/images/index-imgs/div-lily-valley.gif" alt="" style="width:100%;height: auto; margin-top: 0.5em;">
-                    <div class="flex-row" id="stamps" style="justify-content: space-evenly;">
-                        <img src="/images/index-imgs/stamp-support-grass.png" alt="i support grass">
-                        <img src="/images/index-imgs/stamp-rawr-means.gif" alt="Rawr Means I Love You">
-                        <img src="/images/index-imgs/stamp-be-nice.png" alt="It's more important to be nice">
-                        <img src="/images/index-imgs/stamp-chikorita.png" alt="Chikorita">
+                    <div class="flex-row flex-main" style="justify-content: space-evenly;">
+                        <a href="https://picrew.me/en/image_maker/1469769/">
+                            <img src="/images/blog-archive-imgs/img-picrew-mabel-cool.png" id="picrew-pfp" 
+                            alt="Picrew character by @hellosunnycore on Tumblr. The character is inspired by my OC, Mabel. She is sitting down and leaning back with her knees up and her left hand on the ground, next to her hand is an open book. She is wearing two shirts layered on top of each other. The bottom shirt is a light blue long sleeve, turtleneck with a white t-shirt layered on top of it. Her pants are grey and are ripped at the knee, with dark red converse shoes and a dark red beanie with cat ears on it and a grey skull pin on the left side. She has long wavy blonde hair and brown eyes, she is smiling. The background is light purple with dark purple spots scattered throughout."
+                            title="picrew by @hellosunnycore on Tumblr!">
+                        </a>
+                        <article class="flex-column entries" style="width: 50%;">
+                            <h3>
+                                Entries from 2024
+                            </h3>
+                            <div class="flex-column">
+                                <p>
+                                    <a href="https://starry-knight.neocities.org/my-room-links/blog-entries/2024-08-01">August 01-2024 :<br> "I wish I had this when I was a kid." </a>
+                                </p>
+                            </div>
+                            <img src="https://files.catbox.moe/fwz01p.gif" alt="" style="width: 3em; margin-left: auto; margin-right: auto;">
+                        </article>
+                    </div>
+                    <div class="flex-row">
+                        <!-- rainbow star divider here -->
+                        <img src="https://files.catbox.moe/wmfo9e.png" alt="" class="space-divider">
                     </div>
                 </main>
-                <!-- right aside starts here -->
-                <div class="flex-column">
-                    <aside class="rightside" id="rightside-surfweb">
-                        <h3>
-                            Surf the Web
-                        </h3>
-                        <p>
-                            Click a button to go to another cool website! Have fun :3
-                        </p>
-                        <div class="flex-row" style="flex-wrap: wrap; justify-content: space-evenly;">
-                            <a href="https://dokode.moe/">
-                                <img src="/images/index-imgs/button-dokodemo.gif" alt="Dokodemo">
-                            </a>
-                            <a href="https://confettiguts.gay/">
-                                <img src="/images/index-imgs/button-confettiguts.png" alt="Confetti Guts">
-                            </a>
-                            <a href="https://komichi.neocities.org/">
-                                <img src="images/index-imgs/button-komichi.gif" alt="Komichi"> 
-                            </a>
-                            <a href="https://ray-of-sunshine.net/">
-                                <img src="/images/index-imgs/button-ray-of-sunshine.png" alt="Ray of Sunshine">
-                            </a>
-                            <a href="https://snewberry.neocities.org">
-                                <img style="image-rendering: pixelated" src="images/index-imgs/button-snewberry.gif" alt="Snewberry" loading="lazy">
-                            </a>
-                            <a href="https://nowa.garden/">
-                                <img src="images/index-imgs/button-nowa-garden.png" alt="Nowa Garden" loading="lazy">
-                            </a> 
-                            <a href="https://linwood.neocities.org/" >
-                                <img src="/images/index-imgs/button-linwood.gif" alt="Linwood" loading="lazy">
-                           </a>
-                            <a href="https://cyberneticdryad.neocities.org/">
-                                <img src="images/index-imgs/button-cybernetic-dryad.gif" alt="Cybernetic Dryad" loading="lazy">
-                            </a>
-                            <a href="https://jeith.neocities.org/" loading="lazy">
-                                <img src="/images/index-imgs/button-jeith.gif" alt="jeith">
-                            </a>
-                            <a href="https://vivarism.net/">
-                                <img src="/images/index-imgs/button-vivarism.gif" alt="Vivarism" loading="lazy">
-                            </a>
-                            <a href="https://doqmeat.com/">
-                                <img src="images/index-imgs/button-doqmeat.png" alt="Doqmeat" loading="lazy">
-                            </a>
-                            <a href="https://adilene.net/">
-                                <img src="/images/index-imgs/button-virtual-diva.gif" alt="Virtual Diva" loading="lazy"> 
-                            </a>
-                            <a href="https://sunnyday.neocities.org/">
-                                <img src="images/index-imgs/button-sunny-day.png" alt="Sunny Day" loading="lazy">
-                            </a>
-                            <a href="https://wrender.neocities.org/">
-                                <img src="/images/index-imgs/button-wrendering.gif" alt="Wrendering" loading="lazy">
-                            </a>
-                            <a href="https://nenrikido.neocities.org/">
-                                <img src="images/index-imgs/button-nenrikido.gif" alt="Nenrikdo" loading="lazy">
-                            </a>
-                            <a href="https://ne0nbandit.neocities.org/">
-                                <img src="images/index-imgs/button-neonbandit-street.png" alt="NeonBandit Street" loading="lazy">
-                            </a>
-                            <a href="https://petrapixel.neocities.org/" loading="lazy">
-                                <img src="https://github.com/petracoding/petrapixel.neocities.org/blob/master/public/img/linkback.webp?raw=true" alt="petrapixel">
-                            </a>
-                            <a href="https://yapi.lol/" loading="lazy">
-                                <img src="/images/index-imgs/button-yapi-lol.gif" alt="yapi.lol">
-                            </a> 
-                            <a href="https://wasongo.art">
-                                <img loading="lazy" src="/images/index-imgs/button-wasongo.gif" alt="Button for wasongo.art">
-                            </a>
-                            <a href="https://velvetblue.neocities.org">
-                                <img src="images/index-imgs/button-velvet-blue.png" alt="Velvet Blue" loading="lazy">
-                            </a>
-                            <a href="https://corvidae.digital/">
-                                <img src="images/index-imgs/button-corvidae-digital.gif" alt="Corvidae Digital" loading="lazy">
-                           </a>
-                            <a href="https://solaria.neocities.org/">
-                                <img src="images/index-imgs/button-solaria.png" alt="Solaria's Webspace" loading="lazy">
-                            </a>
-                            <a href="https://cinnamuff.neocities.org/">
-                                <img src="images/index-imgs/button-cinnamuff.png" alt="Cinnamuff" loading="lazy">
-                            </a>
-                            <a href="https://pandurso.neocities.org/">
-                                <img src="images/index-imgs/button-pandurso.gif" alt="Pandurso" loading="lazy">
-                            </a>
-                            <a href="https://dcavederps.neocities.org/">
-                                <img src="/images/index-imgs/button-dcave-derps.gif" alt="DcaveDerps. A button portraying a pixelated white cat looking around on loop. There's a large arrow pointing to it next to text saying 'look at this funny cat'." loading="lazy">
-                            </a>
-                        </div>
-                    </aside>
-                </div>
             </div>
             <footer class="footer">
-                <p style="margin: -0.4em;">
+                <p style="margin: -0.5em;">
                     ♡ Lovingly crafted by Starry - May 2024
                 </p>
                 <div class="flex-row" style="justify-content: space-evenly; width: 18em; margin: auto;">
-                    <a href="https://code.visualstudio.com/">
-                        <img src="https://files.catbox.moe/38kwe7.png" alt="Made with Visual Code Studio.">
-                    </a>  
-                    <img src="/images/index-imgs/button-capybara-club.gif" alt="Capybara now!" style="height: 31px;">
-                    <a href="https://neocities.org/">
-                        <img src="https://files.catbox.moe/2nqsyz.gif" alt="Hosted on Neocities.">
-                    </a>
+                    <img src="/images/icon-cat-jig.gif" alt="">
+                    <a href="#top">Back to top</a>
+                    <img src="/images/icon-cat-jig.gif" alt="" style="transform: scaleX(-1)">
                 </div>
             </footer>
-        </div>
+        </div>            
     </body>
 </html>
