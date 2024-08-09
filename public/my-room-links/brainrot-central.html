@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/style.css">
+        <link rel="icon" href="/images/icon-green-plant.ico">
+        <title>Brainrot Central - Starry's Grove</title>
+        <style>
+            @media only screen and (max-width: 700px) {
+                .flex-rightside {
+                    flex-direction: row;
+                }
+                .main {
+                    width: auto;
+                }
+                .flex-middle {
+                  flex-direction:  column;
+                }
+                nav ul li {
+                    padding-right:10px;
+                    font-size:0.7em !important;
+                    padding-top: 6px;
+                }
+                .chara-catagory a {
+                    padding-right:10px;
+                    font-size:0.8em !important;
+                }
+                h1 {
+                    font-size: 1.2em;
+                    max-width:36ch;
+                    /* idk if this does anything or not BUT it works so we leaving it there */
+                    text-wrap: wrap !important;
+                    display: inline-block;
+                }
+                h2, h3 {
+                    font-size: 1.3em;
+                    text-wrap: wrap;
+                }
+                p {
+                    font-size: 1em;
+                }
+                .leftside-jukebox {
+                    width: 45%;
+                    height: fit-content;
+                }
+                #room-nav {
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    font-size: 1.2em;
+                }
+                #room-nav {
+                    width: 65%;
+                }
+                #room-nav > h2 {
+                    margin-top: 5px;
+                }
+            }
+            @media only screen and (max-width: 500px) {
+                .flex-main {
+                  flex-direction: column-reverse;
+                  margin-left: 0.5em;
+                  margin-right: auto;
+                }
+                h1 {
+                    margin-top: 0px;
+                    margin-bottom: 0px;
+                    display: inline-block;
+                    line-height: 1.2;
+                }
+                .chara-info-container-left {
+                    flex-direction: column;
+                }
+                .chara-info-container-right {
+                    flex-direction: column-reverse;
+                }
+                .main-text {
+                    width: 86% !important;
+                }
+                .chara-img {
+                    width: 90% !important;
+                    height: 90% !important;
+                }
+            }
+            /*pulled from stack overflow, allows the home nav link to hide on desktop and show on mobile*/
+            @media screen and (max-width: 480px) {
+                .show-on-desktop {
+                    display: none;
+                }
+            }
+            @media screen and (min-width: 700px) {
+                .hide-on-desktop {
+                    display: none;
+                    }
+            }
+            @font-face {
+                src: url(https://dl.dropbox.com/s/g3x81o9erdbepda/Candy%20Cake.ttf);
+                font-family: candie;
+            }
+            h1 {
+                font-family: "candie";
+                font-size: 2.5em;
+                line-height: 1;
+            }
+            /* NOTE TO SELF: DO NOT TOUCH THIS. IT WORKS. IDK WHY OR HOW OM */
+            .main > [id] {
+	            display: none;
+            }
+            .main > [id]:target {
+                display:block !important;
+            }
+            /* END OF AREA*/
+            .chara-catagory {
+                font-family: "subheader-font";
+                justify-content: space-between;
+                margin: 2em;
+                flex-wrap: wrap;
+                line-height: 1.5;
+            }
+            .chara-catagory a:link {
+                color: #8a1063;
+            }
+            #room-nav {
+                font-family: "main-text-font";
+                list-style-type: none;
+            }
+            #room-nav h2 {
+                margin-bottom: -15px;
+            }
+            #room-nav li {
+                display: block;
+                margin-top: 0.5em;
+                margin-bottom: 0.5em;
+                margin-left: 0;
+                margin-right: 0;
+                font-weight: bold;
+            }
+            :root{
+                --headercolor: #08582b;
+                --boxbgcolor: #ffffff;
+                --maintextcolor: #2e1806;
+                /*border info*/
+                --bordermain: 6px double #cc3c84
+                ; 
+                --borderaside: 2px solid #cc3c84
+                ;
+                --borderheader: 2px solid #cc3c84
+                ;
+            }
+            .main-container img, section {
+                margin: 1em;
+            }
+            .main-text {
+                border: 2.5px dashed #c76194;
+                border-radius: 10px;
+                width: 60%;
+                margin-top: auto;
+                margin-bottom: auto;
+                background-color: #ffffff;
+            }
+            .chara-img {
+                width: 40%;
+                height: 40%;
+            }
+            .jukebox {
+                height: auto;
+            }
+            .navbar {
+                width: auto;
+            }
+            nav ul {
+                /*this takes away the bullet points*/
+                list-style-type:none;
+                padding-left:0;
+                display:flex;
+                flex-wrap:wrap;
+                justify-content: center;
+            }
+            nav ul li {
+                padding-right:10px;
+                margin: auto;
+            }
+            html {
+                background-image: url("https://files.catbox.moe/06k5pe.gif");
+            }   
+            .banner {
+                background-image: url('https://files.catbox.moe/chqrd4.png');
+                height: 40px;
+            }
+            .header-imgs img {
+                width: 15%;
+                height: 15%; 
+                margin:auto;
+            }   
+            .main {
+                background-image: url('https://files.catbox.moe/6kl8i1.gif');
+            }   
+            .intro {
+                text-align: left;
+                margin-top: -25px;
+            }
+        </style>
+        <script>
+            /* this is also solaria's script for the jukebox */
+            function stopmusic() {
+                var y = document.getElementsByTagName('audio');
+                for(var j=0; j<y.length; j++) {
+                    y[j].pause();
+                }
+                document.getElementById('marq').innerHTML = 'no music is playing';
+            }  
+            function playsong() {
+                var y = document.getElementsByTagName('audio');
+                for(var j=0; j<y.length; j++) {
+                    y[j].pause();
+                }
+                var songvalue = event.target.value;
+                    document.getElementsByTagName('audio')[songvalue].currentTime = 0;
+                    document.getElementsByTagName('audio')[songvalue].play();
+                    document.getElementById('marq').innerHTML = event.target.title;
+            }
+        </script>        
+    </head>
+    <body>
+        <div class="flex-body">
+            <div class="banner"></div>
+        </div>
+        <!-- use multiple classes to differientiate between similar names -->
+        <div class="flex-body body-main">
+            <header class="header">
+                <div class="flex-row header-imgs">
+                    <img src="https://files.catbox.moe/d9x1oe.png" alt="">
+                    <h1>
+                        Brainrot Central
+                    </h1>
+                    <img src="https://files.catbox.moe/d9x1oe.png" alt="" style="transform: scaleX(-1);">
+                </div> 
+            </header>
+            <div class="leftside navbar">
+                <nav>
+                    <ul class="custom-bullets">
+                        <li>
+                            <a href="https://starry-knight.neocities.org">
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://starry-knight.neocities.org/library">
+                                Library
+                            </a>
+                        </li>                                   
+                        <li>
+                            <a href="https://starry-knight.neocities.org/art-gallery">
+                                Art Gallery
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://starry-knight.neocities.org/my-room">
+                                My Room
+                            </a>
+                        </li>
+                        <li>
+                            <a href="link.here">
+                            Greenhouse
+                            </a>
+                        </li>
+                        <li>
+                            <a href="link.goes.here">
+                                Scrapbook
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://starry-knight.neocities.org/resources">
+                                Resources
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="flex-row flex-middle">
+                <div class="flex-column flex-rightside">
+                    <!-- left aside starts here -->
+                    <aside class="leftside leftside-jukebox">
+                        <!-- this is solaria's script for a jukebox -->
+                        <div class="jukebox">
+                            <button class="activate">
+                                <img src="/images/img-green-radio.gif" alt="Open for song options for the music player.">
+                            </button>
+                            <ul>
+                                <button onclick="stopmusic()">stop music</button>
+                                <li><button value="0" title="You Are Smart - Katamari Damacy" onclick="playsong()">katamari-you-are-smart.mp3	
+                                    <audio><source src="https://files.catbox.moe/3zbiql.mp3" type="audio/mp3"></audio>
+                                </button></li>
+                                <li><button value="1" title="Sayonara Rolling Star (Yuri‘s Mixx) - Katamari Forever" onclick="playsong()">katamari-sayonara-rolling-star.mp3	
+                                    <audio><source src="https://files.catbox.moe/vi64pc.mp3" type="audio/mp3"></audio>
+                                </button></li>
+                            </ul>
+                            <marquee> 
+                                <p id="marq">☆ select a song! ☆</p>
+                            </marquee>
+                            <script>
+                                var y = document.getElementsByTagName('audio');
+                                for(var j=0; j<y.length; j++) {
+                                    y[j].onended = function() {
+                                        document.getElementById('marq').innerHTML = 'select a song!';
+                                    };
+                                }
+                            </script>
+                        </div> 
+                    </aside>
+                    <aside class="leftside" id="room-nav">
+                        <h2 style="background-color: transparent;">
+                            Bookshelf
+                        </h2>
+                        <nav class="flex-column" style=" justify-content: space-evenly; flex-direction: column;">
+                            <ul>
+                                <li>
+                                    <a href="https://starry-knight.neocities.org/my-room-links/fanlists">
+                                        Fanlistings
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://starry-knight.neocities.org/my-room-links/blog-archive">
+                                        Blog Archive
+                                    </a>
+                                </li>
+                                <li style="color: #4a0543;">
+                                    Brainrot Central<br> (WIP)
+                                </li>
+                            </ul>       
+                        </nav>
+                    </aside>
+                </div>
+                <main class="main flex-column" style="justify-content: center;">
+                    <div class="flex-row chara-catagory">
+                        <a href="#1">Anime</a>
+                        <a href="#2">Webtoons</a>
+                        <a href="#3">Videogames</a>
+                        <a href="#4">TV Shows</a>
+                        <a href="#5">Misc.</a>
+                    </div>
+                    <p class="intro">
+                        Here's a collection of characters I really like. :3
+                        I've put them into their respective groups above, just click a link to see more. Also, I will not be censoring myself about how I feel about these characters lmao.
+                        If 'cringe' or someone being unfiltered and honest bothers you, you can <a href="https://starry-knight.neocities.org">go back to the home page.</a>
+                        If not, happy scrolling! :3 
+                    </p>
+                    <div class="flex-column main-container" id="1">
+                        <h2>
+                            Anime Characters
+                        </h2>
+                        <article class="flex-row chara-info-container-left"  style="justify-content: space-evenly;">
+                            <img class="chara-img" src="https://files.catbox.moe/xs9kew.png" style="background-image: url(https://files.catbox.moe/aco93x.webp); background-size:cover; background-clip:padding-box;">
+                            <section class="main-text">
+                                <p>
+                                    Cupcake ipsum dolor sit amet cake croissant fruitcake muffin.
+                                </p>
+                            </section>
+                        </article>
+                        <article class="flex-row chara-info-container-right" style="justify-content: space-evenly;">
+                            <section class="main-text">
+                                <p>
+                                    Cupcake ipsum dolor sit amet cake croissant fruitcake muffin. <br>
+                                    Sweet bonbon candy powder cheesecake muffin sesame snaps jujubes.<br>
+                                    Muffin macaroon cheesecake cookie souffl&eacute; cookie cheesecake lollipop candy canes.<br>
+                                    Halvah cotton candy sesame snaps chocolate bar.
+                                </p>
+                            </section>
+                            <img class="chara-img" src="https://files.catbox.moe/9v9io3.png">
+                        </article>
+                        <article class="flex-row chara-info-container-left"  style="justify-content: space-evenly;">
+                            <img class="chara-img" src="https://files.catbox.moe/xs9kew.png">
+                            <section class="main-text">
+                                <p>
+                                    Cupcake ipsum dolor sit amet cake croissant fruitcake muffin. <br>
+                                    Sweet bonbon candy powder cheesecake muffin sesame snaps jujubes.<br>
+                                    Muffin macaroon cheesecake cookie souffl&eacute; cookie cheesecake lollipop candy canes.<br>
+                                    Halvah cotton candy sesame snaps chocolate bar.
+                                </p>
+                            </section>
+                        </article>
+                    </div>
+                    <div class="flex-column main-container" id="2">
+                        <h2>
+                            Webtoon Characters
+                        </h2>
+                        <article class="flex-row chara-info-container-left"  style="justify-content: space-evenly;">
+                            <img class="chara-img" src="https://files.catbox.moe/xs9kew.png">
+                            <section class="main-text">
+                                <p>
+                                    Cupcake ipsum dolor sit amet cake croissant fruitcake muffin. <br>
+                                    Sweet bonbon candy powder cheesecake muffin sesame snaps jujubes.<br>
+                                    Muffin macaroon cheesecake cookie souffl&eacute; cookie cheesecake lollipop candy canes.<br>
+                                    Halvah cotton candy sesame snaps chocolate bar.
+                                </p>
+                            </section>
+                        </article>
+                        <article class="flex-row chara-info-container-right" style="justify-content: space-evenly;">
+                            <section class="main-text">
+                                <p>
+                                    Cupcake ipsum dolor sit amet cake croissant fruitcake muffin. <br>
+                                    Sweet bonbon candy powder cheesecake muffin sesame snaps jujubes.<br>
+                                    Muffin macaroon cheesecake cookie souffl&eacute; cookie cheesecake lollipop candy canes.<br>
+                                    Halvah cotton candy sesame snaps chocolate bar.
+                                </p>
+                            </section>
+                            <img class="chara-img" src="https://files.catbox.moe/9v9io3.png">
+                        </article>
+                        <article class="flex-row chara-info-container-left"  style="justify-content: space-evenly;">
+                            <img class="chara-img" src="https://files.catbox.moe/xs9kew.png">
+                            <section class="main-text">
+                                <p>
+                                    Cupcake ipsum dolor sit amet cake croissant fruitcake muffin. <br>
+                                    Sweet bonbon candy powder cheesecake muffin sesame snaps jujubes.<br>
+                                    Muffin macaroon cheesecake cookie souffl&eacute; cookie cheesecake lollipop candy canes.<br>
+                                    Halvah cotton candy sesame snaps chocolate bar.
+                                </p>
+                            </section>
+                        </article>
+                    </div>
+                    <div class="flex-column main-container" id="3">
+                        <h2>
+                            Videogame Characters
+                        </h2>
+                        <article class="flex-row chara-info-container-left"  style="justify-content: space-evenly;">
+                            <img class="chara-img" src="https://files.catbox.moe/xs9kew.png">
+                            <section class="main-text">
+                                <p>
+                                    Cupcake ipsum dolor sit amet cake croissant fruitcake muffin. <br>
+                                    Sweet bonbon candy powder cheesecake muffin sesame snaps jujubes.<br>
+                                    Muffin macaroon cheesecake cookie souffl&eacute; cookie cheesecake lollipop candy canes.<br>
+                                    Halvah cotton candy sesame snaps chocolate bar.
+                                </p>
+                            </section>
+                        </article>
+                        <article class="flex-row chara-info-container-right" style="justify-content: space-evenly;">
+                            <section class="main-text">
+                                <p>
+                                    Cupcake ipsum dolor sit amet cake croissant fruitcake muffin. <br>
+                                    Sweet bonbon candy powder cheesecake muffin sesame snaps jujubes.<br>
+                                    Muffin macaroon cheesecake cookie souffl&eacute; cookie cheesecake lollipop candy canes.<br>
+                                    Halvah cotton candy sesame snaps chocolate bar.
+                                </p>
+                            </section>
+                            <img class="chara-img" src="https://files.catbox.moe/9v9io3.png">
+                        </article>
+                        <article class="flex-row chara-info-container-left"  style="justify-content: space-evenly;">
+                            <img class="chara-img" src="https://files.catbox.moe/xs9kew.png">
+                            <section class="main-text">
+                                <p>
+                                    Cupcake ipsum dolor sit amet cake croissant fruitcake muffin. <br>
+                                    Sweet bonbon candy powder cheesecake muffin sesame snaps jujubes.<br>
+                                    Muffin macaroon cheesecake cookie souffl&eacute; cookie cheesecake lollipop candy canes.<br>
+                                    Halvah cotton candy sesame snaps chocolate bar.
+                                </p>
+                            </section>
+                        </article>
+                    </div>
+                    <div class="flex-column main-container" id="4">
+                        <h2>
+                            TV Shows
+                        </h2>
+                        <article class="flex-row chara-info-container-left"  style="justify-content: space-evenly;">
+                            <img class="chara-img" src="https://files.catbox.moe/xs9kew.png">
+                            <section class="main-text">
+                                <p>
+                                    Cupcake ipsum dolor sit amet cake croissant fruitcake muffin. <br>
+                                    Sweet bonbon candy powder cheesecake muffin sesame snaps jujubes.<br>
+                                    Muffin macaroon cheesecake cookie souffl&eacute; cookie cheesecake lollipop candy canes.<br>
+                                    Halvah cotton candy sesame snaps chocolate bar.
+                                </p>
+                            </section>
+                        </article>
+                        <article class="flex-row chara-info-container-right" style="justify-content: space-evenly;">
+                            <section class="main-text">
+                                <p>
+                                    Cupcake ipsum dolor sit amet cake croissant fruitcake muffin. <br>
+                                    Sweet bonbon candy powder cheesecake muffin sesame snaps jujubes.<br>
+                                    Muffin macaroon cheesecake cookie souffl&eacute; cookie cheesecake lollipop candy canes.<br>
+                                    Halvah cotton candy sesame snaps chocolate bar.
+                                </p>
+                            </section>
+                            <img class="chara-img" src="https://files.catbox.moe/9v9io3.png">
+                        </article>
+                        <article class="flex-row chara-info-container-left"  style="justify-content: space-evenly;">
+                            <img class="chara-img" src="https://files.catbox.moe/xs9kew.png">
+                            <section class="main-text">
+                                <p>
+                                    Cupcake ipsum dolor sit amet cake croissant fruitcake muffin. <br>
+                                    Sweet bonbon candy powder cheesecake muffin sesame snaps jujubes.<br>
+                                    Muffin macaroon cheesecake cookie souffl&eacute; cookie cheesecake lollipop candy canes.<br>
+                                    Halvah cotton candy sesame snaps chocolate bar.
+                                </p>
+                            </section>
+                        </article>
+                    </div>
+                    <div class="flex-column main-container" id="5">
+                        <h2>
+                            Misc. Characters
+                        </h2>
+                        <p>
+                            This article is for characters that don't fit in any other catagory.
+                        </p>
+                        <article class="flex-row chara-info-container-left"  style="justify-content: space-evenly;">
+                            <img class="chara-img" src="https://files.catbox.moe/xs9kew.png">
+                            <section class="main-text">
+                                <p>
+                                    Cupcake ipsum dolor sit amet cake croissant fruitcake muffin. <br>
+                                    Sweet bonbon candy powder cheesecake muffin sesame snaps jujubes.<br>
+                                    Muffin macaroon cheesecake cookie souffl&eacute; cookie cheesecake lollipop candy canes.<br>
+                                    Halvah cotton candy sesame snaps chocolate bar.
+                                </p>
+                            </section>
+                        </article>
+                        <article class="flex-row chara-info-container-right" style="justify-content: space-evenly;">
+                            <section class="main-text">
+                                <p>
+                                    Cupcake ipsum dolor sit amet cake croissant fruitcake muffin. <br>
+                                    Sweet bonbon candy powder cheesecake muffin sesame snaps jujubes.<br>
+                                    Muffin macaroon cheesecake cookie souffl&eacute; cookie cheesecake lollipop candy canes.<br>
+                                    Halvah cotton candy sesame snaps chocolate bar.
+                                </p>
+                            </section>
+                            <img class="chara-img" src="https://files.catbox.moe/9v9io3.png">
+                        </article>
+                        <article class="flex-row chara-info-container-left"  style="justify-content: space-evenly;">
+                            <img class="chara-img" src="https://files.catbox.moe/xs9kew.png">
+                            <section class="main-text">
+                                <p>
+                                    Cupcake ipsum dolor sit amet cake croissant fruitcake muffin. <br>
+                                    Sweet bonbon candy powder cheesecake muffin sesame snaps jujubes.<br>
+                                    Muffin macaroon cheesecake cookie souffl&eacute; cookie cheesecake lollipop candy canes.<br>
+                                    Halvah cotton candy sesame snaps chocolate bar.
+                                </p>
+                            </section>
+                        </article>
+                    </div>
+                    <img src="https://files.catbox.moe/y7m91g.gif" style="margin-left: auto; margin-right: auto;">
+                </main>
+            </div>
+            <footer class="footer">
+                <p style="margin: -0.5em;">
+                    ♡ Lovingly crafted by Starry - May 2024
+                </p>
+                <div class="flex-row" style="justify-content: space-evenly; width: 18em; margin: auto;">
+                    <img src="/images/icon-cat-jig.gif" alt="">
+                    <a href="#top">Back to top</a>
+                    <img src="/images/icon-cat-jig.gif" alt="" style="transform: scaleX(-1)">
+                </div>
+            </footer>
+        </div>            
+    </body>
+</html>
