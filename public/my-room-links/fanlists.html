@@ -62,11 +62,11 @@
                     width: 45%;
                     height: fit-content;
                 }
-                #room-nav {
-                    width: 65%;
-                }
                 #room-nav > h2 {
                     margin-top: 5px;
+                }
+                #flower-divider {
+                    display: none;
                 }
             }
             .fanlist-games > a >img {
@@ -121,7 +121,11 @@
             }
             html {
                 background-image: url("https://files.catbox.moe/x9k56y.gif");
-            }          
+            }  
+            #flower-divider {
+                width: 20%; 
+                height: 20%;
+            }       
         </style>
         <script>
             /* this is also solaria's script for the jukebox */
@@ -202,9 +206,8 @@
             </div>
             <div class="flex-row flex-middle">
                 <div class="flex-column flex-rightside">
-                    <!-- left aside starts here -->
+                    <!--
                     <aside class="leftside leftside-jukebox">
-                        <!-- this is solaria's script for a jukebox -->
                         <div class="jukebox">
                             <button class="activate">
                                 <img src="/images/img-green-radio.gif" alt="Open for song options for the music player.">
@@ -227,7 +230,7 @@
                                 }
                             </script>
                         </div> 
-                    </aside>
+                    </aside> -->
                     <aside class="leftside" id="room-nav">
                         <h2 style="background-color: transparent;">
                             Bookshelf
@@ -253,7 +256,7 @@
                 <main class="main">
                     <h2 style="margin-bottom: -10px;">What's that?</h2>
                     <div class="flex-row" style="justify-content: space-between; margin-top: auto; margin-bottom: auto;">
-                        <img src="/images/fanlists-imgs/div-vertical-pink-flower-vine.gif" style="width: 20%; height: 20%; transform: scaleX(-1);">
+                        <img src="/images/fanlists-imgs/div-vertical-pink-flower-vine.gif" id="flower-divider" style="transform: scaleX(-1);">
                         <p style="margin-left: 1em; margin-right: 1em; text-align: left;">
                             A <strong>fanlisting</strong> is a very literally, a list of fans from all over the world.
                             Fans of what? Well <strong>anything</strong> and <strong>everything</strong> you could think of!
@@ -263,7 +266,7 @@
                             Here's some of the fanlistings I've joined. Click the image to learn more about it<br>
                             o(〃＾▽＾〃)o
                         </p>
-                        <img src="/images/fanlists-imgs/div-vertical-pink-flower-vine.gif" style="width: 20%; height: 20%;">
+                        <img src="/images/fanlists-imgs/div-vertical-pink-flower-vine.gif" id="flower-divider">
                        <!-- <a href="">
                             <img src="/images/fanlists-imgs/img-picrew-starry-silly.png" title="made with @reelrollsweat's picrew"
                             style="height: 40%; margin: 0.5em; border: 2px dashed #4f6c38;; border-radius: 5px;">
