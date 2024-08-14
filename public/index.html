@@ -82,6 +82,12 @@
                 .decor {
                     display: none;
                 }
+                .flex-counters {
+                    width: 50% !important;
+                }
+                #poll-container {
+                    width: 50% !important;
+                }
             }
             @media only screen and (max-width: 500px) {
                 li {
@@ -107,9 +113,12 @@
                     flex-wrap: wrap;
                 }
                 .flex-counters {
-                    width: 8.7em;
+                    width: 40% !important;
+                    height: fit-content;
                 }
-
+                #poll-container {
+                    width: 46% !important;
+                }
             }
             /*pulled from stack overflow, allows the home nav link to hide on desktop and show on mobile*/
             @media screen and (max-width: 480px) {
@@ -174,7 +183,12 @@
                 padding-right:10px;
                 margin: auto;
             }
-
+            #poll-code {
+                width: 175px;
+                height: 167px;
+                border-style: none;
+                margin-left: -7px;
+            }
         </style>
         <script>
             /* this is also solaria's script for the jukebox. I CANNOT WRITE JAVASCRIPT */
@@ -257,9 +271,8 @@
             <!-- flex-middle contains all left asides, main, and right asides -->
             <div class="flex-row flex-middle">
                 <div class="flex-column" id="flex-leftside">
-                    <!-- left aside starts here -->
+                    <!--
                     <aside class="leftside leftside-jukebox">
-                        <!-- this is solaria's script for a jukebox -->
                         <div class="jukebox">
                             <button class="activate">
                                 <img src="/images/img-green-radio.gif" alt="Open for song options for the music player.">
@@ -297,7 +310,7 @@
                                 }
                             </script>
                         </div> 
-                    </aside>
+                    </aside> -->
                     <aside class="leftside" id="leftside-todo">
                         <h2>
                             To-Do List
@@ -328,8 +341,8 @@
                             </section>
                         </div>
                     </aside>
-                    <aside class="leftside" style="background-color:#d0eba6; border: 2.5px solid #3e5a26;">
-                        <iframe src="https://starryknight06.github.io/neocities/public/pollcode.html" width="175px" height="167px" style="border-style: none; margin-left: -7px;">
+                    <aside class="leftside" id="poll-container" style="background-color:#d0eba6; border: 2.5px solid #3e5a26;">
+                        <iframe src="https://starryknight06.github.io/neocities/public/pollcode.html" id="poll-code">
                         </iframe>
                     </aside>
                     <aside class="leftside flex-counters">
