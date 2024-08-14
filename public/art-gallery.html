@@ -93,7 +93,7 @@
             }
             .responsive {padding: 10px;
                 /*changes sizing of images*/
-                width: 13.5rem;
+                width: 15rem;
             }
             @media only screen and (max-width: 700px) {
                 .responsive {
@@ -103,6 +103,18 @@
                 .scrolling-box {
                     height: 27rem;
                 }
+                #rose-divider {
+                    margin: auto;
+                    display: block;
+                    width: 76% !important;
+                }
+                #intro {
+                    margin: auto;
+                    width: 95% !important;
+                }
+                .flex-friendsart>img{
+                    width: 60% !important;
+                }
             }
             @media only screen and (max-width: 500px) {
                 .responsive {width: 100%;}
@@ -111,6 +123,14 @@
                 }
                 #intro {
                     flex-direction: column;
+                    width: 90%;
+                    margin: auto;
+                    display: block; 
+                }
+                #rose-divider {
+                    margin: auto;
+                    display: block;
+                    width: 98% !important;
                 }
                 li {
                     margin: 0.4em;
@@ -120,6 +140,9 @@
                     margin-bottom: 0px;
                     display: inline-block;
                     line-height: 1.2;
+                }
+                .flex-friendsart>img{
+                    width: 70% !important;
                 }
             }
             /*pulled from stack overflow, allows the home nav link to hide on desktop and show on mobile*/
@@ -131,10 +154,10 @@
             @media screen and (min-width: 700px) {
                 .hide-on-desktop {
                     display: none;
-                    }
+                }
             }
             .flex-friendsart>img{
-                width: 60%;
+                width: 50%;
             }
             .flex-friendsart{
                 width: 30%;
@@ -148,6 +171,15 @@
                 background-color:rgba(255, 255, 255, 0.934);
                 color: #0e0601;
                 border-radius: 10px;
+            }
+            #rose-divider {
+                margin: auto;
+                display: block;
+                width: 76%;
+            }
+            #intro {
+                margin: auto;
+                width: 75%;
             }
         </style>
         <script>
@@ -225,36 +257,8 @@
             </div>
             <!-- flex-middle contains all left asides, main, and right asides -->
             <div class="flex-row flex-middle">
-                <div class="flex-column">
-                    <!-- left aside starts here -->
-                    <aside class="leftside leftside-jukebox">
-                        <!-- this is solaria's script for a jukebox -->
-                        <div class="jukebox">
-                            <button class="activate">
-                                <img src="/images/img-green-radio.gif" alt="Open for song options for the music player.">
-                            </button>
-                            <ul>
-                                <button onclick="stopmusic()">stop music</button>
-                                <li><button value="0" title="Quilty Court - Kirby's Epic Yarn" onclick="playsong()">kirby-quality-court.mp3	
-                                    <audio><source src="https://files.catbox.moe/8vg00n.mp3" type="audio/mp3"></audio>
-                                </button></li>
-                            </ul>
-                            <marquee> 
-                                <p id="marq">☆ select a song! ☆</p>
-                            </marquee>
-                            <script>
-                                var y = document.getElementsByTagName('audio');
-                                for(var j=0; j<y.length; j++) {
-                                    y[j].onended = function() {
-                                        document.getElementById('marq').innerHTML = 'select a song!';
-                                    };
-                                }
-                            </script>
-                        </div> 
-                    </aside>
-                </div>
                 <main class="main">
-                    <img src="/images/art-gallery-imgs/div-purple-rose.gif" width="100%">
+                    <img src="/images/art-gallery-imgs/div-purple-rose.gif" id="rose-divider">
                     <div class="flex-row" id="intro">
                         <p style="text-align: left;">Here you'll find a collection of my artworks. <strong>Click</strong> the image to see the full image in another tab.<br>
                             ✿ <br>
@@ -264,7 +268,7 @@
                         <img src="/images/art-gallery-imgs/img-drawing-girl.gif" style="height: 24%;width: 24%;margin: auto;margin-left: 2em;">
                         <img src="/images/art-gallery-imgs/img-drawing-girl2.gif" style="height: 24%;width: 24%;margin: auto;margin-right: 2em;">
                     </div>
-                    <img src="/images/art-gallery-imgs/div-purple-rose.gif" width="100%">
+                    <img src="/images/art-gallery-imgs/div-purple-rose.gif" id="rose-divider">
                     <h3>❀ Character Art ❀</h3>
                     <div class="scrolling-box">
                         <div class="flex-row flex-charaart" style="flex-wrap: wrap;">
@@ -833,7 +837,7 @@
                             </div>
                         </div>
                     </div>
-                    <img src="/images/art-gallery-imgs/div-purple-rose.gif" width="100%">
+                    <img src="/images/art-gallery-imgs/div-purple-rose.gif" id="rose-divider">
                     <h3>Check out my art buddies!</h3>
                     <div class="flex-row" style="flex-wrap: wrap;">
                         <div class="flex-column flex-friendsart">
