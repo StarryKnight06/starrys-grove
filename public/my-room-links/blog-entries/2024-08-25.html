@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/style.css">
+        <link rel="icon" href="/images/icon-green-plant.ico">
+        <title>Blog Archive - Starry's Grove</title>
+        <style>
+            :root{
+                --headercolor: #08582b;
+                --boxbgcolor: #f9f3fd;
+                --maintextcolor: #2e1806;
+                /*border info*/
+                --bordermain: 6px double #690b71; 
+                --borderaside: 2px solid #4a085f;
+                --borderheader: 2px solid #4a085f;
+            }
+            .custom-bullets2{
+                list-style-image: url("https://files.catbox.moe/nctx6o.gif");
+                font-family:"main-text-font";
+                color: var(--maintextcolor);
+            }
+            a:link{
+                color: #0663c0;
+                text-decoration: none;
+            }
+            @media only screen and (max-width: 700px) {
+                .flex-middle {
+                  flex-direction:  column;
+                }
+                .flex-rightside {
+                    flex-direction: row;
+                }
+                .main {
+                    width: auto;
+                }
+                .new-content-sticker, .blinkies {
+                    display: none;
+                }
+                nav ul li {
+                    padding-right:10px;
+                    font-size:0.7em !important;
+                    padding-top: 6px;
+                }
+                h1 {
+                    font-size: 1.2em;
+                    max-width:36ch;
+                    /* idk if this does anything or not BUT it works so we leaving it there */
+                    text-wrap: wrap !important;
+                    display: inline-block;
+                }
+                h2, h3 {
+                    font-size: 1.3em;
+                    text-wrap: wrap;
+                }
+                p {
+                    font-size: 1em;
+                }
+                #room-nav {
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    font-size: 1.2em;
+                    width: 100% !important;
+                }
+                .leftside-jukebox {
+                    width: 45%;
+                    height: fit-content;
+                }
+                #room-nav {
+                    width: 65%;
+                }
+                #room-nav > h2 {
+                    margin-top: 5px;
+                }
+            }
+            @media only screen and (max-width: 500px) {
+                .flex-main {
+                  flex-direction: column-reverse;
+                  margin-left: 0.5em;
+                  margin-right: auto;
+                }
+                #picrew-pfp {
+                    width: 100%;
+                }
+                h1 {
+                    margin-top: 0px;
+                    margin-bottom: 0px;
+                    display: inline-block;
+                    line-height: 1.2;
+                }
+                .entries {
+                    width: 100% !important;
+                }
+                .space-divider {
+                    width: 100%;
+                }
+                .rightside {
+                    display: none;
+                }
+            }
+            /*pulled from stack overflow, allows the home nav link to hide on desktop and show on mobile*/
+            @media screen and (max-width: 480px) {
+                .show-on-desktop {
+                    display: none;
+                }
+            }
+            @media screen and (min-width: 700px) {
+                .hide-on-desktop {
+                    display: none;
+                    }
+            }
+            .rightside {
+                border-style: none;
+                background: transparent;
+            }
+            .blog-entry p {
+                text-align: left; 
+                margin-left: 1em; 
+                margin-right: 1em;
+            }
+            #picrew-pfp {
+                width: 17em;
+                height: 17em;
+                border: 2.5px dashed #4f6c38;
+                border-radius: 10px; 
+                margin: 1em;
+                display: block;
+            }
+            #shroom-pet {
+                margin:auto;
+            }
+            .jukebox {
+                height: auto;
+            }
+            .custom-bullets {
+                list-style: none;
+            }
+            .navbar {
+                width: auto;
+            }
+            nav ul {
+                /*this takes away the bullet points*/
+                list-style-type:none;
+                padding-left:0;
+                display:flex;
+                flex-wrap:wrap;
+                justify-content: center;
+            }
+            nav ul li {
+                padding-right:10px;
+                margin: auto;
+            }
+            #room-nav {
+                font-family: "main-text-font";
+                list-style-type: none;
+            }
+            #room-nav h2 {
+                margin-bottom: -15px;
+            }
+            #room-nav li {
+                display: block;
+                margin-top: 0.5em;
+                margin-bottom: 0.5em;
+                margin-left: 0;
+                margin-right: 0;
+                font-weight: bold;
+            }
+            .entries p {
+                font-size: 1.2em;
+            }
+            html {
+                background-image: url("https://files.catbox.moe/vu01a3.gif");
+            }          
+        </style>
+        <script>
+            /* this is also solaria's script for the jukebox */
+            function stopmusic() {
+                var y = document.getElementsByTagName('audio');
+                for(var j=0; j<y.length; j++) {
+                    y[j].pause();
+                }
+                document.getElementById('marq').innerHTML = 'no music is playing';
+            }  
+            function playsong() {
+                var y = document.getElementsByTagName('audio');
+                for(var j=0; j<y.length; j++) {
+                    y[j].pause();
+                }
+                var songvalue = event.target.value;
+                    document.getElementsByTagName('audio')[songvalue].currentTime = 0;
+                    document.getElementsByTagName('audio')[songvalue].play();
+                    document.getElementById('marq').innerHTML = event.target.title;
+            }
+        </script>        
+    </head>
+    <body>
+        <div class="flex-body">
+            <div class="banner" alt="" style="background-image: url(https://files.catbox.moe/pvf8er.gif); height: 20px;"></div>
+        </div>
+        <!-- use multiple classes to differientiate between similar names -->
+        <div class="flex-body body-main">
+            <header class="header">
+                <div class="flex-row">
+                    <img src="https://files.catbox.moe/kzqvnq.gif" alt="" style="width: 5%; height: 5%; margin:auto;transform: scaleX(-1);">
+                    <h1>
+                        Blog Archive
+                    </h1>
+                    <img src="https://files.catbox.moe/kzqvnq.gif" alt="" style="width: 5%; height: 5%; margin:auto;">
+                </div> 
+            </header>
+            <div class="leftside navbar">
+                <nav>
+                    <ul class="custom-bullets">
+                        <li>
+                            <a href="https://starry-knight.neocities.org">
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://starry-knight.neocities.org/library">
+                                Library
+                            </a>
+                        </li>                                   
+                        <li>
+                            <a href="https://starry-knight.neocities.org/art-gallery">
+                                Art Gallery
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://starry-knight.neocities.org/my-room">
+                                My Room
+                            </a>
+                        </li>
+                        <li>
+                            <a href="link.here">
+                            Greenhouse
+                            </a>
+                        </li>
+                        <li>
+                            <a href="link.goes.here">
+                                Scrapbook
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://starry-knight.neocities.org/resources">
+                                Resources
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="flex-row flex-middle">
+                <div class="flex-column flex-rightside">
+                    <!--
+                    <aside class="leftside leftside-jukebox">
+                        <div class="jukebox">
+                            <button class="activate">
+                                <img src="/images/img-green-radio.gif" alt="Open for song options for the music player.">
+                            </button>
+                            <ul>
+                                <button onclick="stopmusic()">stop music</button>
+                                <li><button value="0" title="Lost Girl - Deltarune Chapter 2" onclick="playsong()">deltarune-lost-girl.mp3	
+                                    <audio><source src="" type="audio/mp3"></audio>
+                                </button></li>
+                            </ul>
+                            <marquee> 
+                                <p id="marq">☆ select a song! ☆</p>
+                            </marquee>
+                            <script>
+                                var y = document.getElementsByTagName('audio');
+                                for(var j=0; j<y.length; j++) {
+                                    y[j].onended = function() {
+                                        document.getElementById('marq').innerHTML = 'select a song!';
+                                    };
+                                }
+                            </script>
+                        </div> 
+                    </aside> -->
+                    <aside class="leftside" id="room-nav">
+                        <h2 style="background-color: transparent;">
+                            Bookshelf
+                        </h2>
+                        <nav class="flex-column" style=" justify-content: space-evenly; flex-direction: column;">
+                            <ul>
+                                <li>
+                                    <a href="https://starry-knight.neocities.org/my-room-links/fanlists">
+                                        Fanlistings
+                                    </a>
+                                </li>
+                                <li style="color: #b9283b;">
+                                    <i>Blog Archive</i> (Here!)
+                                </li>
+                                <li>
+                                    <a href="https://starry-knight.neocities.org/my-room-links/brainrot-central">
+                                        Brainrot Central
+                                    </a>
+                                </li>
+                            </ul>       
+                        </nav>
+                    </aside>
+                </div>
+                <main class="main blog-entry">
+                        <article>
+                            <h2>
+                                "The menstrual cycle sucks"
+                            </h2>
+                            <p>
+                                <b>Date:</b> Aug 25, 2024<br>
+                                <b>Mood:</b> Kinda miffed / mad at the education system <br>
+                                <b>Time:</b> 11:06pm<br>
+                                <b>Listening to:</b> Blow My Brains Out - Tikkle Me (it's not a wild song i swear lol. that's just the title)<br>
+                            </p>    
+                            <p>
+                                Fellow period havers.. have yall ever felt HORRIBLE and look at the calendar like oh! 
+                                My period starts next week, it's PMS, again. Mine just ended recently so I was wondering why I was feeling like crap AGAIN, seemingly for no reason. 
+                                Turns out PMS not only stands for PreMenstrual Syndrome but also PostMenstrual Syndrome!
+                                So this means some people can experience PMS symptoms both <strong>before</strong> and <strong>after</strong> their period ends. 
+                            </p>
+                            <p>
+                               <em>I am, unfortunatly, one of those people.</em> (｡T ω T｡)
+                            </p>
+                            <p>
+                                Legit, was sitting in bed like "everything is bad, why is everything bad rn. i was feeling fine yesterday what happened?"
+                                Hormones happened. Apparently, (don't quote me on this, I just did a lil google search) something about estrogen levels dropping after your period is over?
+                                And that can cause a shift in mood. How fun. Really hate how for me, a whole like <strong>10 days</strong> I'm just in <em>hormone hell.</em>
+                            </p>
+                            <p>
+                                Kinda disapointed how education about women's health is so... not talked about, in detail??
+                                I recently learned about a part of my anatomy that I was COMPLETELY UNAWARE OF ALL MY LIFE.
+                                HOW DOES THIS HAPPEN?? Had to go find this info <em>myself</em> because nobody ever told me. 
+                            </p>
+                            <p>
+                                Also, didn't know until a handful of years ago that it's called the menstrual <em>CYCLE</em> for a reason.
+                                It's because there's different phases that happens throughout the cycle, it's not just menstruation.
+                                (WTF is a luteal phase and a follicular phase??)
+                                Hormones fluctuate and do all this crazy stuff throughout the <em>whole</em> month and then the cycle starts again.
+                            </p>
+                            <p>
+                                I thought it was just "Yeah you get your period once a month. That's it." But no! 
+                                There's so much stuff that goes on in the background like (again, don't quote me on this. do your own research if you're curious)
+                                an increase of progesterone and estrogen to thicken the uterine lining. 
+                                All this to prepare for the <em>possibility</em> of an egg getting fertilized but if not! 
+                                These hormones come into play again, thining the uterine lining and boom that's menstruation right there.
+                            </p>
+                            <p>
+                                I'll have to do some more research on this tbh. I wonder how much more I don't know that I should.
+                                I recommend using <a href="https://helloclue.com/" target="_blank">Clue's website</a> for more info on this. 
+                                They have some great resources and a period tracker app!
+                                They have a detailed privacy policy on their website if you're worried about, ahem, 
+                                <strong>the govnt that's trying to take away our bodily autonomy.</strong>
+                                I think your info is safe on the app honestly. It's based in Germany so privacy things fall under their jurisdiction (paraphrasing).
+                            </p>
+                            <p>
+                                I'll end this off with saying, go and be curious! 
+                                Learn about your anatomy and how your body works because <strong>nobody</strong> will teach you otherwise if you don't know anything.
+                            </p>
+                            <p>
+                                And break the taboo of talking about periods!
+                                I'm not out here in pain and suffering a 3rd of every month for someone to say it's "inappropriate" to discuss.
+                            </p>
+                            <p>
+                                Love yourself, love your body, and get a heating pad for cramps,
+                                <br>
+                                <em>-Starry</em> (ღ˘⌣˘ღ)<br>
+                                <br>
+                                <em>(P.S. why do I always get progressively more pissed while I'm typing these LOL)</em>
+                            </p>
+                            <p style="text-align: center; font-size: 1.1em;">
+                                <a href="https://starry-knight.neocities.org/my-room-links/blog-archive">Go back to the list of entries</a>
+                            </p>
+                            <img src="https://files.catbox.moe/xlsy6w.gif" alt="" style="display: block; margin: auto">
+                        </article>
+                </main>
+                <aside class="rightside" style="width: 25%; justify-content: space-evenly;">
+                    <div class="flex-column">
+                        <img src="https://files.catbox.moe/pai0da.gif" alt="" style="width: 80%;">
+                    </div>
+                </aside>
+            </div>
+            <footer class="footer">
+                <p style="margin: -0.5em;">
+                    ♡ Lovingly crafted by Starry - May 2024
+                </p>
+                <div class="flex-row" style="justify-content: space-evenly; width: 18em; margin: auto;">
+                    <img src="/images/icon-cat-jig.gif" alt="">
+                    <a href="#top">Back to top</a>
+                    <img src="/images/icon-cat-jig.gif" alt="" style="transform: scaleX(-1)">
+                </div>
+            </footer>
+        </div>            
+    </body>
+</html>
