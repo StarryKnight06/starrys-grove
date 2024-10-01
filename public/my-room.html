@@ -63,7 +63,7 @@
                     font-size: 1.2em;
                 }
                 .leftside-jukebox {
-                    width: 45%;
+                    width: 100%;
                     height: fit-content;
                 }
                 #room-nav {
@@ -74,6 +74,15 @@
                 }
             }
             @media only screen and (max-width: 500px) {
+                .flex-rightside {
+                    flex-direction: column;
+                }
+                #room-nav {
+                    width: auto;
+                }
+                .leftside-jukebox {
+                    width: auto;
+                }
                 .flex-main {
                   flex-direction:  column;
                 }
@@ -89,11 +98,15 @@
                 #status-content {
                     font-size: 0.87em;
                 }
+                body {
+                    margin: 0px;
+                }
                 h1 {
                     margin-top: 0px;
                     margin-bottom: 0px;
                     display: inline-block;
                     line-height: 1.2;
+                    font-size: 1.2em;
                 }
             }
             /*pulled from stack overflow, allows the home nav link to hide on desktop and show on mobile*/
@@ -274,7 +287,6 @@
             </div>
             <div class="flex-row flex-middle">
                 <div class="flex-column flex-rightside">
-                    <!-- 
                     <aside class="leftside leftside-jukebox">
                         <div class="jukebox">
                             <button class="activate">
@@ -283,10 +295,10 @@
                             <ul>
                                 <button onclick="stopmusic()">stop music</button>
                                 <li><button value="0" title="You Are Smart - Katamari Damacy" onclick="playsong()">katamari-you-are-smart.mp3	
-                                    <audio><source src="" type="audio/mp3"></audio>
+                                    <audio><source src="https://files.catbox.moe/3zbiql.mp3" type="audio/mp3"></audio>
                                 </button></li>
                                 <li><button value="1" title="Sayonara Rolling Star (Yuri‘s Mixx) - Katamari Forever" onclick="playsong()">katamari-sayonara-rolling-star.mp3	
-                                    <audio><source src="" type="audio/mp3"></audio>
+                                    <audio><source src="https://files.catbox.moe/vi64pc.mp3" type="audio/mp3"></audio>
                                 </button></li>
                             </ul>
                             <marquee> 
@@ -301,7 +313,7 @@
                                 }
                             </script>
                         </div> 
-                    </aside> -->
+                    </aside>
                     <aside class="leftside" id="room-nav">
                         <h2 style="background-color: transparent;">
                             Bookshelf
