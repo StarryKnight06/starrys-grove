@@ -12,10 +12,7 @@
                 .home-button {
                     display: none;
                 }
-                .flex-middle{
-                    flex-direction: column;
-                }
-                .navbar,.main,.leftside-jukebox{
+                .navbar,.main{
                     width: auto;
                 }
                 .new-content-sticker{
@@ -44,6 +41,15 @@
                 p {
                     font-size: 1em;
                 }
+            }
+            .flex-middle{
+                flex-direction: column;
+            }
+            .leftside-jukebox {
+                width: auto;
+            }
+            .main {
+                width: auto;
             }
             nav ul {
                 /*this takes away the bullet points*/
@@ -86,7 +92,7 @@
             div.desc {
                 padding: 15px;
                 text-align: center;
-                background-image: url("https://files.catbox.moe/3rww0q.gif");
+                background-image: url("/images/backgrounds/bg-blue-green-elegant.gif");
             }
             * {
                 box-sizing: border-box;
@@ -257,6 +263,35 @@
             </div>
             <!-- flex-middle contains all left asides, main, and right asides -->
             <div class="flex-row flex-middle">
+                <div class="flex-column">
+                    <aside class="leftside leftside-jukebox">
+                        <div class="jukebox">
+                            <button class="activate">
+                                <img src="/images/img-green-radio.gif" alt="Open for song options for the music player.">
+                            </button>
+                            <ul>
+                                <button onclick="stopmusic()">stop music</button>
+                                <li><button value="0" title="Fall - Harvest Moon: Island of Happiness" onclick="playsong()">harvest-moon-fall.mp3	
+                                    <audio><source src="https://files.catbox.moe/je9snl.mp3" type="audio/mp3"></audio>
+                                </button></li>
+                                <li><button value="1" title="Goddess Spring (Night)- Harvest Moon: Animal Parade" onclick="playsong()">harvest-moon-spring-goddess-night.mp3
+                                    <audio><source src="https://files.catbox.moe/yttm93.mp3" type="audio/mp3"></audio>
+                                </button></li>
+                            </ul>
+                            <marquee> 
+                                <p id="marq">☆ select a song! ☆</p>
+                            </marquee>
+                            <script>
+                                var y = document.getElementsByTagName('audio');
+                                for(var j=0; j<y.length; j++) {
+                                    y[j].onended = function() {
+                                        document.getElementById('marq').innerHTML = 'select a song!';
+                                    };
+                                }
+                            </script>
+                        </div> 
+                    </aside>
+                </div>
                 <main class="main">
                     <img src="/images/art-gallery-imgs/div-purple-rose.gif" id="rose-divider">
                     <div class="flex-row" id="intro">
@@ -899,9 +934,9 @@
                     ♡ Lovingly crafted by Starry - May 2024
                 </p>
                 <div class="flex-row" style="justify-content: space-evenly; width: 18em; margin: auto;">
-                    <img src="https://files.catbox.moe/b5sdd7.gif" alt="">
+                    <img src="/images/img-lil-cat-dancing.gif" alt="">
                     <a href="#top">Back to top</a>
-                    <img src="https://files.catbox.moe/b5sdd7.gif" alt="" style="transform: scaleX(-1)">
+                    <img src="/images/img-lil-cat-dancing.gif" alt="" style="transform: scaleX(-1)">
                 </div>
             </footer>
         </div>
