@@ -119,6 +119,9 @@
                 #poll-container {
                     width: 46% !important;
                 }
+                #tree-decor {
+                    display: none !important;
+                }
             }
             /*pulled from stack overflow, allows the home nav link to hide on desktop and show on mobile*/
             @media screen and (max-width: 480px) {
@@ -189,6 +192,41 @@
                 border-style: none;
                 margin-left: -7px;
             }
+            #rss {
+                border: 2px solid #4f6c38; 
+                border-radius: 5px; 
+                width: 90%;
+                height: 200px;
+                display: block;
+                margin:auto;
+                background-image: url('https://files.catbox.moe/c2y8fi.gif');
+		    }
+            #rss h4 a {
+			    color: rgb(50, 118, 182);
+		    }
+		    #rss h3 {
+			    display: none;
+		    }
+            #rss h4, p {
+                padding: 1.1em;
+            }
+		    #rss h4 {
+                font-size: 1.2em;
+			    margin: auto;
+                text-align: left;
+                background-color:rgba(255, 255, 255, 0.922);
+                border-top-right-radius: 10px;
+                border-top-left-radius: 10px;
+		    }
+		    #rss p {
+			    margin: auto;
+                margin-bottom: 2em;
+                text-align: left;
+                background-color:rgba(255, 255, 255, 0.922);
+                border-bottom-right-radius: 10px;
+                border-bottom-left-radius: 10px;
+                padding-top: 0px;
+		    }
         </style>
         <script>
             /* this is also solaria's script for the jukebox. I CANNOT WRITE JAVASCRIPT */
@@ -247,7 +285,7 @@
                             <a href="https://starry-knight.neocities.org/my-room">
                                 My Room
                             </a>
-                            <!-- <img src="/images/img-updated-postit.gif" class="new-content-sticker" alt="updated content sticker"> -->
+                            <img src="/images/img-updated-postit.gif" class="new-content-sticker" alt="updated content sticker">
                         </li>
                         <li style="color: #463529;">
                             <a href="link.here">
@@ -270,7 +308,6 @@
             <!-- flex-middle contains all left asides, main, and right asides -->
             <div class="flex-row flex-middle">
                 <div class="flex-column" id="flex-leftside">
-                    <!--
                     <aside class="leftside leftside-jukebox">
                         <div class="jukebox">
                             <button class="activate">
@@ -309,7 +346,7 @@
                                 }
                             </script>
                         </div> 
-                    </aside> -->
+                    </aside>
                     <aside class="leftside" id="leftside-todo">
                         <h2>
                             To-Do List
@@ -349,17 +386,17 @@
                             <b>You are visitor number:</b>
                         </p>
                         <div class="flex-column" style="padding-left: 2em;">
-                        <!-- FC2 Counter  Starts here -->
-                        <script language="javascript" type="text/javascript" src="//counter1.fc2.com/counter.php?id=39765184&main=1"></script><noscript><img src="//counter1.fc2.com/counter_img.php?id=39765184&main=1" /></noscript>
-                        <!-- FC2 Counter  Ends here -->
+                            <!-- FC2 Counter  Starts here -->
+                            <script language="javascript" type="text/javascript" src="//counter1.fc2.com/counter.php?id=39765184&main=1"></script><noscript><img src="//counter1.fc2.com/counter_img.php?id=39765184&main=1" /></noscript>
+                            <!-- FC2 Counter  Ends here -->
                         </div>
                         <p style="margin-bottom: -5px; margin-top: -0.5px;">
                             <b>Current Viewers:</b>
                         </p>
                         <div class="flex-column" style="padding-left: 2em;">
-                        <!-- FC2 Counter  Starts here -->
-                        <script language="javascript" type="text/javascript" src="//counter1.fc2.com/views.php?id=39765184&main=1"></script><noscript><img src="//counter1.fc2.com/counter_now.php?id=39765184&main=1" /></noscript>
-                        <!-- FC2 Counter  Ends here -->
+                            <!-- FC2 Counter  Starts here -->
+                            <script language="javascript" type="text/javascript" src="//counter1.fc2.com/views.php?id=39765184&main=1"></script><noscript><img src="//counter1.fc2.com/counter_now.php?id=39765184&main=1" /></noscript>
+                            <!-- FC2 Counter  Ends here -->
                         </div>
                     </aside>
                     <aside class="leftside flex-column decor decor-left">
@@ -389,7 +426,7 @@
                                 <em>If the site looks weird, please clear your cache
                                 or press ctrl + f5. I am constantly updating things.</em> 
                             </p>                         
-                            <img src="/images/index-imgs/img-tree.gif" alt="" style="margin: auto; width: 30%; padding: 0.8em">
+                            <img src="/images/index-imgs/img-tree.gif" id="tree-decor" alt="" style="margin: auto; width: 30%; padding: 0.8em">
                         </div>
                     </article>
                     <img src="/images/index-imgs/div-lily-valley.gif" alt="" style="width:100%; height: auto;">
@@ -424,13 +461,21 @@
                         </div>
                     </article>
                     <article>
-                        <h2 style="text-align: left; margin-bottom: -2px;">
-                            Update Logs
-                        </h2>
+                        <div class="flex-row" style="justify-content:space-between;">
+                            <h2 style="text-align: left; margin-bottom: -2px;">
+                                Update Logs
+                            </h2>
+                            <a href="https://starry-knight.neocities.org/rss.xml">
+                                <img src="/images/index-imgs/img-rss-feed-button.gif" style="margin: 1em; width: auto; height: auto;" alt="RSS feed">
+                            </a>
+                        </div>
                         <p style="text-align: left; margin-top: -2px;">
-                            Here's the link if you want to view the <a href="https://starry-knight.neocities.org/update-log">full log page.</a> <strong>Flashbang warning:</strong> this page is all white.
+                            Below is my RSS feed, it's like an activity feed for my site updates. You can use a RSS reader like <a href="https://feeder.co/reader">Feeder</a> on mobile and PC (theres a <a href="https://chromewebstore.google.com/detail/rss-feed-reader/pnjaodmkngahhkoihejjehlcdlnohgmp?hl=en-US">chrome extension</a> for PC) to view these updates.
+                            Click the orange feed button above for the RSS URL.
                         </p>
-                        <iframe src="https://starry-knight.neocities.org/update-log" style="border: 2px solid #4f6c38; border-radius: 5px; width: 96%; display: block; margin:auto; background-image: url('https://files.catbox.moe/c2y8fi.gif');"></iframe>
+                        <div id="rss" class="scrolling-box">
+                            <script src="//rss.bloople.net/?url=https%3A%2F%2Fstarry-knight.neocities.org%2Frss.xml&showtitle=false&type=js"></script>
+                        </div>
                     </article>
                     <article>
                         <h2>
