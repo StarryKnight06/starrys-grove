@@ -8,24 +8,220 @@
 		<description>Web updates for my digital cottage in the forest (✿◠‿◠)</description>
 
 		<item>
-			<title>Baby's First RSS</title>
-			<link>https://starry-knight.neocities.org/</link>
+			<title>Finished Library Reviews</title>
+			<link>https://starry-knight.neocities.org/library</link>
             <pubDate>Mon, 30 Sep 2024 19:21:21 -0500</pubDate>
 			<description>
-                Updates:&#x3C;br&#x3E;
                 ☘ Finally finished the webtoon reviews in the library&#x3C;br&#x3E;
                 &#x3C;br&#x3E;
                 Hii I'm back coding again :D I made an RSS feed so ppl who want to keep up with site updates can! It's really useful so you don't have to make a neocities account to stay updated. I think everyone should make one =w= Anyway, I used &#x3C;a href=&#x22;https://doqmeat.com/notebook/tutorials/rss/#setup&#x22;&#x3E; Doqmeat&#x27;s guide&#x3C;/a&#x3E; on how to make an RSS feed. It was really easy to understand :3
             </description>
 		</item>
 
+        <item>
+	        <title>Aug 25 Blog Entry</title>
+	        <link>https://starry-knight.neocities.org/my-room-links/blog-entries/2024-08-25</link>
+	        <pubDate>Sun, 25 Aug 2024 17:40:56 -0500</pubDate>
+	        <description>
+                ☘ Just me yapping about women's health and the education system
+            </description>
+	    </item>
+
+        <item>
+	        <title>Aug 17 Blog Entry</title>
+	        <link>https://starry-knight.neocities.org/my-room-links/blog-entries/2024-08-17</link>
+	        <pubDate>Sat, 17 Aug 2024 17:40:56 -0500</pubDate>
+	        <description>
+                ☘ Life update!
+            </description>
+	    </item>
+
+        <item>
+	        <title>New Webpage is Live</title>
+	        <link>https://starry-knight.neocities.org/my-room-links/brainrot-central</link>
+	        <pubDate>Wed, 14 Aug 2024 17:40:56 -0500</pubDate>
+	        <description>
+                ☘ I really loved making this lol. Enjoy learning about these fictional characters I like =w=&#x3C;br&#x3E;
+                &#x3C;br&#x3E;
+                Also I took away the site music temporarily because I don't want nintendo to come and shoot me out back lol. I'll try to find some non copyrighted music to use soon.
+            </description>
+	    </item>
+
+        <item>
+	        <title>Some Minor Updates</title>
+	        <link>https://starry-knight.neocities.org/my-room</link>
+	        <pubDate>Sat, 10 Aug 2024 17:40:56 -0500</pubDate>
+	        <description>
+                ☘ Added some stuff in the about me section&#x3C;br&#x3E;
+                ☘ Added new site buttons to the home page&#x3C;br&#x3E;
+                ☘ Minor changes
+            </description>
+	    </item>
+
+        <item>
+	        <title>Mini Updates</title>
+	        <link>https://starry-knight.neocities.org/</link>
+	        <pubDate>Fri, 02 Aug 2024 17:40:56 -0500</pubDate>
+	        <description>
+                ☘ More site buttons!&#x3C;br&#x3E;
+                ☘ Moved visitor counter and current viewer counter to sidebar&#x3C;br&#x3E;
+                ☘ Changed the footer. You can now jump to the top of the page in the footer (except on the home page)&#x3C;br&#x3E;
+                &#x3C;br&#x3E;
+                Also, I can now update my files from Github :D I used &#x3C;a href=&#x22;https://petrapixel.neocities.org/blog/neocities-automatic-deployment&#x22;&#x3E; Petrapixel&#x27;s guide&#x3C;/a&#x3E; on how to do so
+            </description>
+	    </item>
+
+        <item>
+	        <title>First Blog Entry / Homepage Changes</title>
+	        <link>https://starry-knight.neocities.org/my-room-links/blog-entries/2024-08-01</link>
+	        <pubDate>Thu, 01 Aug 2024 17:40:56 -0500</pubDate>
+	        <description>
+                ☘ Posted my first blog entry!&#x3C;br&#x3E;
+                ☘ Added webpage for blog archive&#x3C;br&#x3E;
+                ☘ Moved the update log to the main part of the homepage and made the navigation bar horizontal near the top of the page&#x3C;br&#x3E;
+                &#x3C;br&#x3E;
+                I've been learning what iframes are! Pretty cool :3 The update log will probably be in an iframe
+            </description>
+	    </item>
+
+        <item>
+	        <title>HTML Resources!</title>
+	        <link>https://starry-knight.neocities.org/resources</link>
+	        <pubDate>Sat, 27 Jul 2024 17:40:56 -0500</pubDate>
+	        <description>
+                ☘ Added resources for those who might be interested in making a website too :3&#x3C;br&#x3E;
+                &#x3C;br&#x3E;
+                I'm also gonna make my own website template sometime soon
+            </description>
+	    </item>
+
+        <item>
+	        <title>My Room Webpage is Up!</title>
+	        <link>https://starry-knight.neocities.org/my-room</link>
+	        <pubDate>Fri, 26 Jul 2024 17:40:56 -0500</pubDate>
+	        <description>
+                ☘ Welcome to my room! It has my blog and all things me related&#x3C;br&#x3E;
+                ☘ Moved fanlistings to into my room
+            </description>
+	    </item> 
+
+        <item>
+	        <title>Guestbook Added</title>
+	        <link>https://starry-knight.neocities.org/</link>
+	        <pubDate>Wed, 03 Jul 2024 17:40:56 -0500</pubDate>
+	        <description>
+                ☘ I have a guestbook now! It's at the bottom of the homepage&#x3C;br&#x3E;
+                ☘ Moved fanlistings to it's own page
+            </description>
+	    </item> 
+
+        <item>
+	        <title>New Fanlistings Page</title>
+	        <link>https://starry-knight.neocities.org/my-room-links/fanlists</link>
+	        <pubDate>Tue, 02 Jul 2024 17:40:56 -0500</pubDate>
+	        <description>
+                ☘ New fanlistings and webrings section 
+            </description>
+	    </item> 
+
+        <item>
+	        <title>The Library is Live!</title>
+	        <link>https://starry-knight.neocities.org/library</link>
+	        <pubDate>Mon, 01 Jul 2024 17:40:56 -0500</pubDate>
+	        <description>
+                ☘ New library webpage! It's a collection of webtoons I like, a summary, and my thoughts on them &#x3C;br&#x3E;
+                &#x3C;br&#x3E;
+                I'm so happy with how it turned out :3 I think the bookcase looks really good. I'll finish writing my reviews periodically
+            </description>
+	    </item> 
+
+        <item>
+	        <title>Minor Updates Again</title>
+	        <link>https://starry-knight.neocities.org/</link>
+	        <pubDate>Sat, 29 Jun 2024 17:40:56 -0500</pubDate>
+	        <description>
+                ☘ Added web rating panda to the homepage, my website is rated WEB-14 btw! &#x3C;br&#x3E;
+                ☘ Added button that links back to the neocities home page in the surf the web section
+            </description>
+	    </item> 
+
+        <item>
+	        <title>Jukebox Player / I Love Flexbox</title>
+	        <link>https://starry-knight.neocities.org/</link>
+	        <pubDate>Sat, 22 Jun 2024 17:40:56 -0500</pubDate>
+	        <description>
+                ☘ Added jukebox using &#x3C;a href=&#x22;https://solaria.neocities.org/jukeboxtut&#x22;&#x3E;Solaria&#x27;s&#x3C;/a&#x3E; script!&#x3C;br&#x3E;
+                ☘ Added my OC portrait and featured artwork section&#x3C;br&#x3E;
+                &#x3C;br&#x3E;
+                I switched back to flexbox again after going back and fully learning how it works. Flexbox is so good when you know what you're doing lol
+            </description>
+	    </item> 
+
+        <item>
+	        <title>Added Music Player / Not Found Page</title>
+	        <link>https://starry-knight.neocities.org/</link>
+	        <pubDate>Fri, 14 Jun 2024 17:40:56 -0500</pubDate>
+	        <description>
+                ☘ Added music players to home page and art gallery page&#x3C;br&#x3E;
+                ☘ Added not found page, it's space themed ^w^&#x3C;br&#x3E;
+                &#x3C;br&#x3E;
+                It'll be a place holder for the rest of the navigation links till I finish them
+            </description>
+	    </item> 
+
+        <item>
+	        <title>Art Gallery is Finished!</title>
+	        <link>https://starry-knight.neocities.org/art-gallery</link>
+	        <pubDate>Wed, 12 Jun 2024 17:40:56 -0500</pubDate>
+	        <description>
+                ☘ The art gallery is done! Go check it out :3
+            </description>
+	    </item> 
+
+        <item>
+	        <title>New Mobile Layout and More</title>
+	        <link>https://starry-knight.neocities.org/</link>
+	        <pubDate>Fri, 07 Jun 2024 17:40:56 -0500</pubDate>
+	        <description>
+                ☘ New mobile site layout, custom cursor, and site icon&#x3C;br&#x3E;
+                &#x3C;br&#x3E;
+                I kinda don't like how the mobile layout turned out but it's okay
+            </description>
+	    </item> 
+
+        <item>
+	        <title>Added Links in Navbar / Layout Changes / etc</title>
+	        <link>https://starry-knight.neocities.org/</link>
+	        <pubDate>Thu, 06 Jun 2024 17:40:56 -0500</pubDate>
+	        <description>
+                ☘ Added about the webmaster, plant pets, cool sites (WITH WORKING LINKS AND HOVER TEXT), hover text in the nav bar, visitor counter&#x3C;br&#x3E;
+                ☘ Changed greeting text (more descriptive about the site overall), stamp train to be more in line with the theme&#x3C;br&#x3E;
+                ☘ I FIXED THE SITE LAYOUT. NO LONGER WILL I BE RESTRAINED BY THE CURSE OF 'FLEXBOX'!!! I AM FREE! I LOVE GRIDS!!!!!!&#x3C;br&#x3E;
+                &#x3C;br&#x3E;
+                It was a beginner's mistake to try and do the WHOLE SITE in flexbox oh my god (note from future me: DONT LISTEN TO ME! JUST LEARN HOW TO USE FLEX-BOX PROPERLY I DONT KNOW WHAT IM TALKING ABOUT AAAAA)&#x3C;br&#x3E;
+                &#x3C;br&#x3E;
+                Other than that, I made a lot of good progress today! I really love how the about me and the plants section turned out :3
+            </description>
+	    </item> 
+
+        <item>
+	        <title>Site Creation!</title>
+	        <link>https://starry-knight.neocities.org/</link>
+	        <pubDate>Sat, 25 May 2024 17:40:56 -0500</pubDate>
+	        <description>
+               I started writing logs on June 6th but I was working on things before then
+            </description>
+	    </item> 
+
     <!--  TEMPLATE RSS FEED  -->
-    <!-- <item>
-	<title>title of the update 1</title>
-	<link>https://URL-OF-THE-UPDATE2</link>
-	<pubDate>Tue, 09 Jul 2024 15:00:00 -0400</pubDate>
-	<description>this is a description of the update</description>
-	</item> -->
-    
+    <!--<item>
+	        <title>title of the update 1</title>
+	        <link>https://URL-OF-THE-UPDATE2</link>
+	        <pubDate>Tue, 09 Jul 2024 15:00:00 -0500</pubDate>
+	        <description>
+                this is a description of the update
+            </description>
+	    </item> -->
+
 	</channel>
 </rss>
