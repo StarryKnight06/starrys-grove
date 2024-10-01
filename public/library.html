@@ -32,7 +32,7 @@
                 }
                 nav ul li {
                     padding-right:10px;
-                    font-size:0.7em !important;
+                    font-size:0.8em !important;
                     padding-top: 6px;
                 }
                 h1 {
@@ -51,6 +51,9 @@
                 }
             }
             @media only screen and (max-width: 500px) {
+                body {
+                    margin: 0px !important;
+                }
                 #book-img> a > img{
                     width: 30.2% !important;
                 }
@@ -62,6 +65,7 @@
                     margin-bottom: 0px;
                     display: inline-block;
                     line-height: 1.2;
+                    font-size: 1.3em;
                 }
             }
             /*pulled from stack overflow, allows the home nav link to hide on desktop and show on mobile*/
@@ -75,8 +79,9 @@
                     display: none;
                     }
             }
+            
             html{
-                background-image: url("https://files.catbox.moe/zj4u1a.gif");
+                background-image: url("/images/backgrounds/bg-green-wood-wall.gif");
             }
             /*used sadgrl online's horizontal nav bar pencode snippet*/
             nav ul {
@@ -91,7 +96,9 @@
                 padding-right:10px;
                 margin: auto;
             }
-            .custom-bullets {list-style: none;}
+            .custom-bullets {
+                list-style: none;
+            }
             .navbar, .leftside-jukebox {
                 width: auto;
             }
@@ -181,14 +188,14 @@
     </head>
     <body>
         <div class="flex-body">
-            <div class="banner" style="background-image: url(https://files.catbox.moe/65jgjk.gif); height:40px;"></div>
+            <div class="banner" style="background-image: url('/images/library-imgs/div-town.gif'); height:40px;"></div>
         </div>
         <div class="flex-body">
             <header class="header">
                 <div class="flex-row">
-                    <img src="https://files.catbox.moe/cnkv1t.gif" alt="" style="width:7%;height:7%;margin:auto;transform: scaleX(-1);">
+                    <img src="/images/library-imgs/img-penguin-books.gif" alt="" style="width:7%;height:7%;margin:auto;transform: scaleX(-1);">
                     <h1>Library</h1>
-                    <img src="https://files.catbox.moe/cnkv1t.gif" alt="" style="width:7%;height:7%;margin:auto;">
+                    <img src="/images/library-imgs/img-penguin-books.gif" alt="" style="width:7%;height:7%;margin:auto;">
                 </div> 
             </header>
             <div class="leftside navbar">
@@ -230,7 +237,6 @@
                     </ul>
                 </nav>
             </div>
-            <!--
                 <aside class="leftside leftside-jukebox">
                     <div class="jukebox">
                         <button class="activate">
@@ -257,7 +263,7 @@
                             }
                         </script>
                     </div> 
-                </aside> -->
+                </aside>
             <!-- flex-middle contains all left asides, main, and right asides -->
             <main class="main flex-middle" style="width: auto ;justify-content:space-evenly; border: none; background-color: transparent;">
                 <div id="bookshelf" style="height: fit-content;">
@@ -682,9 +688,9 @@
                     ♡ Lovingly crafted by Starry - May 2024
                 </p>
                 <div class="flex-row" style="justify-content: space-evenly; width: 18em; margin: auto;">
-                    <img src="https://files.catbox.moe/b5sdd7.gif" alt="">
+                    <img src="/images/img-lil-cat-dancing.gif" alt="">
                     <a href="#top">Back to top</a>
-                    <img src="https://files.catbox.moe/b5sdd7.gif" alt="" style="transform: scaleX(-1)">
+                    <img src="/images/img-lil-cat-dancing.gif" alt="" style="transform: scaleX(-1)">
                 </div>
             </footer>
         </div>
