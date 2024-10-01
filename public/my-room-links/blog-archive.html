@@ -16,11 +16,6 @@
                 --borderaside: 2px solid #4a085f;
                 --borderheader: 2px solid #4a085f;
             }
-            .custom-bullets2{
-                list-style-image: url("https://files.catbox.moe/nctx6o.gif");
-                font-family:"main-text-font";
-                color: var(--maintextcolor);
-            }
             a:link{
                 color: #0663c0;
                 text-decoration: none;
@@ -75,6 +70,9 @@
                 }
             }
             @media only screen and (max-width: 500px) {
+                body {
+                    margin: 0px !important;
+                }
                 .flex-main {
                   flex-direction: column-reverse;
                   margin-left: 0.5em;
@@ -158,7 +156,7 @@
                 font-size: 1.2em;
             }
             html {
-                background-image: url("https://files.catbox.moe/vu01a3.gif");
+                background-image: url("/images/backgrounds/bg-purple-space.gif");
             }          
         </style>
         <script>
@@ -184,17 +182,17 @@
     </head>
     <body>
         <div class="flex-body">
-            <div class="banner" alt="" style="background-image: url(https://files.catbox.moe/pvf8er.gif); height: 20px;"></div>
+            <div class="banner" alt="" style="background-image: url('/images/blog-archive-imgs/div-pastel-shooting-stars.gif'); height: 20px;"></div>
         </div>
         <!-- use multiple classes to differientiate between similar names -->
         <div class="flex-body body-main">
             <header class="header">
                 <div class="flex-row">
-                    <img src="https://files.catbox.moe/kzqvnq.gif" alt="" style="width: 5%; height: 5%; margin:auto;transform: scaleX(-1);">
+                    <img src="/images/blog-archive-imgs/img-pink-journal-book.gif" alt="" style="width: 5%; height: 5%; margin:auto;transform: scaleX(-1);">
                     <h1>
                         Blog Archive
                     </h1>
-                    <img src="https://files.catbox.moe/kzqvnq.gif" alt="" style="width: 5%; height: 5%; margin:auto;">
+                    <img src="/images/blog-archive-imgs/img-pink-journal-book.gif" alt="" style="width: 5%; height: 5%; margin:auto;">
                 </div> 
             </header>
             <div class="leftside navbar">
@@ -240,7 +238,6 @@
             </div>
             <div class="flex-row flex-middle">
                 <div class="flex-column flex-rightside">
-                    <!--
                     <aside class="leftside leftside-jukebox">
                         <div class="jukebox">
                             <button class="activate">
@@ -249,7 +246,7 @@
                             <ul>
                                 <button onclick="stopmusic()">stop music</button>
                                 <li><button value="0" title="My Castle Town - Deltarune" onclick="playsong()">deltarune-my-castle-town.mp3	
-                                    <audio><source src="" type="audio/mp3"></audio>
+                                    <audio><source src="https://files.catbox.moe/5d1oox.mp3" type="audio/mp3"></audio>
                                 </button></li>
                             </ul>
                             <marquee> 
@@ -264,7 +261,7 @@
                                 }
                             </script>
                         </div> 
-                    </aside> -->
+                    </aside>
                     <aside class="leftside" id="room-nav">
                         <h2 style="background-color: transparent;">
                             Bookshelf
@@ -290,8 +287,8 @@
                 </div>
                 <main class="main">
                     <div class="flex-row">
-                        <!-- rainbow star divider here -->
-                        <img src="https://files.catbox.moe/wmfo9e.png" alt="" class="space-divider">
+                        <!-- space divider here -->
+                        <img src="/images/blog-archive-imgs/div-star-moon-planet.png" alt="" class="space-divider">
                     </div>
                     <div class="flex-row flex-main" style="justify-content: space-evenly;">
                         <div class="flex-column">
@@ -323,12 +320,12 @@
                                     </a>
                                 </p>
                             </div>
-                            <img src="https://files.catbox.moe/fwz01p.gif" alt="" style="width: 3em; margin-left: auto; margin-right: auto;">
+                            <img src="/images/blog-archive-imgs/img-green-lil-alien.gif" alt="" style="width: 3em; margin-left: auto; margin-right: auto;">
                         </article>
                     </div>
                     <div class="flex-row">
-                        <!-- rainbow star divider here -->
-                        <img src="https://files.catbox.moe/wmfo9e.png" alt="" class="space-divider">
+                        <!-- space divider here -->
+                        <img src="/images/blog-archive-imgs/div-star-moon-planet.png" alt="" class="space-divider">
                     </div>
                 </main>
             </div>
@@ -337,9 +334,9 @@
                     ♡ Lovingly crafted by Starry - May 2024
                 </p>
                 <div class="flex-row" style="justify-content: space-evenly; width: 18em; margin: auto;">
-                    <img src="/images/icon-cat-jig.gif" alt="">
+                    <img src="/images/img-lil-cat-dancing.gif" alt="">
                     <a href="#top">Back to top</a>
-                    <img src="/images/icon-cat-jig.gif" alt="" style="transform: scaleX(-1)">
+                    <img src="/images/img-lil-cat-dancing.gif" alt="" style="transform: scaleX(-1)">
                 </div>
             </footer>
         </div>            
