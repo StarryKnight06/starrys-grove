@@ -4,192 +4,108 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="/style.css">
-        <link rel="icon" href="/images/icon-green-plant.ico">
-        <title>Art Gallery - Starry's Grove</title>
+        <link rel="icon" href="/digital-birthday-card/img-cake.ico">
+        <title>
+            Surprise! (kinda lol)
+        </title>
         <style>
-            /* Note to self: put CSS specific to this file in the style element. CSS that applies to all files goes in the style sheet CSS */
-            @media only screen and (max-width: 700px) {
-                .home-button {
-                    display: none;
-                }
-                .navbar,.main{
-                    width: auto;
-                }
-                .new-content-sticker{
-                    display: none;
-                }
-                /*used sadgrl online's horizontal nav bar pencode snippet*/
-                .custom-bullets{
-                    list-style: none;
-                }
-                nav ul li {
-                    padding-right:10px;
-                    font-size:0.7em !important;
-                    padding-top: 6px;
-                }
-                h1 {
-                    font-size: 1.2em;
-                    max-width:36ch;
-                    /* idk if this does anything or not BUT it works so we leaving it there */
-                    text-wrap: wrap !important;
-                    display: inline-block;
-                }
-                h2, h3 {
-                    font-size: 1.3em;
-                    text-wrap: wrap;
-                }
-                p {
-                    font-size: 1em;
-                }
+            .jukebox ul {
+                left: -120px;
+                width: 6em;
             }
-            .flex-middle{
-                flex-direction: column;
+            [id] {
+	            display: none;
             }
-            .leftside-jukebox {
-                width: auto;
+            [id]:target {
+                display:block;
+            }            
+            html {
+                background-image: url('https://files.catbox.moe/k1iez1.gif');
             }
             .main {
-                width: auto;
+                background-image: url('https://files.catbox.moe/phgynu.png');
             }
-            nav ul {
-                /*this takes away the bullet points*/
-                list-style-type:none;
-                padding-left:0;
-                display:flex;
-                flex-wrap:wrap;
-                justify-content: center;
-            }
-            nav ul li {
-                padding-right:10px;
+            .main, .footer {
+                display: block;
                 margin: auto;
+                width: 60%;
+                font-size: 1.1em;
+                background-color: #fefef9;
+                border: 2px solid #16a2ae;
+                border-radius: 15px;
             }
-            .flex-friendsart>img{
-                width: 55%;
-                border: 2px solid #4f6c38;
-                border-radius: 65px;
-                margin:auto;
+            .main p {
+                text-align: left;
             }
-            h3{
-                text-decoration: none;
+            .banner2 {
+                width: 60%;
+                margin: auto;
+                border-radius: 0px;
             }
-            .scrolling-box{
-                height: 25rem;
+            .banner {
+                width: 60%;
+                margin: auto;
+                border-radius: 13px;
             }
-            html {
-                background-image: url("https://files.catbox.moe/drmoix.png")
+            .img-hor-vert {
+                -moz-transform: scale(-1, -1);
+                -o-transform: scale(-1, -1);
+                -webkit-transform: scale(-1, -1);
+                transform: scale(-1, -1);
             }
-            div.gallery {
-                border: 1px solid #ccc;
+            .happybd img {
+                width:20%;
+                height:20%; 
+                margin:auto;  
             }
-            div.gallery:hover {
-                border: var(--bordermain);
+            .stamps {
+                justify-content: space-evenly;
+                margin-bottom: 0.5em;
+                flex-wrap: wrap;
             }
-            div.gallery img {
-                width: 100%;
-                height: auto;
-                object-fit: cover;
-            }
-            div.desc {
-                padding: 15px;
-                text-align: center;
-                background-image: url("/images/backgrounds/bg-blue-green-elegant.gif");
-            }
-            * {
-                box-sizing: border-box;
-            }
-            .responsive {padding: 10px;
-                /*changes sizing of images*/
-                width: 15rem;
+            .cartoon img {
+                width: 35%;
             }
             @media only screen and (max-width: 700px) {
-                .responsive {
-                    width: 15.5rem;
-                    margin: 6px 0;
+                .main, .footer {
+                    width: 70%;
                 }
-                .scrolling-box {
-                    height: 27rem;
+                .banner {
+                    width: 70%;
                 }
-                #rose-divider {
+                .banner2 {
+                    width: 70%;
                     margin: auto;
-                    display: block;
-                    width: 76% !important;
-                }
-                #intro {
-                    margin: auto;
-                    width: 95% !important;
-                }
-                .flex-friendsart>img{
-                    width: 60% !important;
+                    border-radius: 0px;
                 }
             }
             @media only screen and (max-width: 500px) {
-                .responsive {width: 100%;}
-                .scrolling-box {
-                    height: 50rem;
+                .main, .footer {
+                    width: 90%;
                 }
-                #intro {
-                    flex-direction: column;
+                .banner {
+                    width: 90%;
+                }
+                .banner2 {
                     width: 90%;
                     margin: auto;
-                    display: block; 
+                    border-radius: 0px;
                 }
-                #rose-divider {
-                    margin: auto;
-                    display: block;
-                    width: 98% !important;
+                .stamps {
+                   justify-content: center;
                 }
-                li {
-                    margin: 0.4em;
+                .happybd img {
+                    width:25%;
+                    height:25%; 
+                    margin:auto;
                 }
-                h1 {
-                    margin-top: 0px;
-                    margin-bottom: 0px;
-                    display: inline-block;
-                    line-height: 1.2;
+                .cartoon img {
+                    width: 50%;
                 }
-                .flex-friendsart>img{
-                    width: 70% !important;
-                }
-            }
-            /*pulled from stack overflow, allows the home nav link to hide on desktop and show on mobile*/
-            @media screen and (max-width: 480px) {
-                .show-on-desktop {
-                    display: none;
-                }
-            }
-            @media screen and (min-width: 700px) {
-                .hide-on-desktop {
-                    display: none;
-                }
-            }
-            .flex-friendsart>img{
-                width: 50%;
-            }
-            .flex-friendsart{
-                width: 30%;
-            }
-            .clearfix:after {
-                content: "";
-                display: table;
-                clear: both;
-            }
-            section {
-                background-color:rgba(255, 255, 255, 0.934);
-                color: #0e0601;
-                border-radius: 10px;
-            }
-            #rose-divider {
-                margin: auto;
-                display: block;
-                width: 76%;
-            }
-            #intro {
-                margin: auto;
-                width: 75%;
             }
         </style>
         <script>
-            /* this is also solaria's script for the jukebox */
+            /* this is also solaria's script for the jukebox. I CANNOT WRITE JAVASCRIPT */
             function stopmusic() {
                 var y = document.getElementsByTagName('audio');
                 for(var j=0; j<y.length; j++) {
@@ -211,734 +127,117 @@
     </head>
     <body>
         <div class="flex-body">
-            <div class="banner"  style="background-image:url(/images/art-gallery-imgs/div-totoro.gif); height: 40px;"></div>
+            <div class="banner2" style="background-image:url('https://files.catbox.moe/rfpwqm.gif'); height: 30px;">
+            </div>
         </div>
-        <div class="flex-body">
-            <header class="header">
-                <div class="flex-row">
-                    <!-- to flip an image/item transform: scaleX(-1)-->
-                    <img src="/images/art-gallery-imgs/img-painting-easel.png" style="width: 8%;height: 8%;margin: auto; transform: scaleX(-1);">
-                    <h1>Art Gallery</h1>
-                    <img src="/images/art-gallery-imgs/img-painting-easel.png" style="width: 8%;height: 8%;margin: auto;">
+        <div class="flex-body body-main">
+            <main class="main">
+                <div class="banner" style="background-image: url('https://files.catbox.moe/gcvt1s.png'); height: 45px; width: 100%;">
                 </div>
-            </header>
-            <div class="leftside navbar">
-                <nav>
-                    <ul class="custom-bullets">
-                        <li>
-                            <a href="https://starry-knight.neocities.org">
-                                Home
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://starry-knight.neocities.org/library">
-                                Library
-                            </a>
-                        </li>                                
-                        <li style="color: #b9283b;">
-                            <i>Art Gallery</i> (Here!)
-                        </li> 
-                        <li>
-                            <a href="https://starry-knight.neocities.org/my-room">
-                                My Room
-                            </a>
-                        </li>
-                        <li>
-                            <a href="link.here">
-                            Greenhouse
-                            </a>
-                        </li>
-                        <li>
-                            <a href="link.goes.here">
-                                Scrapbook
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://starry-knight.neocities.org/resources">
-                                Resources
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-            <!-- flex-middle contains all left asides, main, and right asides -->
-            <div class="flex-row flex-middle">
-                <div class="flex-column">
-                    <aside class="leftside leftside-jukebox">
-                        <div class="jukebox">
-                            <button class="activate">
-                                <img src="/images/img-green-radio.gif" alt="Open for song options for the music player.">
+                <div class="flex-row" style="justify-content: space-between;">
+                    <p>
+                        <b>From:</b> Heather<br>
+                        <b>To:</b> Johnnie 
+                        <img src="https://files.catbox.moe/98bc1n.gif">
+                    </p>
+                    <div class="jukebox">
+                        <button class="activate">
+                            <img src="/images/img-green-radio.gif" alt="Open for song options for the music player.">
+                        </button>
+                        <ul>
+                            <button onclick="stopmusic()">
+                                stop music
                             </button>
-                            <ul>
-                                <button onclick="stopmusic()">stop music</button>
-                                <li><button value="0" title="Fall - Harvest Moon: Island of Happiness" onclick="playsong()">harvest-moon-fall.mp3	
-                                    <audio><source src="https://files.catbox.moe/je9snl.mp3" type="audio/mp3"></audio>
-                                </button></li>
-                                <li><button value="1" title="Goddess Spring (Night)- Harvest Moon: Animal Parade" onclick="playsong()">harvest-moon-spring-goddess-night.mp3
-                                    <audio><source src="https://files.catbox.moe/yttm93.mp3" type="audio/mp3"></audio>
-                                </button></li>
-                            </ul>
-                            <marquee> 
-                                <p id="marq">☆ select a song! ☆</p>
-                            </marquee>
-                            <script>
-                                var y = document.getElementsByTagName('audio');
-                                for(var j=0; j<y.length; j++) {
-                                    y[j].onended = function() {
-                                        document.getElementById('marq').innerHTML = 'select a song!';
-                                    };
-                                }
-                            </script>
-                        </div> 
-                    </aside>
+                            <li>
+                                <button value="0" title="Happy Birthday But EPIC!!1!" onclick="playsong()">
+                                    EPIC-BIRTHDAY-SONG.mp3	
+                                    <audio>
+                                        <source src="https://files.catbox.moe/cve34w.mp3" type="audio/mp3">
+                                    </audio>
+                                </button>
+                            </li>
+                            <li>
+                                <button value="1" title="Super Bell Hill - Super Mario 3D World" onclick="playsong()">
+                                    super-bell-hill.mp3	
+                                    <audio>
+                                        <source src="https://files.catbox.moe/3c1g2k.mp3" type="audio/mp3">
+                                    </audio>
+                                </button>
+                            </li>
+                        </ul>
+                        <marquee> 
+                            <p id="marq">☆ select a song! ☆</p>
+                        </marquee>
+                        <script>
+                            var y = document.getElementsByTagName('audio');
+                            for(var j=0; j<y.length; j++) {
+                                y[j].onended = function() {
+                                    document.getElementById('marq').innerHTML = 'select a song!';
+                                };
+                            }
+                        </script>
+                    </div>
                 </div>
-                <main class="main">
-                    <img src="/images/art-gallery-imgs/div-purple-rose.gif" id="rose-divider">
-                    <div class="flex-row" id="intro">
-                        <p style="text-align: left;">Here you'll find a collection of my artworks. <strong>Click</strong> the image to see the full image in another tab.<br>
-                            ✿ <br>
-                            I've added links to whatever I pulled inspo from or what it's based on.
-                            I've also put links to my art friends' socials at the bottom of the page if you want to see more cool art stuff /( ´ ▽ ` )ﾉ<br>
-                        </p>
-                        <img src="/images/art-gallery-imgs/img-drawing-girl.gif" style="height: 24%;width: 24%;margin: auto;margin-left: 2em;">
-                        <img src="/images/art-gallery-imgs/img-drawing-girl2.gif" style="height: 24%;width: 24%;margin: auto;margin-right: 2em;">
-                    </div>
-                    <img src="/images/art-gallery-imgs/div-purple-rose.gif" id="rose-divider">
-                    <h3>❀ Character Art ❀</h3>
-                    <div class="scrolling-box">
-                        <div class="flex-row flex-charaart" style="flex-wrap: wrap;">
-                            <div class="responsive">
-                                <div class="gallery">
-                                    <a target="_blank" href="https://files.catbox.moe/0sbgt1.jpg">
-                                        <img src="/images/art-gallery-imgs/2024feb28-school-girl.jpg" alt="School girl with a knife" width="600" height="400">
-                                    </a>
-                                    <div class="desc">
-                                        <section>
-                                            <p><strong>Feb/28/2024</strong></p>
-                                            <p>I really like how the coloring turned out on this one :3</p>
-                                            <p><a href="https://www.youtube.com/shorts/jMg6NxxycyY">Here's</a> the vid I used.</p>
-                                        </section>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="responsive">
-                                <div class="gallery">
-                                    <a target="_blank" href="https://files.catbox.moe/vybto6.jpg">
-                                        <img src="/images/art-gallery-imgs/2024feb27-bun-man.jpg" alt="Bunny man in a suit" width="600" height="400">
-                                    </a>
-                                    <div class="desc">
-                                        <section>
-                                            <p><strong>Feb/27/2024</strong></p>
-                                            <p>Again, really proud of the coloring here. I think I did well with adding depth in certain places and all with just colored pencils!</p>
-                                            <p><a href="https://www.youtube.com/shorts/jMg6NxxycyY">Here's</a> the vid I used.</p>
-                                        </section>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="responsive">
-                                <div class="gallery">
-                                    <a target="_blank" href="https://files.catbox.moe/1qpa3a.jpg">
-                                        <img src="/images/art-gallery-imgs/2024feb18-space-lady.jpg" alt="Space serpent lady" width="600" height="400">
-                                    </a>
-                                    <div class="desc">
-                                        <section>
-                                            <p><strong>Feb/17/2024</strong></p>
-                                            <p>I had a lot of fun drawing this space dragon lady. The tail was a last minute decision but I think it brings her character together.</p>
-                                            <p><a href="https://www.youtube.com/shorts/5qDThkSZht4">Here's</a> the vid I used.</p>
-                                        </section>
-                                     </div>
-                                </div>
-                            </div>
-                            <div class="responsive">
-                                <div class="gallery">
-                                    <a target="_blank" href="https://files.catbox.moe/q4zysz.jpg">
-                                        <img loading="lazy" src="/images/art-gallery-imgs/2024feb2-stellar-dreams.jpg" alt="Stellar Dreams" width="600" height="400">
-                                    </a>
-                                    <div class="desc">
-                                        <section>
-                                            <p><strong>Feb/02/2024</strong></p>
-                                            <p>An album cover
-                                                <br> I made for my OC/ persona, Starry.
-                                            </p>
-                                        </section>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="responsive">
-                                <div class="gallery">
-                                    <a target="_blank" href="https://files.catbox.moe/l0qihj.jpg">
-                                        <img loading="lazy" src="/images/art-gallery-imgs/2023jan22-chibi-starry-fox-starry.jpg" alt="Chibi Starry with an axe and fox Starry" width="600" height="400">
-                                    </a>
-                                    <div class="desc">
-                                        <section>
-                                            <p><strong>Jan/22/2024</strong></p>
-                                            <p>Chibi Starry and her lil fox form.</p>
-                                        </section>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="responsive">
-                                <div class="gallery">
-                                    <a target="_blank" href="https://files.catbox.moe/ppwg4e.jpg">
-                                        <img loading="lazy" src="/images/art-gallery-imgs/2024jan11-old-bulma.jpg" alt="Old style bulma DBZ" width="600" height="400">
-                                    </a>
-                                    <div class="desc">
-                                        <section>
-                                            <p><strong>Jan/11/2024</strong></p>
-                                            <p>One of Bulma's older style's I drew for my mom :3</p>
-                                        </section>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="responsive">
-                                <div class="gallery">
-                                    <a target="_blank" href="https://files.catbox.moe/tz7qry.jpg">
-                                        <img loading="lazy" src="/images/art-gallery-imgs/2023nov3-new-mabel.jpg" alt="Mabel's new design" width="600" height="400">
-                                    </a>
-                                    <div class="desc">
-                                        <section>
-                                            <p><strong>Nov/03/2023</strong></p>
-                                            <p>
-                                                This is my fursona/<br>
-                                                OC, her name is Mabel（-＾▽＾-）<br>
-                                                She works at a library and she likes tea and hot cocao.<br> 
-                                                She's also Canadian<br> 
-                                                (very important).
-                                            </p>
-                                        </section>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="responsive">
-                                <div class="gallery">
-                                    <a target="_blank" href="https://files.catbox.moe/vmqbzo.jpg">
-                                        <img loading="lazy" src="/images/art-gallery-imgs/2023oct25-picrew-oc.jpg" alt="Picrew OC redraw" width="600" height="400">
-                                    </a>
-                                    <div class="desc">
-                                        <section>
-                                            <p><strong>Oct/25/2023</strong></p>
-                                            <p>Redraw of a Picrew character I made.</p>
-                                            <p><a href="https://picrew.me/ja/image_maker/1553437">Here's</a> the Picrew I used.</p>
-                                        </section>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="responsive">
-                                <div class="gallery">
-                                    <a target="_blank" href="https://files.catbox.moe/hx59xo.jpg">
-                                        <img loading="lazy" src="/images/art-gallery-imgs/2023oct15-angel-guy.jpg" alt="Angel guy with sword" width="600" height="400">
-                                    </a>
-                                    <div class="desc">
-                                        <section>
-                                            <p><strong>Oct/15/2023</strong></p>
-                                            <p>Drawing this guy was fun. He's supposed to be like a fallen angel. I love how I drew his 
-                                                <a href="https://en.wikipedia.org/wiki/Rapier">rapier</a>.</p>
-                                            <p><a href="https://www.youtube.com/shorts/jup5o9yl_4o">Here's</a> vid I used.</p>
-                                        </section>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="responsive">
-                                <div class="gallery">
-                                    <a target="_blank" href="https://files.catbox.moe/kfc2y7.jpg">
-                                        <img id="aris-fairy" loading="lazy" src="/images/art-gallery-imgs/2023oct10-aris-fairy.jpg" alt="Aris the fairy with her cat Albert" width="600" height="400">
-                                    </a>
-                                    <div class="desc">
-                                        <section>
-                                            <p><strong>Oct/10/2023</strong></p>
-                                            <p>
-                                                This is Aris ('air-is)<br> 
-                                                and her pet cat Albert.<br>
-                                                She's a mischievious fairy who tricks lost travellers into following her deeper into her woods. 
-                                                She usually appears friendly, but don't let that fool you.
-                                            </p>
-                                            <p><a href="https://www.youtube.com/shorts/HnKLP-DsrYA">Here's</a> vid I used.</p>
-                                        </section>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="responsive">
-                                <div class="gallery">
-                                    <a target="_blank" href="https://files.catbox.moe/qrpa6q.jpg">
-                                        <img loading="lazy" src="/images/art-gallery-imgs/2023oct9-elf-boy-og.jpg" alt="Elf boy" width="600" height="400">
-                                    </a>
-                                    <div class="desc">
-                                        <section>
-                                            <p><strong>Oct/09/2023</strong></p>
-                                            <p>
-                                                This guy is a moon elf.<br> 
-                                                I had a lot of fun desgining him and I liked the <a href="https://www.reddit.com/r/conceptart/comments/f4yns9/oc_art_staff_of_seasons_the_staff_of/">reference</a> I used for his staff so much, I actually made<br>
-                                                a staff inspired by it to go with my Halloween costume that year!
-                                            <p><a href="https://www.youtube.com/shorts/BBfOeo2EyyU">Here's</a> vid I used.</p> 
-                                        </section>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="responsive">
-                                <div class="gallery">
-                                    <a target="_blank" href="https://files.catbox.moe/j0uh5t.jpg">
-                                        <img loading="lazy" src="/images/art-gallery-imgs/2023aug16-old-mabel.jpg" alt="Mabel's first design" width="600" height="400">
-                                    </a>
-                                    <div class="desc">
-                                        <section>
-                                            <p><strong>Aug/19/2023</strong></p>
-                                            <p>This is Mabel's first design. I still like both the updated design and this one.</p>
-                                        </section>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="responsive">
-                                <div class="gallery">
-                                    <a target="_blank" href="https://files.catbox.moe/ylbzsq.jpg">
-                                        <img loading="lazy" src="/images/art-gallery-imgs/2023nov3-scene-girl.jpg" alt="Rave/Scene kid girlie" width="600" height="400">
-                                    </a>
-                                    <div class="desc">
-                                        <section>
-                                            <p><strong>2023</strong></p>
-                                            <p>I think this was a character I drew based off the heterochromia prompt for
-                                                <a href="https://icryink.tumblr.com/post/727297336690262016/welcome-to-cringetober-i-wanted-to-post-the">Cringetober</a> prompt.</p>
-                                        </section>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="responsive">
-                                <div class="gallery">
-                                    <a target="_blank" href="https://files.catbox.moe/eceoz6.jpg">
-                                        <img loading="lazy" src="/images/art-gallery-imgs/2023aug16-orc-girl.jpg" alt="Orc school girl" width="600" height="400">
-                                    </a>
-                                    <div class="desc">
-                                        <section>
-                                            <p><strong>2023</strong></p>
-                                            <p>
-                                                An orc school girl who I drew from a dream I had. She was in her first week of college<br>
-                                                and somebody tried to frame her for a murder. She proved her innocence because her bite mark didn't match the ones on the victim.</p>
-                                        </section>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="responsive">
-                                <div class="gallery">
-                                    <a target="_blank" href="https://files.catbox.moe/ukutd2.jpg">
-                                        <img loading="lazy" src="/images/art-gallery-imgs/2023-zachary.jpg" alt="Zachary saying hi" width="600" height="400">
-                                    </a>
-                                    <div class="desc">
-                                        <section>
-                                            <p><strong>2023</strong></p>
-                                            <p>
-                                                This is Zachary! He likes dismemberment and butcher knives<br>
-                                                ｡◕‿‿◕｡
-                                            </p>
-                                        </section>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- end of images-->
-                            <div class="clearfix"></div>
-                        <!-- div for flex container-->   
-                        </div>
-                    </div>
-                    <h3>❀ Doodles & Sketches ❀</h3>
-                    <div class="scrolling-box">
-                        <div class="flex-row flex-doodlensketch" style="flex-wrap: wrap;">
-                            <div class="responsive">
-                                <div class="gallery">
-                                    <a target="_blank" href="https://files.catbox.moe/fts606.jpg">
-                                        <img src="/images/art-gallery-imgs/2024jan18-starry-ref-unfinished.jpg" alt="Starry ref sheet sketch" width="600" height="400">
-                                    </a>
-                                    <div class="desc">
-                                        <section>
-                                            <p><strong>Jan/18/2024</strong></p>
-                                            <p>
-                                                This was supposed to be an updated ref sheet for Starry but it didn't turn out how I liked. I still like how the sketches turned out though.
-                                            </p>
-                                        </section>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="responsive">
-                                <div class="gallery">
-                                    <a target="_blank" href="https://files.catbox.moe/1l44o0.jpg">
-                                        <img src="/images/art-gallery-imgs/2024jan13-hidden-holding-mabel.jpg" alt="Hidden holding Mabel" width="600" height="400">
-                                    </a>
-                                    <div class="desc">
-                                        <section>
-                                            <p><strong>Jan/13/2024</strong></p>
-                                            <p>
-                                                My friend Hidden holding my OC,<br> 
-                                                Mabel. My friends really liked her design so I did a couple doodles with em together<br> 
-                                                o(〃＾▽＾〃)o
-                                            </p>
-                                        </section>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="responsive">
-                                <div class="gallery">
-                                    <a target="_blank" href="https://files.catbox.moe/a2oo1m.jpg">
-                                        <img src="/images/art-gallery-imgs/2024jan12-hidden-mabel-holding-hands.jpg" alt="Hidden and Mabel holding hands" width="600" height="400">
-                                    </a>
-                                    <div class="desc">
-                                        <section>
-                                            <p><strong>Jan/12/2024</strong></p>
-                                            <p>
-                                                Another doodle with Hidden and Mabel（＾ω＾）
-                                            </p>
-                                        </section>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="responsive">
-                                <div class="gallery">
-                                    <a target="_blank" href="https://files.catbox.moe/z4fdd2.jpg">
-                                        <img loading="lazy" src="/images/art-gallery-imgs/2024jan8-random-doodles.jpg" alt="Doodles page 1" width="600" height="400">
-                                    </a>
-                                    <div class="desc">
-                                        <section>
-                                            <p><strong>Jan/08/2024</strong></p>
-                                            <p>
-                                                Just some doodles featuring some of the things I was interested in at the time. Also, chibi Starry and fox Starry appearance!
-                                            </p>
-                                        </section>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="responsive">
-                                <div class="gallery">
-                                    <a target="_blank" href="https://files.catbox.moe/l36vdq.jpg">
-                                        <img loading="lazy" src="/images/art-gallery-imgs/2024jan6-whiteboard-starry-wide.jpg" alt="Wide Starry on whiteboard" width="600" height="400">
-                                    </a>
-                                    <div class="desc">
-                                        <section>
-                                            <p><strong>Jan/06/2024</strong></p>
-                                            <p>
-                                                W I D E Starry.<br>
-                                                That's all.
-                                            </p>
-                                        </section>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="responsive">
-                                <div class="gallery">
-                                    <a target="_blank" href="https://files.catbox.moe/6i35ay.jpg">
-                                        <img loading="lazy" src="/images/art-gallery-imgs/2023jul27-hidden-sketch.jpg" alt="Hidden sketch" width="600" height="400">
-                                    </a>
-                                    <div class="desc">
-                                        <section>
-                                            <p><strong>Jul/27/2023</strong></p>
-                                            <p>
-                                                A doodle of my friend Hidden. His OC is an owl/chimera and he likes to drink poison because birds can just do that yknow.<br>
-                                                He's pretty cool
-                                            </p>
-                                        </section>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="responsive">
-                                <div class="gallery">
-                                    <a target="_blank" href="https://files.catbox.moe/zdcj09.jpg">
-                                        <img loading="lazy" src="/images/art-gallery-imgs/2024-doodle-starry-looking-up.jpg" alt="Starry looking up at you" width="600" height="400">
-                                    </a>
-                                    <div class="desc">
-                                        <section>
-                                            <p><strong>Jul/17/2023</strong></p>
-                                            <p>
-                                                A zoom in on one of the doodles from the next page. I really liked this one so I went back and darkened the lineart. It's based off a silly reaction image from twitter but I can't find it anymore<br>
-                                                o(╥﹏╥)
-                                            </p>
-                                        </section>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="responsive">
-                                <div class="gallery">
-                                    <a target="_blank" href="https://files.catbox.moe/oq52c9.jpg">
-                                        <img loading="lazy" src="/images/art-gallery-imgs/2023jul15-starry-ref-color.jpg" alt="Starry ref sheet" width="600" height="400">
-                                    </a>
-                                    <div class="desc">
-                                        <section>
-                                            <p><strong>Jul/15/2023</strong></p>
-                                            <p>
-                                                An older doodle/ ref sheet for Starry.
-                                            </p>
-                                        </section>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="responsive">
-                                <div class="gallery">
-                                    <a target="_blank" href="https://files.catbox.moe/cgn65k.jpg">
-                                        <img loading="lazy" src="/images/art-gallery-imgs/2023-beatrix-bust.jpg" alt="Beatrix OC" width="600" height="400">
-                                    </a>
-                                    <div class="desc">
-                                        <section>
-                                            <p><strong>2023</strong></p>
-                                            <p>
-                                                This is Beatrix! She was drawn based off <a href="https://www.pinterest.com/pin/52002570693073616/">this</a> image of different ears based on zodiac signs so I just<br>
-                                                decided to draw a character based off mine. I couldn't find<br> the source of this image so I linked the Pinterest post.
-                                            </p>
-                                        </section>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="responsive">
-                                <div class="gallery">
-                                    <a target="_blank" href="https://files.catbox.moe/4ij9qh.jpg">
-                                        <img loading="lazy" src="/images/art-gallery-imgs/2023-purple-hair-girl-hoodie.jpg" alt="Girl in hoodie" width="600" height="400">
-                                    </a>
-                                    <div class="desc">
-                                        <section>
-                                            <p><strong>2023</strong></p>
-                                            <p>
-                                                A lil doodle and fun with some new colored pencils I had.
-                                            </p>
-                                        </section>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="responsive">
-                                <div class="gallery">
-                                    <a target="_blank" href="https://files.catbox.moe/db7c06.jpg">
-                                        <img loading="lazy" src="/images/art-gallery-imgs/2023-burnie-doodle.jpg" alt="Dragon plush doodle" width="600" height="400">
-                                    </a>
-                                    <div class="desc">
-                                        <section>
-                                            <p><strong>2023</strong></p>
-                                            <p>
-                                                This is Burmie, the beloved plushie of someone I know. I did a doodle of him for fun （＾ω＾）
-                                            </p>
-                                        </section>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- end of images-->
-                            <div class="clearfix"></div>
-                        <!-- div for flex container -->
-                        </div>
-                    </div>
-                    <h3>❀ Old Art ❀</h3>
-                    <div class="scrolling-box">
-                        <div class="flex-row flex-oldart" style="flex-wrap: wrap;">
-                            <div class="responsive">
-                                <div class="gallery">
-                                    <a target="_blank" href="https://files.catbox.moe/1q6nq2.jpg">
-                                        <img src="/images/art-gallery-imgs/2021jan7-axel-muffin-top-new.jpg" alt="Axel and Muffin Top" width="600" height="400">
-                                    </a>
-                                    <div class="desc">
-                                        <section>
-                                            <p><strong>Jan/07/2021</strong></p>
-                                            <p>
-                                                This is Axel and Muffin Top! I originally made them in middle school and this is a redraw. I love both designs. It's funny how they looked older since I was older too.
-                                            </p>
-                                        </section>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="responsive">
-                                <div class="gallery">
-                                    <a target="_blank" href="https://files.catbox.moe/rg3xz0.jpg">
-                                        <img src="/images/art-gallery-imgs/2013-axel-muffin-top-old.jpg" alt="Axel and Muffin Top old" width="600" height="400">
-                                    </a>
-                                    <div class="desc">
-                                        <section>
-                                            <p><strong>Middle School</strong></p>
-                                            <p>
-                                                Here's what they looked like originally!
-                                            </p>
-                                        </section>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="responsive">
-                                <div class="gallery">
-                                    <a target="_blank" href="https://files.catbox.moe/mo8qm4.jpg">
-                                        <img src="/images/art-gallery-imgs/2021-old-starry-ref.jpg" alt="Starry ref 2021" width="600" height="400">
-                                    </a>
-                                    <div class="desc">
-                                        <section>
-                                            <p><strong>2021</strong></p>
-                                            <p>
-                                                Here's another ref of Starry. It's kinda outdated because I changed her design but I still like it.
-                                            </p>
-                                        </section>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="responsive">
-                                <div class="gallery">
-                                    <a target="_blank" href="https://files.catbox.moe/moix7c.jpg">
-                                        <img loading="lazy" src="/images/art-gallery-imgs/2021-starry-emotions.jpg" alt="Starry and her emotions" width="600" height="400">
-                                    </a>
-                                    <div class="desc">
-                                        <section>
-                                            <p><strong>2021?</strong></p>
-                                            <p>
-                                                I actually don't remember when I drew this but I think it was 2021? I decided to return to an old idea<br>
-                                                for Starry in which her emotions where personified. The bottom left is saddness and bottom right is anger.
-                                            </p>
-                                        </section>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="responsive">
-                                <div class="gallery">
-                                    <a target="_blank" href="https://files.catbox.moe/gwmn08.jpg">
-                                        <img loading="lazy" src="/images/art-gallery-imgs/2021-friend-portrait.jpg" alt="Friend's portrait" width="600" height="400">
-                                    </a>
-                                    <div class="desc">
-                                        <section>
-                                            <p><strong>2021</strong></p>
-                                            <p>
-                                                Here's a portrait I drew of a friend. Once again, I love how I did the coloring. I love coloring (灬╹ω╹灬)
-                                            </p>
-                                        </section>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- end of images-->
-                            <div class="clearfix"></div>
-                        <!-- div for flex container -->
-                        </div>
-                    </div>
-                    <h3>❀ Monster Mania 2020 ❀</h3>
-                    <p>Monster Mania is a <strong>Halloween</strong> art challenge made by
-                        <a href="https://twitter.com/SoniaStegemann">Sonia Stegemann</a> on twitter!<br> 
-                        <a href="https://twitter.com/SoniaStegemann/status/1300768564820008961">Here's</a> her original post with the details of the challenge.</p>
-                    <div class="scrolling-box">
-                        <div class="flex-row flex-monstermania" style="flex-wrap: wrap;">
-                            <div class="responsive">
-                                <div class="gallery">
-                                    <a target="_blank" href="https://files.catbox.moe/m3xg7c.jpg">
-                                        <img src="/images/art-gallery-imgs/2020oct-monstober-oni.jpg" alt="Oni girl" width="600" height="400">
-                                    </a>
-                                    <div class="desc">
-                                        <section>
-                                            <p><strong>Day 2: Oni</strong></p>
-                                        </section>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="responsive">
-                                <div class="gallery">
-                                    <a target="_blank" href="https://files.catbox.moe/x22qoo.jpg">
-                                        <img src="/images/art-gallery-imgs/2020oct12-monstober-werewolf-girl.jpg" alt="Werewolf girl" width="600" height="400">
-                                    </a>
-                                    <div class="desc">
-                                        <section>
-                                            <p><strong>Day 6: Werewolf</strong></p>
-                                        </section>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="responsive">
-                                <div class="gallery">
-                                    <a target="_blank" href="https://files.catbox.moe/8tmpvw.jpg">
-                                        <img src="images/art-gallery-imgs/2020oct14-monstober-nymph.jpg" alt="Nymph girl" width="600" height="400">
-                                    </a>
-                                    <div class="desc">
-                                        <section>
-                                            <p><strong>Day 7: Nymph</strong></p>
-                                        </section>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="responsive">
-                                <div class="gallery">
-                                    <a target="_blank" href="https://files.catbox.moe/ee20s9.jpg">
-                                        <img loading="lazy" src="/images/art-gallery-imgs/2020oct14-monstober-medusa.jpg" alt="Medusa girl" width="600" height="400">
-                                    </a>
-                                    <div class="desc">
-                                        <section>
-                                            <p><strong>Day 8: Medusa</strong></p>
-                                        </section>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="responsive">
-                                <div class="gallery">
-                                    <a target="_blank" href="https://files.catbox.moe/byvqtw.jpg">
-                                        <img loading="lazy" src="/images/art-gallery-imgs/2020oct15-monstober-harpy.jpg" alt="Harpie lady" width="600" height="400">
-                                    </a>
-                                    <div class="desc">
-                                        <section>
-                                            <p><strong>Day 9: Harpy</strong></p> 
-                                            <p>
-                                                Based on the <a href="https://yugipedia.com/wiki/Harpie_Lady">Harpie Lady</a> card from<br>
-                                                Yu-Gi-Oh!
-                                            </p>
-                                        </section>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <img src="/images/art-gallery-imgs/div-purple-rose.gif" id="rose-divider">
-                    <h3>Check out my art buddies!</h3>
-                    <div class="flex-row" style="flex-wrap: wrap;">
-                        <div class="flex-column flex-friendsart">
-                            <img loading="lazy" src="/images/art-gallery-imgs/pfp-bree.jpg">
-                            <p>
-                                <strong><a href="https://twitter.com/mini_cloudqueen">
-                                    Bree the Cloud
-                                </a></strong>
-                            </p>
-                            <p style="margin-top: 0px;"></p>
-                        </div>
-                        <div class="flex-column flex-friendsart">
-                            <img loading="lazy" src="/images/art-gallery-imgs/pfp-town.jpg">
-                            <p>
-                                <strong><a href="https://twitter.com/TownnnBiz">
-                                    Townnnbiz
-                                </a></strong>
-                            </p>
-                            <p style="margin-top: 0px;"></p>
-                        </div>
-                        <div class="flex-column flex-friendsart">
-                            <img loading="lazy" src="/images/art-gallery-imgs/pfp-sedah.jpg">
-                            <p>
-                                <strong><a href="https://twitter.com/SedahVoltaire">
-                                Sedah Voltaire
-                                </a></strong>
-                            </p>
-                            <p style="margin-top: 0px;"></p>
-                        </div>
-                        <div class="flex-column flex-friendsart">
-                            <img loading="lazy" src="/images/art-gallery-imgs/pfp-kao.jpg">
-                            <p>
-                                <strong><a href="https://twitter.com/yvemikos">
-                                    Kao
-                                </a></strong>
-                            </p>
-                            <p style="margin-top: 0px;">
-                                Draws <strong style="text-decoration: underline;">suggestive</strong> art.<br>
-                                Not as many butts.
-                            </p>
-                        </div>
-                        <div class="flex-column flex-friendsart">
-                            <img loading="lazy" src="/images/art-gallery-imgs/pfp-hidden.jpg">
-                            <p>
-                                <strong><a href="https://twitter.com/Owlgineer">
-                                    Owl / Hidden
-                                </a></strong>
-                            </p>
-                            <p style="margin-top: 0px;">
-                                Draws <strong style="text-decoration: underline;">very suggestive</strong> art.<br>
-                                There WILL be many butts.
-                            </p>
-                        </div>
-                    </div>
-                </main>
-            </div>
-            <footer class="footer">
-                <p style="margin: -0.5em;">
-                    ♡ Lovingly crafted by Starry - May 2024
+                <p>
+                    I hope you have a wonderful birthday today because you deserve it!
+                    It's always a delight to chat with you and see what you've been up to.
+                    <img src="https://files.catbox.moe/11hwvs.gif"><br>
+                    <br>
+                    I hope you continue to find happiness in the coming years and continue to grow as you have been.<br>
+                    <br>
+                    Also the lil radio in the top right plays music! 
+                    There's two songs to choose from, just click or tap on it and pick one (◕‿◕)	
                 </p>
-                <div class="flex-row" style="justify-content: space-evenly; width: 18em; margin: auto;">
-                    <img src="/images/img-lil-cat-dancing.gif" alt="">
-                    <a href="#top">Back to top</a>
-                    <img src="/images/img-lil-cat-dancing.gif" alt="" style="transform: scaleX(-1)">
+                <p>
+                    <a href="#1"><em>Click me for a surprise :3c</em></a><br>
+                </p>
+                <div id="1">
+                    <div class="flex-row happybd">
+                        <img src="https://files.catbox.moe/j1rhkh.png" style="transform: scaleX(-1);">
+                        <h2 style="font-size: 1.5em; color: #005d16;">
+                            Happy birthday!
+                        </h2>
+                        <img src="https://files.catbox.moe/j1rhkh.png">
+                    </div>
+                    <div class="flex-row" style="justify-content: space-around; justify-content: center;">
+                        
+                        <img src="https://files.catbox.moe/uf1fn4.gif" style="width: 30px; height:30px; margin-top: auto; margin-left: auto; margin-right: auto;">
+                        <img src="https://files.catbox.moe/in5l73.gif" style="width: 30px; height:30px; margin: auto;">
+                        <img src="https://files.catbox.moe/b9do5e.gif" style="width: 30%;">
+                        <img src="https://files.catbox.moe/in5l73.gif" style="width: 30px; height:30px; margin: auto; transform: scaleX(-1);"> 
+                        <img src="https://files.catbox.moe/uf1fn4.gif" style="width: 30px; height:30px; margin-top: auto; margin-left: auto; margin-right: auto; transform: scaleX(-1);">
+                    </div>
+                    <div class="flex-row" style="margin-top: 1em;"> 
+                        <img src="https://files.catbox.moe/q58nzu.gif">
+                    </div>
+                    <p style="text-align: center;">
+                       Enjoy your ice cream cake<br>
+                        ヽ(o＾▽＾o)ノ	 <br>
+                    </p>
+                    <p style="text-align: center;">
+                            And here's the entirety of the reef episode, on the house.
+                    </p>
+                    <div class="flex-row cartoon">
+                        <img src="https://files.catbox.moe/k4t4rr.gif">
+                    </div>
+                    <p>
+                        <strong>P.S.</strong> when I woke up today I thought hmm "tommorow is Johnnie's birthday,
+                        I should remember to wish him a good one (´･ᴗ･ ` )"<br>
+                        THEN I HAD A <em>BRAIN BLAST!</em> <br>
+                        "I CAN CODE, I CAN MAKE HIM A VIRTUAL BIRTHDAY CARD!"<br>
+                        So that's what I did and I hope you like (＾• ω •＾)<br>
+                        <br>
+                        -Heather 
+                    </p>
                 </div>
-            </footer>
+                <div class="flex-row stamps"> 
+                    <img src="https://files.catbox.moe/ws8ts4.gif">
+                    <img src="https://files.catbox.moe/5fotey.gif">
+                    <img src="https://files.catbox.moe/noreyf.gif">
+                    <img src="https://files.catbox.moe/wwgetp.gif">
+                </div>
+                <div class="banner img-hor-vert" style="background-image: url('https://files.catbox.moe/gcvt1s.png'); height: 45px; width: 100%;"></div>
+            </main>
         </div>
     </body>
 </html>
