@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/style.css">
+        <link rel="icon" href="/images/icon-green-plant.ico">
+        <title>Blog Archive - Starry's Grove</title>
+        <style>
+            :root{
+                --headercolor: #08582b;
+                --boxbgcolor: #f9f3fd;
+                --maintextcolor: #2e1806;
+                /*border info*/
+                --bordermain: 6px double #690b71; 
+                --borderaside: 2px solid #4a085f;
+                --borderheader: 2px solid #4a085f;
+            }
+            a:link{
+                color: #0663c0;
+                text-decoration: none;
+            }
+            @media only screen and (max-width: 700px) {
+                .flex-middle {
+                  flex-direction:  column;
+                }
+                .flex-rightside {
+                    flex-direction: row;
+                }
+                .main {
+                    width: auto;
+                }
+                .new-content-sticker, .blinkies {
+                    display: none;
+                }
+                nav ul li {
+                    padding-right:10px;
+                    font-size:0.8em !important;
+                    padding-top: 6px;
+                }
+                h1 {
+                    font-size: 1.2em;
+                    max-width:36ch;
+                    /* idk if this does anything or not BUT it works so we leaving it there */
+                    text-wrap: wrap !important;
+                    display: inline-block;
+                }
+                h2, h3 {
+                    font-size: 1.3em;
+                    text-wrap: wrap;
+                }
+                p {
+                    font-size: 1em;
+                }
+                #room-nav {
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    font-size: 1.2em;
+                    width: 100% !important;
+                }
+                .leftside-jukebox {
+                    width: 45%;
+                    height: fit-content;
+                }
+                #room-nav {
+                    width: 65%;
+                }
+                #room-nav > h2 {
+                    margin-top: 5px;
+                }
+            }
+            @media only screen and (max-width: 500px) {
+                .flex-main {
+                  flex-direction: column-reverse;
+                  margin-left: 0.5em;
+                  margin-right: auto;
+                }
+                body {
+                    margin: 0px;
+                }
+                h1 {
+                    margin-top: 0px;
+                    margin-bottom: 0px;
+                    display: inline-block;
+                    line-height: 1.2;
+                    font-size: 1.3em !important; 
+                }
+                .entries {
+                    width: 100% !important;
+                }
+                .space-divider {
+                    width: 100%;
+                }
+                .rightside {
+                    display: none;
+                }
+            }
+            /*pulled from stack overflow, allows the home nav link to hide on desktop and show on mobile*/
+            @media screen and (max-width: 480px) {
+                .show-on-desktop {
+                    display: none;
+                }
+            }
+            @media screen and (min-width: 700px) {
+                .hide-on-desktop {
+                    display: none;
+                    }
+            }
+            .rightside {
+                border-style: none;
+                background: transparent;
+            }
+            .blog-entry p {
+                text-align: left; 
+                margin-left: 1em; 
+                margin-right: 1em;
+            }
+            #picrew-pfp {
+                width: 17em;
+                height: 17em;
+                border: 2.5px dashed #4f6c38;
+                border-radius: 10px; 
+                margin: 1em;
+                display: block;
+            }
+            #shroom-pet {
+                margin:auto;
+            }
+            .jukebox {
+                height: auto;
+            }
+            .custom-bullets {
+                list-style: none;
+            }
+            .navbar {
+                width: auto;
+            }
+            nav ul {
+                /*this takes away the bullet points*/
+                list-style-type:none;
+                padding-left:0;
+                display:flex;
+                flex-wrap:wrap;
+                justify-content: center;
+            }
+            nav ul li {
+                padding-right:10px;
+                margin: auto;
+            }
+            #room-nav {
+                font-family: "main-text-font";
+                list-style-type: none;
+            }
+            #room-nav h2 {
+                margin-bottom: -15px;
+            }
+            #room-nav li {
+                display: block;
+                margin-top: 0.5em;
+                margin-bottom: 0.5em;
+                margin-left: 0;
+                margin-right: 0;
+                font-weight: bold;
+            }
+            .entries p {
+                font-size: 1.2em;
+            }
+            html {
+                background-image: url("/images/backgrounds/bg-purple-space.gif");
+            }          
+        </style>
+        <script>
+            /* this is also solaria's script for the jukebox */
+            function stopmusic() {
+                var y = document.getElementsByTagName('audio');
+                for(var j=0; j<y.length; j++) {
+                    y[j].pause();
+                }
+                document.getElementById('marq').innerHTML = 'no music is playing';
+            }  
+            function playsong() {
+                var y = document.getElementsByTagName('audio');
+                for(var j=0; j<y.length; j++) {
+                    y[j].pause();
+                }
+                var songvalue = event.target.value;
+                    document.getElementsByTagName('audio')[songvalue].currentTime = 0;
+                    document.getElementsByTagName('audio')[songvalue].play();
+                    document.getElementById('marq').innerHTML = event.target.title;
+            }
+        </script>        
+    </head>
+    <body>
+        <div class="flex-body">
+            <div class="banner" alt="" style="background-image: url('/images/blog-archive-imgs/div-pastel-shooting-stars.gif'); height: 20px;"></div>
+        </div>
+        <!-- use multiple classes to differientiate between similar names -->
+        <div class="flex-body body-main">
+            <header class="header">
+                <div class="flex-row">
+                    <img src="/images/blog-archive-imgs/img-pink-journal-book.gif" alt="" style="width: 5%; height: 5%; margin:auto;transform: scaleX(-1);">
+                    <h1>
+                        Blog Archive
+                    </h1>
+                    <img src="/images/blog-archive-imgs/img-pink-journal-book.gif" alt="" style="width: 5%; height: 5%; margin:auto;">
+                </div> 
+            </header>
+            <div class="leftside navbar">
+                <nav>
+                    <ul class="custom-bullets">
+                        <li>
+                            <a href="https://starry-knight.neocities.org">
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://starry-knight.neocities.org/library">
+                                Library
+                            </a>
+                        </li>                                   
+                        <li>
+                            <a href="https://starry-knight.neocities.org/art-gallery">
+                                Art Gallery
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://starry-knight.neocities.org/my-room">
+                                My Room
+                            </a>
+                        </li>
+                        <li>
+                            <a href="link.here">
+                            Greenhouse
+                            </a>
+                        </li>
+                        <li>
+                            <a href="link.goes.here">
+                                Scrapbook
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://starry-knight.neocities.org/resources">
+                                Resources
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="flex-row flex-middle">
+                <div class="flex-column flex-rightside">
+                    <!--
+                    <aside class="leftside leftside-jukebox">
+                        <div class="jukebox">
+                            <button class="activate">
+                                <img src="/images/img-green-radio.gif" alt="Open for song options for the music player.">
+                            </button>
+                            <ul>
+                                <button onclick="stopmusic()">stop music</button>
+                                <li><button value="0" title="Lost Girl - Deltarune Chapter 2" onclick="playsong()">deltarune-lost-girl.mp3	
+                                    <audio><source src="" type="audio/mp3"></audio>
+                                </button></li>
+                            </ul>
+                            <marquee> 
+                                <p id="marq">☆ select a song! ☆</p>
+                            </marquee>
+                            <script>
+                                var y = document.getElementsByTagName('audio');
+                                for(var j=0; j<y.length; j++) {
+                                    y[j].onended = function() {
+                                        document.getElementById('marq').innerHTML = 'select a song!';
+                                    };
+                                }
+                            </script>
+                        </div> 
+                    </aside> -->
+                    <aside class="leftside" id="room-nav">
+                        <h2 style="background-color: transparent;">
+                            Bookshelf
+                        </h2>
+                        <nav class="flex-column" style=" justify-content: space-evenly; flex-direction: column;">
+                            <ul>
+                                <li>
+                                    <a href="https://starry-knight.neocities.org/my-room-links/fanlists">
+                                        Fanlistings
+                                    </a>
+                                </li>
+                                <li style="color: #b9283b;">
+                                    <i>Blog Archive</i> (Here!)
+                                </li>
+                                <li>
+                                    <a href="https://starry-knight.neocities.org/my-room-links/brainrot-central">
+                                        Brainrot Central
+                                    </a>
+                                </li>
+                            </ul>       
+                        </nav>
+                    </aside>
+                </div>
+                <main class="main blog-entry">
+                        <article>
+                            <h2>
+                                "What I've Been Up 2"
+                            </h2>
+                            <p>
+                                <b>Date:</b> Oct 2, 2024<br>
+                                <b>Mood:</b> Chill <br>
+                                <b>Time:</b> 12:33pm<br>
+                                <b>Listening to:</b> Night in the Woods OST<br>
+                            </p>
+                            <p>
+                                <strong>Happy Autumn & spooky month!</strong>
+                            </p>    
+                            <p>
+                                I'm back from my coding break :D <br>
+                                I took a month away from coding stuff since the last thing I did was rushed and kinda burnt me out.
+                                But I'm good now! Got some new ideas to implement and everything >:3<br>
+                            </p>
+                            <p>
+                                One of the first things I did is make an RSS feed! 
+                                I never really liked how you need a neocities account to view ppl's activity feeds.
+                                What if you don't want to make an account? 
+                                Then you're forced to choose having this account that will probably only be used to view updates or just have to check back every once and a while to see if things have changed.
+                                I might be exaggerating but yeah.
+                            </p>
+                            <p>
+                                I think everyone should make one tbh. It's pretty easy to make and simple to follow your favorite websites (or other things!)
+                            </p>
+                            <p>
+                                I'm participating in another October art prompt thing this month! 
+                                It's <a href="https://www.tumblr.com/bweirdart/762038139330199552/faq?source=share">bweird's OC-tober</a>.
+                                There's no pressure to complete all 31 prompts in this one, only 10 prompts are "mandatory."
+                                And all of the prompts involve your OCs! All creative forms are welcomed including writing.
+                                You don't <em>have to</em> make new content for it either. It's encouraged to post old art to put your stuff out there :3
+                            </p>
+                            <p>
+                                I'll be posting my entries on <a href="https://www.tumblr.com/moonslice64">my Tumblr</a> if you're interested in seeing my artwork haha. 
+                                I also ramble about me struggling with HTML sometimes too.
+                            </p>
+                            <p>
+                                Uhh let's see what else... Oh I started meditating recently because why not. 
+                                Well, not really "why not," I wanted to try and give my brain a break from scrolling youtube and social media and ground myself more.
+                                It's been nice to disconnect from all the things I've been doing and reconnect with myself yknow. 
+                                And it's not too long either, just like 5 mins a day. Sometimes 10 if I want to meditate before bed.
+                            </p>
+                            <p>
+                                I'm also taking my driver's test this month! :DDD<br>
+                                So proud of me &#x3C;3 <br>
+                            </p>
+                            <p>
+                                Driving is kinda nerve racking for me but I guess that's just a part of being a new driver.
+                                But from what my family members have said, I drive pretty well. 
+                                I just need to stay consistant with my practicing (I haven't) and get my ass up and go do it lmao.
+                            </p>
+                            <p>
+                                Anyway, that's what I've been up to. Been trying to stay proactive and do stuff. Expect more updates more frequently again!
+                                And follow my RSS feed if you want updates outside of neocities. There's a lil browser extension you can get too (all this info is on the homepage btw).
+                            </p>
+                            <p>
+                                Lock <em>the fuck</em> in because this is <strong><em>your month!</em></strong><br>
+                                You can do it!<br>
+                                <em>-Starry</em> (b ᵔ▽ᵔ)b<br>
+                            </p>
+                            <p style="text-align: center; font-size: 1.1em;">
+                                <a href="https://starry-knight.neocities.org/my-room-links/blog-archive">Go back to the list of entries</a>
+                            </p>
+                            <img src="https://files.catbox.moe/ea2f2g.png" alt="" style="display: block; margin: 0 auto; width: 25%;">
+                        </article>
+                </main>
+                <aside class="rightside" style="width: 25%; justify-content: space-evenly;">
+                    <div class="flex-column">
+                        <img src="/images/blog-archive-imgs/img-paper-ghost.gif" alt="" style="width: 80%;">
+                    </div>
+                </aside>
+            </div>
+            <footer class="footer">
+                <p style="margin: -0.5em;">
+                    ♡ Lovingly crafted by Starry - May 2024
+                </p>
+                <div class="flex-row" style="justify-content: space-evenly; width: 18em; margin: auto;">
+                    <img src="/images/img-lil-cat-dancing.gif" alt="">
+                    <a href="#top">Back to top</a>
+                    <img src="/images/img-lil-cat-dancing.gif" alt="" style="transform: scaleX(-1)">
+                </div>
+            </footer>
+        </div>            
+    </body>
+</html>
