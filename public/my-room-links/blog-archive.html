@@ -59,24 +59,28 @@
                     width: 100% !important;
                 }
                 .leftside-jukebox {
-                    width: 45%;
-                    height: fit-content;
+                    width: 60%;
                 }
                 #room-nav {
-                    width: 65%;
+                    width: auto !important;
                 }
                 #room-nav > h2 {
                     margin-top: 5px;
                 }
             }
             @media only screen and (max-width: 500px) {
+                .flex-rightside {
+                    flex-direction: column;
+                }
+                .leftside-jukebox {
+                    width: auto !important;
+                }
                 body {
                     margin: 0px !important;
                 }
                 .flex-main {
                   flex-direction: column-reverse;
-                  margin-left: 0.5em;
-                  margin-right: auto;
+                  margin: 0 auto !important;
                 }
                 #picrew-pfp {
                     width: 100%;
@@ -307,6 +311,10 @@
                             </h3>
                             <div class="flex-column">
                                 <p>
+                                    <a href="https://starry-knight.neocities.org/my-room-links/blog-entries/2024-10-2">
+                                        October 2-2024 :<br> "What I've Been Up 2"
+                                    </a><br>
+                                    <br>
                                     <a href="https://starry-knight.neocities.org/my-room-links/blog-entries/2024-08-25">
                                         August 25-2024 :<br> "The menstrual cycle sucks"
                                     </a><br>
