@@ -45,10 +45,17 @@
                     font-size: 1.1em;
                 }
                 #room-nav {
-                  width: 100%;
+                  width: auto;
+                }
+                .leftside-jukebox {
+                    width: 60%;
+                    height: auto;
                 }
             }
             @media only screen and (max-width: 500px) {
+                .flex-rightside {
+                    flex-direction: column;
+                }
                 li {
                     margin: 0.4em;
                 }
@@ -59,8 +66,7 @@
                     line-height: 1.2;
                 }
                 .leftside-jukebox {
-                    width: 45%;
-                    height: fit-content;
+                    width: auto;
                 }
                 #room-nav > h2 {
                     margin-top: 5px;
