@@ -41,7 +41,7 @@
                     font-size: 1em;
                 }
                 .leftside-jukebox {
-                    width: 45%;
+                    width: 60%;
                     height: fit-content;
                 }
                 #room-nav {
@@ -50,7 +50,7 @@
                     font-size: 1.2em;
                 }
                 #room-nav {
-                    width: 100% !important;
+                    width: auto;
                 }
                 #room-nav > h2 {
                     margin-top: 5px;
@@ -60,6 +60,9 @@
                 }
             }
             @media only screen and (max-width: 500px) {
+                .flex-rightside {
+                    flex-direction: column;
+                }
                 .flex-main {
                   flex-direction: column-reverse;
                   margin-left: 0.5em;
@@ -93,6 +96,10 @@
                 .intro {
                     width: auto !important;
                     margin: 0.5em !important;
+                }
+                .leftside-jukebox {
+                    width: auto;
+                    height: fit-content;
                 }
             }
             /*pulled from stack overflow, allows the home nav link to hide on desktop and show on mobile*/
@@ -220,7 +227,7 @@
             }   
             .main {
                 background-image: url('/images/backgrounds/bg-pink-notebook-paper.gif');
-                height: fit-content;
+                height: auto;
             }   
             .intro {
                 text-align: left;
@@ -320,6 +327,33 @@
             </div>
             <div class="flex-row flex-middle"> 
                 <div class="flex-column flex-rightside">
+                    <aside class="leftside leftside-jukebox">
+                        <div class="jukebox">
+                            <button class="activate">
+                                <img src="/images/img-green-radio.gif" alt="Open for song options for the music player.">
+                            </button>
+                            <ul>
+                                <button onclick="stopmusic()">stop music</button>
+                                <li><button value="0" title="Honey - Chihiro" onclick="playsong()">honey.mp3	
+                                    <audio><source src="https://files.catbox.moe/3brhsz.mp3" type="audio/mp3"></audio>
+                                </button></li>
+                                <li><button value="1" title="Swept Away - Vanilla" onclick="playsong()">swept-away.mp3	
+                                    <audio><source src="https://files.catbox.moe/3ekrrx.mp3" type="audio/mp3"></audio>
+                                </button></li>
+                            </ul>
+                            <marquee> 
+                                <p id="marq">☆ select a song! ☆</p>
+                            </marquee>
+                            <script>
+                                var y = document.getElementsByTagName('audio');
+                                for(var j=0; j<y.length; j++) {
+                                    y[j].onended = function() {
+                                        document.getElementById('marq').innerHTML = 'select a song!';
+                                    };
+                                }
+                            </script>
+                        </div> 
+                    </aside>
                     <aside class="leftside" id="room-nav">
                         <h2 style="background-color: transparent;">
                             Bookshelf
@@ -446,7 +480,7 @@
                         <article class="flex-row chara-info-container-right" style="justify-content: space-evenly;">
                             <section class="main-text">
                                 <h3>
-                                    【 Kousuke Hirahara 】
+                                    【 Kousuke 】
                                 </h3>
                                 <p class="chara-info scrolling-box">
                                     <b>Series:</b> I Love Yoo<br>
@@ -542,7 +576,7 @@
                             <img class="chara-img-left" src="https://files.catbox.moe/y5cg0g.png">
                             <section class="main-text">
                                 <h3>
-                                    【 Kotone Shiomi 】
+                                    【 Kotone 】
                                 </h3>
                                 <p class="chara-info scrolling-box">
                                     <b>Series:</b> Persona 3 <br>
