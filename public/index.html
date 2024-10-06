@@ -79,8 +79,11 @@
                     margin-left: auto;
                     margin-right: auto;
                 }
-                .decor {
+                .decor, .decor2, #currently-status, #mushroom-guard {
                     display: none;
+                }
+                #webrings {
+                    width: auto;
                 }
                 .flex-counters {
                     width: 50% !important;
@@ -88,8 +91,14 @@
                 #poll-container {
                     width: 50% !important;
                 }
+                #silly-city {
+                    width: auto !important;
+                }
             }
             @media only screen and (max-width: 500px) {
+                #rightside {
+                    flex-direction: row !important;
+                }
                 body {
                     margin: 0px !important;
                 }
@@ -126,6 +135,9 @@
                 #tree-decor {
                     display: none !important;
                 }
+                #webrings {
+                    width: auto !important;
+                }
             }
             /*pulled from stack overflow, allows the home nav link to hide on desktop and show on mobile*/
             @media screen and (max-width: 480px) {
@@ -138,12 +150,16 @@
                     display: none;
                 }
             }
-            .decor {
+            .decor, .decor2 {
                 border-style: none;
                 background: transparent;
                 justify-content: space-between;
+                height: 50%;
             }
-            .decor-left {
+            .decor {
+                justify-content: start;
+            }
+            .decor2 {
                 justify-content: end;
             }
             li{
@@ -231,6 +247,50 @@
                 border-bottom-left-radius: 10px;
                 padding-top: 0px;
 		    }
+            /* css for the mushroom guard iframe. allows it to be resized. idk how it works, copied and altered from a stacks post*/
+            #wrap {
+                width: 320px;
+                height: 200px;
+                padding: 0;
+            }
+            #frame{
+                width: 200px;
+                height: 250px;
+                border: 0;
+
+                -ms-transform: scale(0.25);
+                -moz-transform: scale(0.25);
+                -o-transform: scale(0.25);
+                -webkit-transform: scale(0.25);
+                transform: scale(0.80);
+
+                -ms-transform-origin: 0 0;
+                -moz-transform-origin: 0 0;
+                -o-transform-origin: 0 0;
+                -webkit-transform-origin: 0 0;
+                transform-origin: 0 0;
+            }
+            #currently-status > p {
+                text-align: left;
+                margin-top: -10px;
+                line-height: 1.4;
+            }
+            #currently-status > h3 {
+                border-bottom: 1.5px solid #4f6c38;
+                margin-top: 0em;
+                padding-top: 1.5em;
+                border-top-left-radius: 0.5em;
+                border-top-right-radius: 0.5em;
+                background-image: url("https://files.catbox.moe/lop77i.gif");
+            }
+            .currently-topics {
+                font-size: 1.11em;
+                
+            }
+            #silly-city {
+                display: block;
+                margin: 0 auto !important;
+            }
         </style>
         <script>
             /* this is also solaria's script for the jukebox. I CANNOT WRITE JAVASCRIPT */
@@ -357,25 +417,19 @@
                         </h2>
                         <div class="scrolling-box">
                             <section>
-                                <p>
-                                    ❥ Finish main nav links (5/7 done!)
-                                </p>
-                                <p>
-                                    ❥ Finish making webpages (9 out of ?? done!)
-                                </p>
-                                <p>
-                                    ❥ Change layout of the art gallery
-                                </p>
-                                <p>
-                                    ❥ Move the site buttons somewhere else (starting to lag in home page..)
-                                </p>
-                                <p>
-                                    ❥ Make a site button - then join the responsive web listing and small world listing :3
-                                </p>
-                                <p>
-                                    ❥ Finish book reviews in library (done!)
-                                </p>
-                                <p>
+                                <p style="text-align: left; padding: 0.6em;">
+                                    ❥ Finish main nav links (5/7 done!) <br>
+                                    <br>
+                                    ❥ Finish making webpages (9 out of ?? done!) <br>
+                                    <br>
+                                    ❥ Change layout of the art gallery <br>
+                                    <br>
+                                    ❥ Move the site buttons somewhere else (starting to lag in home page..) <br>
+                                    <br>
+                                    ❥ Make a site button - then join the responsive web listing and small world listing :3 <br>
+                                    <br>
+                                    ❥ Finish book reviews in library (done!) <br>
+                                    <br>
                                     ❥ Add mudae comms?
                                 </p>
                             </section>
@@ -405,6 +459,9 @@
                     </aside>
                     <aside class="leftside flex-column decor decor-left">
                         <img src="/images/index-imgs/img-cat-bee-dance.gif" alt="">
+                    </aside>
+                    <aside class="leftside flex-column decor2 decor-left">
+                        <img src="https://files.catbox.moe/1wg10t.gif" alt="">
                     </aside>
                 </div>
                 <main class="main">
@@ -440,7 +497,7 @@
                                 Meet the Webmistress
                             </h2>
                         </div>
-                        <div class="flex-row" id="about-and-portrait">
+                        <div class="flex-row" id="about-and-portrait" style="margin-top: -20px;">
                             <div id="flex-portrait">
                                 <img id="portrait" src="/images/index-imgs/img-portrait-starry.jpg" alt="Portrait bust of my OC Starry. She is smiling at the viewer within a window frame with pink and purple hydrangas at the bottom of the frame. She has long, straight, orange hair with a bang on the right side of her face and a yellow star-shaped hair clip on the left side of her hair." 
                                 style="justify-content: center; width: 80%; height: auto; border:8px double #4f6c38; margin-left:0.8em; margin-right:auto;">
@@ -456,6 +513,7 @@
                                     I was inspired by a creator on neocities called <a href="https://loveweb.neocities.org">Loveweb</a> to make my own website
                                     and add some more creativity to the web.<br>
                                     <br>
+                                    <b>Contact me:</b> <a href="mailto:starryknight066@gmail.com">shoot me an email</a><br>
                                     <b>Currently working on:</b> A site button (FINALLY) and a few tweaks here and there<br>
                                     <b>Last updated:</b><br>
                                     <iframe src="https://starryknight06.github.io/neocities/public/last-updated.html" scrolling="no" style="height: 40px; width: 220px; border-style: none;"></iframe><br>
@@ -464,7 +522,7 @@
                             </div>
                         </div>
                     </article>
-                    <article>
+                    <article style="margin-top: -30px;">
                         <div class="flex-row" style="justify-content:space-between;">
                             <h2 style="text-align: left; margin-bottom: -2px;">
                                 Update Logs
@@ -481,6 +539,7 @@
                             <script src="//rss.bloople.net/?url=https%3A%2F%2Fstarry-knight.neocities.org%2Frss.xml&showtitle=false&type=js"></script>
                         </div>
                     </article>
+                    <!--
                     <article>
                         <h2>
                             ✿ Meet my pet flower! ✿
@@ -491,46 +550,32 @@
                             </p>
                             <iframe id="sunny-pet" width="314" height="321" scrolling="no" src="https://gifypet.neocities.org/pet/pet.html?name=Sunny&dob=1719954029&gender=f&element=Earth&pet=flower.gif&map=https%3A%2F%2Fstarry-knight.neocities.org%2Fimages%2Fbackgrounds%2Fbg-pvz-yard.png&background=https%3A%2F%2Fstarry-knight.neocities.org%2Fimages%2Fbackgrounds%2Fbg-pink-white-flowers.gif&tablecolor=%23bd006e&textcolor=%230e5700" frameborder="0;" style="border: var(--bordermain);"></iframe>
                         </div>
-                    </article>
+                    </article> -->
                     <img src="/images/index-imgs/div-lily-valley.gif" alt="" style="width:100%;height: auto; margin-top: 0.5em; margin-bottom: 0.5em;">
-                    <article>
+                    <article> 
                         <h2>
                             Thank you for visiting!
                         </h2>
-                        <p>
+                        <p style="margin-top: -20px;">
                             I hope you enjoyed looking around my lil corner on the web ( ´ ∀ ` )ﾉ
                             Have some sweets on your way out and maybe sign my 
                             <a href="https://starryknight.atabook.org/" title="Leave a comment or say hi">guestbook</a>
                             to let me know you stopped by.
-                            If the mobile layout or anything on the site is broken or if you have a hard time navigating things, please <a href="mailto:starryknight066@gmail.com">shoot me an email</a>!
                         </p>
+                        <p>
+                            <em>(starry's button is in the works)</em>
+                        </p>
+                        <!--
                         <div class="flex-row" style="justify-content: space-evenly; margin: 1em;">
                             <img src="/images/index-imgs/img-kitchen-shelf.gif" alt="" style="width: 40%; height: 40%;">
                             <img src="/images/index-imgs/img-chocolate-cake.gif" alt="" style="width: 30%; height: 30%;">
-                        </div>
+                        </div> -->
                     </article>    
-                    <div class="flex-column" style="justify-content: space-evenly; flex-wrap: wrap;">
-                        <h3 style="text-decoration: none;">
-                            Webrings
-                        </h3>
-                        <div style="display: block; margin: auto;">
-                            <journal-ring icon="blue" style="margin-left: 1em;">
-                            </journal-ring>
-                            <script async src="https://cdn.jsdelivr.net/gh/js044/nenrikido@main/static/js/misc/journalring.js">
-                            </script> 
-                        </div>
-                        <div style="display: block; margin: auto;">
-                            <iframe src="https://silly.city/embed.html?user=StarryKnight" title="silly.city webring" frameborder="no" style="height: 80px; width: 300px; border-radius: 15px; margin: 0.5em;"></iframe>
-                        </div>
-                    </div>
-                </main>
-                <!-- right aside starts here -->
-                <div class="flex-column">
-                    <aside class="rightside" id="rightside-surfweb">
+                    <div>
                         <h3>
                             Surf the Web
                         </h3>
-                        <p>
+                        <p style="margin-top: -20px;">
                             Click a button to go to another cool website! Have fun :3
                         </p>
                         <div class="flex-row" style="flex-wrap: wrap; justify-content: space-evenly;">
@@ -610,6 +655,48 @@
                                 <img src="/images/index-imgs/button-dcave-derps.gif" alt="DcaveDerps. A button portraying a pixelated white cat looking around on loop. There's a large arrow pointing to it next to text saying 'look at this funny cat'." loading="lazy">
                             </a>
                         </div>
+                    </div>
+                </main>
+                <!-- right aside starts here -->
+                <div class="flex-column" id="rightside">
+                    <aside class="rightside" id="currently-status">
+                        <h3>
+                            Currently...
+                        </h3>
+                        <p>
+                            <span class="currently-topics"><b>Watching:</b></span> Hunter x Hunter (finished!)<br>
+                            <span class="currently-topics"><b>Playing:</b></span> Terraria <br>
+                            <span class="currently-topics"><b>Reading:</b></span> Tista by Tatsuya Endo <br>
+                            <span class="currently-topics"><b>Drawing:</b></span> <a href="" target="_blank">Bweird's OCtober</a> <br>
+                            <span class="currently-topics"><b>Waiting on:</b></span> Sakamoto Days anime 2025! <br>
+                        </p>
+                    </aside>
+                    <aside class="rightside" id="webrings" style="justify-content: space-evenly; flex-wrap: wrap;">
+                            <h3 style="text-decoration: none;">
+                                Webrings
+                            </h3>
+                            <div style="display: block; margin: 0 auto;">
+                                <journal-ring icon="blue" style="margin-left: 1em;">
+                                </journal-ring>
+                                <script async src="https://cdn.jsdelivr.net/gh/js044/nenrikido@main/static/js/misc/journalring.js">
+                                </script> 
+                            </div>
+                            <div>
+                                <iframe src="https://silly.city/embed.html?user=StarryKnight" id="silly-city" title="silly.city webring" frameborder="no" style="height: 80px; width: 160px; border-radius: 15px; margin: 0em;"></iframe>
+                            </div>
+                    </aside>
+                    <aside id="mushroom-guard" style="margin: 0.3em;">
+                        <div id="wrap">
+                        <iframe id="frame" src="https://shroom.ink/guard.html/?site=Starry's Grove&shroom=13" 
+                            height="250px" width="200px" scrolling="no" frameborder="0">
+                        </iframe>
+                        </div>
+                    </aside>
+                    <aside class="leftside flex-column decor decor-left">
+                        <img src="https://files.catbox.moe/2uiqmi.gif" alt="" style="width: 70%;">
+                    </aside>
+                    <aside class="leftside flex-column decor2 decor-left">
+                        <img src="https://files.catbox.moe/1wg10t.gif" alt="" style="transform: scaleX(-1)">
                     </aside>
                 </div>
             </div>
