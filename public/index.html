@@ -160,7 +160,8 @@
                 justify-content: start;
             }
             .decor2 {
-                justify-content: end;
+                justify-content: end !important;
+                height: 100%;
             }
             li{
                 list-style: none;
@@ -290,6 +291,9 @@
             #silly-city {
                 display: block;
                 margin: 0 auto !important;
+            }
+            #piclog-img {
+                width: 100%;
             }
         </style>
         <script>
@@ -560,16 +564,21 @@
                             I hope you enjoyed looking around my lil corner on the web ( ´ ∀ ` )ﾉ
                             Have some sweets on your way out and maybe sign my 
                             <a href="https://starryknight.atabook.org/" title="Leave a comment or say hi">guestbook</a>
-                            to let me know you stopped by.
+                            to let me know you stopped by.<br>
+                            <br>
+                            Also, leave me a message if you add my button to your site! :3
                         </p>
-                        <p>
-                            <em>(starry's button is in the works)</em>
-                        </p>
-                        <!--
-                        <div class="flex-row" style="justify-content: space-evenly; margin: 1em;">
-                            <img src="/images/index-imgs/img-kitchen-shelf.gif" alt="" style="width: 40%; height: 40%;">
-                            <img src="/images/index-imgs/img-chocolate-cake.gif" alt="" style="width: 30%; height: 30%;">
-                        </div> -->
+                        <h3 style="text-decoration: none; font-size: 1.1em;">
+                            My Site Button
+                        </h3>
+                        <div class="flex-row" style="margin-top: -5px;">
+                            <a href="https://starry-knight.neocities.org/" target="_blank">
+                                <img src="/images/index-imgs/button-starrys-grove.gif" alt="Starry's Grove">
+                            </a>
+                        </div>
+                        <div class="flex-row">
+                        <textarea style="height: 30px; width: 160px;"><a href="https://starry-knight.neocities.org/" target="_blank"><img src="Your Image Download Here" alt="Starry's Grove"></a></textarea>
+                        </div>
                     </article>    
                     <div>
                         <h3>
@@ -671,6 +680,13 @@
                             <span class="currently-topics"><b>Waiting on:</b></span> Sakamoto Days anime 2025! <br>
                         </p>
                     </aside>
+                    <!--
+                    <aside class="rightside">
+                        <a href="https://piclog.blue/profile.php?id=744">
+                            <img src="https://piclog.blue/latest.php?id=744" id="piclog-img">
+                        </a>
+                    </aside>
+                    -->
                     <aside class="rightside" id="webrings" style="justify-content: space-evenly; flex-wrap: wrap;">
                             <h3 style="text-decoration: none;">
                                 Webrings
@@ -685,15 +701,12 @@
                                 <iframe src="https://silly.city/embed.html?user=StarryKnight" id="silly-city" title="silly.city webring" frameborder="no" style="height: 80px; width: 160px; border-radius: 15px; margin: 0em;"></iframe>
                             </div>
                     </aside>
-                    <aside id="mushroom-guard" style="margin: 0.3em;">
+                    <aside class="rightside" id="mushroom-guard" style="margin: 0.3em; background: transparent; border: none;">
                         <div id="wrap">
                         <iframe id="frame" src="https://shroom.ink/guard.html/?site=Starry's Grove&shroom=13" 
                             height="250px" width="200px" scrolling="no" frameborder="0">
                         </iframe>
                         </div>
-                    </aside>
-                    <aside class="leftside flex-column decor decor-left">
-                        <img src="https://files.catbox.moe/2uiqmi.gif" alt="" style="width: 70%;">
                     </aside>
                     <aside class="leftside flex-column decor2 decor-left">
                         <img src="https://files.catbox.moe/1wg10t.gif" alt="" style="transform: scaleX(-1)">
