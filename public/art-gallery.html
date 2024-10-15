@@ -78,6 +78,9 @@
             html {
                 background-image: url("https://files.catbox.moe/drmoix.png")
             }
+            .gallery > p {
+                text-align: center !important;
+            }
             div.gallery {
                 border: 1px solid #ccc;
             }
@@ -109,9 +112,7 @@
                 .scrolling-box {
                     height: 27rem;
                 }
-                #rose-divider {
-                    margin: auto;
-                    display: block;
+                .img-divider {
                     width: 76% !important;
                 }
                 #intro {
@@ -133,9 +134,7 @@
                     margin: auto;
                     display: block; 
                 }
-                #rose-divider {
-                    margin: auto;
-                    display: block;
+                .img-divider {
                     width: 98% !important;
                 }
                 li {
@@ -178,14 +177,24 @@
                 color: #0e0601;
                 border-radius: 10px;
             }
-            #rose-divider {
-                margin: auto;
-                display: block;
+            .img-divider {
                 width: 76%;
             }
             #intro {
                 margin: auto;
                 width: 75%;
+            }
+            #banner {
+                background-image:url(/images/art-gallery-imgs/div-totoro.gif); 
+                height: 40px;
+            }
+            header > div > img {
+                width: 8%;
+                height: 8%;
+                margin: auto; 
+            }
+            p {
+                text-align: center;
             }
         </style>
         <script>
@@ -211,18 +220,18 @@
     </head>
     <body>
         <div class="flex-body">
-            <div class="banner"  style="background-image:url(/images/art-gallery-imgs/div-totoro.gif); height: 40px;"></div>
+            <div id="banner"></div>
         </div>
         <div class="flex-body">
-            <header class="header">
+            <header>
                 <div class="flex-row">
                     <!-- to flip an image/item transform: scaleX(-1)-->
-                    <img src="/images/art-gallery-imgs/img-painting-easel.png" style="width: 8%;height: 8%;margin: auto; transform: scaleX(-1);">
+                    <img src="/images/art-gallery-imgs/img-painting-easel.png" style="transform: scaleX(-1);">
                     <h1>Art Gallery</h1>
-                    <img src="/images/art-gallery-imgs/img-painting-easel.png" style="width: 8%;height: 8%;margin: auto;">
+                    <img src="/images/art-gallery-imgs/img-painting-easel.png">
                 </div>
             </header>
-            <div class="leftside navbar">
+            <div id="navbar">
                 <nav>
                     <ul class="custom-bullets">
                         <li>
@@ -290,7 +299,7 @@
                     </aside>
                 </div>
                 <main class="main">
-                    <img src="/images/art-gallery-imgs/div-purple-rose.gif" id="rose-divider">
+                    <img src="/images/art-gallery-imgs/div-purple-rose.gif" class="img-divider center">
                     <div class="flex-row" id="intro">
                         <p style="text-align: left;">Here you'll find a collection of my artworks. <strong>Click</strong> the image to see the full image in another tab.<br>
                             ✿ <br>
@@ -300,7 +309,7 @@
                         <img src="/images/art-gallery-imgs/img-drawing-girl.gif" style="height: 24%;width: 24%;margin: auto;margin-left: 2em;">
                         <img src="/images/art-gallery-imgs/img-drawing-girl2.gif" style="height: 24%;width: 24%;margin: auto;margin-right: 2em;">
                     </div>
-                    <img src="/images/art-gallery-imgs/div-purple-rose.gif" id="rose-divider">
+                    <img src="/images/art-gallery-imgs/div-purple-rose.gif" class="img-divider center">
                     <h3>❀ Character Art ❀</h3>
                     <div class="scrolling-box">
                         <div class="flex-row flex-charaart" style="flex-wrap: wrap;">
@@ -869,7 +878,7 @@
                             </div>
                         </div>
                     </div>
-                    <img src="/images/art-gallery-imgs/div-purple-rose.gif" id="rose-divider">
+                    <img src="/images/art-gallery-imgs/div-purple-rose.gif" class="center img-divider">
                     <h3>Check out my art buddies!</h3>
                     <div class="flex-row" style="flex-wrap: wrap;">
                         <div class="flex-column flex-friendsart">
@@ -926,11 +935,11 @@
                     </div>
                 </main>
             </div>
-            <footer class="footer">
-                <p style="margin: -0.5em;">
+            <footer>
+                <p>
                     ♡ Lovingly crafted by Starry - May 2024
                 </p>
-                <div class="flex-row" style="justify-content: space-evenly; width: 18em; margin: auto;">
+                <div class="flex-row">
                     <img src="/images/img-lil-cat-dancing.gif" alt="">
                     <a href="#top">Back to top</a>
                     <img src="/images/img-lil-cat-dancing.gif" alt="" style="transform: scaleX(-1)">
