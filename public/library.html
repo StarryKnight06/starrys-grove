@@ -15,9 +15,10 @@
                 .flex-middle {
                     flex-direction: column-reverse;
                 }
-                .navbar,.main, .leftside-jukebox {
+                #navbar, main, .leftside-jukebox {
                     width: 100%;
                 }
+                /* do not change to id. must be in class to not interfer wtih the id target */
                 .library-intro {
                     margin: auto !important;
                 }
@@ -83,6 +84,10 @@
             html{
                 background-image: url("/images/backgrounds/bg-green-wood-wall.gif");
             }
+            #banner {
+                background-image: url('/images/library-imgs/div-town.gif');
+                height:40px;
+            }
             /*used sadgrl online's horizontal nav bar pencode snippet*/
             nav ul {
                 /*this takes away the bullet points*/
@@ -96,14 +101,21 @@
                 padding-right:10px;
                 margin: auto;
             }
-            .custom-bullets {
-                list-style: none;
-            }
-            .navbar, .leftside-jukebox {
+            .leftside-jukebox {
                 width: auto;
             }
+            main { 
+                width: auto ; 
+                justify-content:space-evenly; 
+                border: none; 
+                background-color: transparent;
+            }
+            header > div > img {
+                width:7%;
+                height:7%;
+                margin: auto;
+            }
 
-            h3 { text-decoration: none;}
             /* css for the way the books look. the box shadow stuff i got from a stack overflow post. idk how it works */
             #book-img> a > img {
                 width: 30.5%;
@@ -115,6 +127,7 @@
                 border-left: transparent;
                 border-bottom: transparent;
             }
+            
             /*css for book image container*/
             #book-img {
                 background-color:#d0b394;
@@ -128,9 +141,19 @@
                 border:2px solid #543420;
                 border-radius: 5px;
                 background-image: url("/images/backgrounds/bg-wood-texture.jpg");
+                height: fit-content;
             }
-            #entries { 
+            .library-intro{
+                width: 80%;
+            }
+            /* applies to the box on the right side of the screen*/
+            #entries {
                 width: 60%;
+                margin-left: 1em;
+                background-color: var(--boxbgcolor);
+                border: var(--bordermain);
+                border-radius: 5px;
+                height: fit-content;
                 /* sadgrl static blog entry code pen */    
                 [id] {
                     display: none;
@@ -140,30 +163,35 @@
                 }
             }
             #entries > div > h3 > a:link {
-                color: #20652e !important; text-decoration: none;
+                color: #20652e !important;
             }
             #entries > div > p > a:link {
-                color: #48008b !important; text-decoration: none;
+                color: #48008b !important;
             }
             #entries > div > h3 > a:hover, #entries > div > p > a:hover {
-                color: #d1495b !important; text-decoration: underline;
+                color: #d1495b !important;
             }
             #entries > div > h3 > a:visited {
-                color: #20652e !important; text-decoration: none;
+                color: #20652e !important;
             } 
             #entries > div > p > a:visited {
-                color: #48008b !important; text-decoration: none;
+                color: #48008b !important;
             }
             .author-info {
                 margin-top: -30px;
+                text-align: center;
             }
             .book-info {
                 margin-top: -18px;
+                text-align: center;
             }
             .book-summary{
                 margin-top: -18px;
-                text-align: left;
             }
+            .img-divider {
+                width: 50% !important;
+            }
+
         </style>
         <script>
             /* this is also solaria's script for the jukebox */
@@ -188,19 +216,21 @@
     </head>
     <body>
         <div class="flex-body">
-            <div class="banner" style="background-image: url('/images/library-imgs/div-town.gif'); height:40px;"></div>
+            <div id="banner"></div>
         </div>
         <div class="flex-body">
-            <header class="header">
+            <header>
                 <div class="flex-row">
-                    <img src="/images/library-imgs/img-penguin-books.gif" alt="" style="width:7%;height:7%;margin:auto;transform: scaleX(-1);">
-                    <h1>Library</h1>
-                    <img src="/images/library-imgs/img-penguin-books.gif" alt="" style="width:7%;height:7%;margin:auto;">
+                    <img src="/images/library-imgs/img-penguin-books.gif" alt="" style="transform: scaleX(-1);">
+                    <h1>
+                        Library
+                    </h1>
+                    <img src="/images/library-imgs/img-penguin-books.gif" alt="">
                 </div> 
             </header>
-            <div class="leftside navbar">
+            <div id="navbar">
                 <nav>
-                    <ul class="custom-bullets">
+                    <ul>
                         <li>
                             <a href="https://starry-knight.neocities.org">
                                 Home
@@ -265,9 +295,9 @@
                     </div> 
                 </aside>
             <!-- flex-middle contains all left asides, main, and right asides -->
-            <main class="main flex-middle" style="width: auto ;justify-content:space-evenly; border: none; background-color: transparent;">
-                <div id="bookshelf" style="height: fit-content;">
-                    <div id="book-img" style="flex-wrap: wrap;flex-direction: row;">    
+            <main class="flex-middle">
+                <div id="bookshelf">
+                    <div id="book-img">    <!-- flex-wrap: wrap;flex-direction: row;-->
                         <a href="#1"><img src="/images/library-imgs/cover-cursed-princess-club.jpg" alt="Cursed Princess Club comic cover" title="Cursed Princess Club"></a>
                         <a href="#2"><img src="/images/library-imgs/cover-daybreak.jpg" alt="Daybreak comic cover" title="Daybreak"></a>
                         <a href="#3"><img src="/images/library-imgs/cover-deathsitter.jpg" alt="DeathSitter comic cover" title="DeathSitter"></a>
@@ -285,9 +315,10 @@
                         <a href="#15"><img src="/images/library-imgs/cover-stagtown.jpg" alt="Stagtown comic cover" title="Stagtown"></a> 
                     </div>
                 </div>
-                <div id="entries" style="margin-left: 1em; background-color: var(--boxbgcolor); border: var(--bordermain); border-radius: 5px; height: fit-content;">
-                    <img src="/images/library-imgs/div-fancy-pearls.gif" alt="" style="width: 60%; display: block; margin-left: auto; margin-right: auto;margin-top: 0.5em;">
-                    <p class="library-intro" style="text-align: left; width: auto; margin-left: 2em; margin-right: 2em;">
+                <div id="entries">
+                    <img src="/images/library-imgs/div-fancy-pearls.gif" class="center img-divider" alt="">
+                    <!-- do not change library-intro to id. must be in class to not interfer wtih the id target -->
+                    <p class="library-intro center">
                         <strong>Welcome to my library of my favorite webtoons!</strong><br>
                         <br>
                         Click on a <strong>book</strong> to learn more about it and see what I think about it.<br>
@@ -296,7 +327,7 @@
                         All my comments will be free of major spoilers if you decide to check them out.
                         Still, if any of these look interesting to you, maybe go take a look before you read my thoughts & comments (✿´ ꒳ ` )
                     </p>
-                    <img src="/images/library-imgs/div-fancy-pearls.gif" alt="" style="width: 60%; display: block; margin-left: auto; margin-right: auto;">
+                    <img src="/images/library-imgs/div-fancy-pearls.gif" class="center img-divider" alt="">
                     <div id="1">
                         <h3><a href="https://www.webtoons.com/en/comedy/cursed-princess-club/list?title_no=1537" title="Link to the webtoon">Cursed Princess Club</a></h3>
                         <p class="author-info">by <a href="https://twitter.com/iamlambcat" title="Author's socials">LambCat</a></p>
@@ -675,21 +706,18 @@
                             So when she uses some pops of color, you know something is about to go down.
                         </p>
                     </div>
-                    <div class="flex-column" style="max-height:74.3%; height: 100%;">
-                        <div class="flex-row" style="justify-content: space-evenly;  margin-top: 0.2em;">
-                            <img src="/images/library-imgs/img-fireplace.gif" alt="" style="transform: scaleX(-1); height: 80%; margin-bottom: 0.5em;">
-                        </div>
-                    </div>
+                    <img src="/images/library-imgs/img-fireplace.gif" class="center" alt="" style="transform: scaleX(-1);">
                 </div>
-                
             </main>
-            <footer class="footer">
-                <p style="margin: -0.5em;">
+            <footer>
+                <p>
                     ♡ Lovingly crafted by Starry - May 2024
                 </p>
-                <div class="flex-row" style="justify-content: space-evenly; width: 18em; margin: auto;">
+                <div class="flex-row">
                     <img src="/images/img-lil-cat-dancing.gif" alt="">
-                    <a href="#top">Back to top</a>
+                    <a href="#top">
+                        Back to top
+                    </a>
                     <img src="/images/img-lil-cat-dancing.gif" alt="" style="transform: scaleX(-1)">
                 </div>
             </footer>
