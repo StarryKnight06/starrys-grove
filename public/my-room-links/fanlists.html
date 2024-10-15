@@ -14,8 +14,11 @@
               .flex-rightside {
                 flex-direction: row;
               }
-              .main {
+              main {
                 width: auto;
+              }
+              #navbar {
+                width: 100%;
               }
               .new-content-sticker {
                     display: none;
@@ -92,7 +95,7 @@
             .jukebox {
                 height: auto;
             }
-            .leftside-navbar {
+            #navbar {
                 width: auto;
             }
             .custom-bullets {
@@ -131,7 +134,11 @@
             #flower-divider {
                 width: 20%; 
                 height: 20%;
-            }       
+            }  
+            #banner {
+                background-image: url(/images/fanlists-imgs/div-sprout-chicks.gif);
+                height: 25px;
+            }     
         </style>
         <script>
             /* this is also solaria's script for the jukebox */
@@ -156,7 +163,7 @@
     </head>
     <body>
         <div class="flex-body">
-            <div class="banner" style="background-image: url(/images/fanlists-imgs/div-sprout-chicks.gif); height: 25px"></div>
+            <div id="banner"></div>
         </div>
         <!-- use multiple classes to differientiate between similar names -->
         <div class="flex-body body-main">
@@ -169,7 +176,7 @@
                     <img src="/images/fanlists-imgs/img-floating-hearts.gif" style="height: 5%; width: 5%; margin-top: auto; margin-bottom: auto; transform: scaleX(-1)">
                 </div> 
             </header>
-            <div class="leftside navbar">
+            <div id="navbar">
                 <nav>
                     <ul class="custom-bullets">
                         <li>
@@ -259,7 +266,7 @@
                         </nav>
                     </aside>
                 </div>
-                <main class="main">
+                <main>
                     <h2 style="margin-bottom: -10px;">What's that?</h2>
                     <div class="flex-row" style="justify-content: space-between; margin-top: auto; margin-bottom: auto;">
                         <img src="/images/fanlists-imgs/div-vertical-pink-flower-vine.gif" id="flower-divider" style="transform: scaleX(-1);">
@@ -273,11 +280,6 @@
                             o(〃＾▽＾〃)o
                         </p>
                         <img src="/images/fanlists-imgs/div-vertical-pink-flower-vine.gif" id="flower-divider">
-                       <!-- <a href="">
-                            <img src="/images/fanlists-imgs/img-picrew-starry-silly.png" title="made with @reelrollsweat's picrew"
-                            style="height: 40%; margin: 0.5em; border: 2px dashed #4f6c38;; border-radius: 5px;">
-                        </a> -->
-                        
                     </div>  
                     <div class="flex-column">    
                         <h3 style="margin-bottom: -2px;">
@@ -446,11 +448,11 @@
 
                 </main>
             </div>
-            <footer class="footer">
-                <p style="margin: -0.5em;">
+            <footer>
+                <p>
                     ♡ Lovingly crafted by Starry - May 2024
                 </p>
-                <div class="flex-row" style="justify-content: space-evenly; width: 18em; margin: auto;">
+                <div class="flex-row">
                     <img src="/images/img-lil-cat-dancing.gif" alt="">
                     <a href="#top">Back to top</a>
                     <img src="/images/img-lil-cat-dancing.gif" alt="" style="transform: scaleX(-1)">
