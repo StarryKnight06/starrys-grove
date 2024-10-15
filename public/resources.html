@@ -21,16 +21,13 @@
                 .home-button {
                     display: none;
                 }
-                .navbar,.main{
+                #navbar, main{
                     width: auto;
                 }
                 .new-content-sticker{
                     display: none;
                 }
                 /*used sadgrl online's horizontal nav bar pencode snippet*/
-                .custom-bullets{
-                    list-style: none;
-                }
                 nav ul li {
                     padding-right:10px;
                     font-size:0.8em !important;
@@ -50,6 +47,15 @@
                 p {
                     font-size: 1em;
                 }
+                #resource-links {
+                    width: 100% !important;
+                }
+                .flex-middle{
+                flex-direction: column !important;
+                }
+                #vertical-divider {
+                    display: none;
+                }
             }
             @media only screen and (max-width: 500px) {
                 body {
@@ -57,9 +63,6 @@
                 }
                 li {
                     margin: 0.4em;
-                }
-                .resources {
-                    flex-direction: column;
                 }
                 .resource-links {
                     width: 100% !important;
@@ -69,6 +72,9 @@
                     margin-bottom: 0px;
                     display: inline-block;
                     line-height: 1.2;
+                }
+                main > p {
+                    width: 90% !important; 
                 }
             }
             /*pulled from stack overflow, allows the home nav link to hide on desktop and show on mobile*/
@@ -98,31 +104,68 @@
                 margin: auto;
             }
             .flex-middle{
-                flex-direction: column;
+                flex-direction: row;
             }
             .leftside-jukebox {
                 width: auto;
             }
-            .main {
+            main {
                 width: auto;
             }
-            .resources ul li{
+            main > p {
+                width: 80%;
+            }
+            #resource-links ul li{
                 font-family: main-text-font;
                 color:var(--maintextcolor);
             }   
-            .resource-links li {
+            #resource-links li {
                 font-size: 1em;
             }    
-            .resource-links a {
+            #resource-links a {
                 font-size: 1.1em;
                 color: #026ca5;
             }
-            .resource-links h2, h3 {
+            #resource-links h2, h3 {
                 margin-bottom: -10px;
                 text-decoration: underline;
             }
             .intro {
                 width: 60%;
+            }
+            #banner {
+                background-image: url('/images/resources-imgs/div-jump-rope.gif');
+                height: 30px;
+            }
+            header > div > img {
+                width: 12%;
+                height: 12%;
+                margin:auto;
+            }
+            #resource-links > [id] {
+	            display: none;
+            }
+            #resource-links > [id]:target {
+                display:block !important;
+            }
+            /* END OF AREA*/
+            #resources-catagory {
+                font-family: "subheader-font";
+                justify-content: space-between;
+                flex-wrap: wrap;
+                line-height: 1.5;
+                margin-left: 2em;
+                margin-right: 2em;
+            }
+            #resources-catagory > a {
+                text-decoration: underline;
+                margin-right: 1.5em;
+            }
+            #resources-catagory a:link {
+                color: #6d108a;
+            }
+            #resources-catagory a:visited {
+                color: #6d108a;
             }
         </style>
         <script>
@@ -148,22 +191,22 @@
     </head>
     <body>
         <div class="flex-body">
-            <div class="banner" style="background-image: url('/images/resources-imgs/div-jump-rope.gif'); height: 30px;">
+            <div id="banner">
             </div>
         </div>
         <div class="flex-body">
-            <header class="header">
+            <header>
                 <div class="flex-row">
-                <img src="/images/resources-imgs/img-totoros.gif" alt="" style="width: 12%; height: 12%; margin:auto;transform: scaleX(-1);">
+                <img src="/images/resources-imgs/img-totoros.gif" alt="" style="transform: scaleX(-1);">
                 <h1>
                     Helpful Resources
                 </h1>
-                <img src="/images/resources-imgs/img-totoros.gif" alt="" style="width: 12%; height: 12%; margin:auto;">
+                <img src="/images/resources-imgs/img-totoros.gif" alt="">
                 </div>
             </header>
-            <div class="leftside navbar">
+            <div id="navbar">
                 <nav>
-                    <ul class="custom-bullets">
+                    <ul>
                         <li>
                             <a href="https://starry-knight.neocities.org">
                                 Home
@@ -230,9 +273,11 @@
                             </script>
                         </div> 
                     </aside>
+                    <aside class="leftside" id="vertical-divider" style="background: transparent; border: none;">
+                    </aside>
                 </div>
-                <main class="main">
-                    <p style="width:80%; margin-left: auto; margin-right: auto; margin-top: 1em; text-align: left;">
+                <main>
+                    <p class="center">
                         Here's some resources I used to make / decorate my website!
                         I wanted to share what I found so others can start their own journey down the rabbit hole. (´,,•ω•,,)♡
                         If you want to do some searching on your own,
@@ -240,9 +285,17 @@
                         Also, I'm gonna be making my own free to use website template for anyone who might want to use it.
                         I'll link it here when I'm done. („• ᴗ •„)	
                     </p>
-
-                    <div class="flex-row resources" style="justify-content: space-evenly;">
-                        <div class="flex-column resource-links" style="width: 50%;">
+                    <div class="flex-row center" id="resources-catagory">
+                        <a href="#1">HTML & CSS Guides</a>
+                        <a href="#2">Graphics</a>
+                        <a href="#3">Things to Add</a>
+                        <a href="#4">Misc. Tips</a>
+                        <a href="#5">Helpful Tools</a>
+                        <a href="#6">Fonts</a>
+                        <a href="#7">Custom Cursors</a>
+                    </div>
+                    <div class="flex-column center" id="resource-links">
+                        <div id="1">
                             <h2>
                                 HTML & CSS Guides
                             </h2>
@@ -290,6 +343,8 @@
                                     helpful reference article
                                 </li>
                             </ul>
+                        </div>
+                        <div id="2">
                             <h2>
                                 Graphics
                             </h2>
@@ -367,6 +422,8 @@
                                     more tiled backgrounds I've used (this site also has a lot of HTML resources and more)
                                 </li>
                             </ul>
+                        </div>
+                        <div id="3">
                             <h2>
                                 Things to Add to Your Site
                             </h2>
@@ -409,8 +466,8 @@
                                     adopt a mushroom to protect your website
                                 </li>
                             </ul>
-                        </div> 
-                        <div class="flex-column resource-links" style="width: 50%;">
+                        </div>
+                        <div id="4">
                             <h2>
                                 Misc. Tips & Help
                             </h2>
@@ -442,6 +499,8 @@
                                     the name says all, a very helpful resource
                                 </li>
                             </ul>
+                        </div>
+                        <div id="5">
                             <h2>
                                 Helpful Tools
                             </h2>
@@ -513,6 +572,8 @@
                                     create a color scheme for your webpage and generate HTML and CSS to be inserted into your page
                                 </li>
                             </ul>
+                        </div>
+                        <div id="6">
                             <h2>
                                 Fonts
                             </h2>
@@ -559,6 +620,8 @@
                                     subheader font
                                 </li>
                             </ul>
+                        </div>
+                        <div id="7">
                             <h2>
                                 Custom Cursors
                             </h2>
@@ -574,15 +637,16 @@
                                     </a>
                                 </li>
                             </ul>
-                        </div>    
+                        </div>
                     </div>
+                    <img src="/images/resources-imgs/img-nuko-Sticker-IRL-Cat.gif" class="center" style="margin-bottom: 1.5em; margin-top: 1.5em;">
                 </main>
             </div>
-            <footer class="footer">
-                <p style="margin: -0.5em;">
+            <footer>
+                <p>
                     ♡ Lovingly crafted by Starry - May 2024
                 </p>
-                <div class="flex-row" style="justify-content: space-evenly; width: 18em; margin: auto;">
+                <div class="flex-row">
                     <img src="/images/img-lil-cat-dancing.gif" alt="">
                     <a href="#top">Back to top</a>
                     <img src="/images/img-lil-cat-dancing.gif" alt="" style="transform: scaleX(-1)">
