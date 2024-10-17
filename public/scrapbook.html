@@ -7,6 +7,50 @@
         <link rel="icon" href="/images/icon-green-plant.ico">
         <title>Scrapbook - Starry's Grove</title>
         <style>
+            @media only screen and (max-width: 700px) {
+                h1 {
+                    max-width:36ch;
+                    /* idk if this does anything or not BUT it works so we leaving it there */
+                    text-wrap: wrap !important;
+                    display: inline-block;
+                }
+                h2, h3 {
+                    font-size: 1.3em;
+                    text-wrap: wrap;
+                }
+                p {
+                    font-size: 1em;
+                }
+                nav ul li {
+                    padding-right:10px;
+                    font-size:0.7em !important;
+                    padding-top: 6px;
+                }
+                .flex-middle {
+                    flex-direction: column;
+                }
+                .leftside, .rightside{
+                    width: 100% !important;
+                }
+                .leftside {
+                    margin-bottom: 1em !important;
+                }
+            }
+            @media only screen and (max-width: 500px) {
+                body {
+                    margin: 0px !important;
+                }
+                li {
+                    margin: 0.4em;
+                }
+                h1 {
+                    margin-top: 0px;
+                    margin-bottom: 0px;
+                    display: inline-block;
+                    line-height: 1.2;
+                    font-size: 1.1em;
+                }
+            }
             /*pulled from stack overflow, allows the home nav link to hide on desktop and show on mobile*/
             @media screen and (max-width: 480px) {
                 .show-on-desktop {
@@ -26,17 +70,43 @@
                 background-image: url("https://files.catbox.moe/pfn9a5.png");
             }
             main {
-                justify-content: space-between;
+                width: unset;
+                justify-content: space-evenly !important;
             }
             .flex-body{
-                background-color: azure;
-                max-width: 1160px;
+                background-color:whitesmoke;
+                max-width: 87% !important;
+                margin-top: 5em;
+                margin-bottom: 5em;
             }
-            .leftside, .rightside {
-                width: 100% !important;
+            .leftside, .rightside{
+                width: 48%;
+                background-color:bisque;
+                margin: 0px;
+                height: auto;
             }
-            .flex-middle {
-                justify-self: unset;
+            .leftside > header > h1 {
+                font-size: 1.7em !important;
+            }
+            #stamps {
+                justify-content: space-evenly;
+                flex-wrap: wrap;
+                width: 99%;
+                margin-right: 0.5em;
+                margin-left: 0.5em;
+            }
+            #stamps > img {
+                margin-bottom: 0.2em;
+            }
+            #stamps > [id] {
+                display: none;
+            }
+            #stamps >  [id]:target {
+                display: block;
+            }
+            #stamp-nav {
+                margin-top: 1.5em;
+                margin-bottom: 1.5em;
             }
         </style>
         <script>
@@ -63,23 +133,159 @@
     <body>
         <!-- use multiple classes to differientiate between similar names -->
         <div class="flex-body">
-            <header>
-                <div class="flex-row">
-                    <h1>
-                    </h1>
-                </div>
-            </header>
             <!-- flex-middle contains all left asides, main, and right asides -->
             <main class="flex-row flex-middle">
                 <div class="flex-column leftside">
-                    <p>
-                        test
-                    </p>
+                    <header>
+                        <h1 class="center">
+                            starry's scrapbook    
+                        </h1>
+                    </header>
+                    <a href="https://piclog.blue/profile.php?id=744" class="center">
+                        <img src="https://piclog.blue/latest.php?id=744">
+                    </a>
                 </div>
                 <div class="flex-column rightside">
-                    <p>
-                        test 2
-                    </p>
+                    <h2>
+                        stamp collection
+                    </h2>
+                    <div class="flex-row center" id="stamps">
+                        <div id="1">
+                            <img src="/images/scrapbook-imgs/stamp-ilovefrogs.gif" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-isupportbugsaspets.png" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-isupportgrass.png" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-plantlover.png" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-plants.png" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-mushrooms.png" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-plants2.png" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-candles.gif" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-ilovesleeping.gif" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-spacedotdot.png" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-forest.png" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-ilovestorms.png" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-ilikethesmellofrain.png" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-ilovecrows.gif" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-isupportvampires.png" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-isupportwerewolves.png" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-doglover.gif" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-cooldog.png" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-cateeper.gif" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-ceilingcat.gif" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-evilcat.png" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-cateatchips.gif" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-chips.gif" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-chocolate.gif" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-suck.gif" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-ilovecoloredpencils.jpg" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-breakcore.png" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-alien.png" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-turtle.jpg" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-pastelgoth.png" alt="">
+                        </div>
+                        <div id="2">
+                            <img src="/images/scrapbook-imgs/stamp-ilovestamps.gif" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-meta7.png" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-addict.gif" alt="Internet addict">
+                            <img src="/images/scrapbook-imgs/stamp-barbedwire.jpg" alt="Warning my diet consists of barbed wire">
+                            <img src="/images/scrapbook-imgs/stamp-sillyonline.png" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-colon3explosion.png" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-emoticonhappy.gif" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-nothingmakessense.png" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-nyan.gif" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-ohworm.gif" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-colonD.gif" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-typos.gif" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-procrastinator.png" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-feedback.png" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-trainofthought.png" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-weird.gif" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-meta9.jpg" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-isupportobscurethings.gif" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-nice.png" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-nightowl.gif" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-imdie.gif" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-istillsleepwithplush.png" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-icollectplushies.png" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-loveboyfriend.png" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-rainbowworms.png" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-feelingtoday.png" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-forget.gif" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-encouragement.png" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-worm.gif" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-halloween2.gif" alt="">
+                        </div>
+                        <div id="3">
+                            <img src="/images/scrapbook-imgs/stamp-ilovemechanicalpencils.png" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-paper.gif" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-ocs.gif" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-drawinmyhead.png" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-nocturnalartist.png" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-inmyhead.gif" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-blackdoodles.png" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-animesketch.gif" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-loading.gif" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-brick.jpg" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-couldbeworse.png" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-cringedead.png" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-cutethings.gif" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-self-taught3.png" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-stress.gif" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-pride.png" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-queer.png" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-withstamp.png" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-womenbeautiful.png" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-pronouns.png" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-helmet.gif" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-googleit.gif" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-rawr.gif" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-spongebob.gif" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-makoballs.gif" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-osomatsusan.gif" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-ichi.png" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-vocaloid.gif" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-mesmerizer.gif" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-miku.gif" alt="">
+                        </div>
+                        <div id="4">
+                            <img src="/images/scrapbook-imgs/stamp-mlphug.png" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-derpy.png" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-kindness.gif" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-mlp4.gif" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-lastunicorn.gif" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-rockmusic.gif" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-babymetal.png" alt="Baby Metal">
+                            <img src="/images/scrapbook-imgs/stamp-systemofadown.jpg" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-spiritphone.png" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-mindlessselfindulgence.png" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-bringmethehorizon.png" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-setitoff.png" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-music.jpg" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-undertale.gif" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-deltarune.gif" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-woopa.png" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-pokemoncute.png" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-grasstypespecialist.png" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-iloveanimalcrossing.gif" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-atsume2.png" alt="Neko atsume">
+                            <img src="/images/scrapbook-imgs/stamp-guitarhero.gif" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-stardew.png" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-yumenikki.png" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-zelda.png" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-osu.png" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-nintendowii.png" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-wiiowner.png" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-xbox360.gif" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-creepypasta.gif" alt="">
+                            <img src="/images/scrapbook-imgs/stamp-believeghosts.gif" alt="">
+                        </div>
+                    </div>
+                    <div class="flex-row center" id="stamp-nav">
+                        <a href="#1">1</a>
+                        <a href="#2">2</a>
+                        <a href="#3">3</a>
+                        <a href="#4">4</a>
+                        <img src="/" alt="">
+                    </div>
                 </div>
             </main>
         </div>
