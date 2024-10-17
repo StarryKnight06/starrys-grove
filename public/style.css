@@ -96,6 +96,19 @@ header{
 h3 { 
     text-decoration: none !important;
 }
+nav ul {
+    /*this takes away the bullet points*/
+    list-style-type: none;
+    padding-left:0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+nav ul li {
+    padding-right:10px;
+    margin: auto;
+}
+
 #navbar{
     font-family:"header-font" !important;
 }
