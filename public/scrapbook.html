@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/style.css">
+        <link rel="icon" href="/images/icon-green-plant.ico">
+        <title>Scrapbook - Starry's Grove</title>
+        <style>
+            /*pulled from stack overflow, allows the home nav link to hide on desktop and show on mobile*/
+            @media screen and (max-width: 480px) {
+                .show-on-desktop {
+                    display: none;
+                }
+            }
+            @media screen and (min-width: 700px) {
+                .hide-on-desktop {
+                    display: none;
+                }
+            }
+            header, main {
+                border: none;
+                background: transparent;
+            }
+            html {
+                background-image: url("https://files.catbox.moe/pfn9a5.png");
+            }
+            main {
+                justify-content: space-between;
+            }
+            .flex-body{
+                background-color: azure;
+                max-width: 1160px;
+            }
+            .leftside, .rightside {
+                width: 100% !important;
+            }
+            .flex-middle {
+                justify-self: unset;
+            }
+        </style>
+        <script>
+            /* this is also solaria's script for the jukebox. I CANNOT WRITE JAVASCRIPT */
+            function stopmusic() {
+                var y = document.getElementsByTagName('audio');
+                for(var j=0; j<y.length; j++) {
+                    y[j].pause();
+                }
+                document.getElementById('marq').innerHTML = 'no music is playing';
+            }  
+            function playsong() {
+                var y = document.getElementsByTagName('audio');
+                for(var j=0; j<y.length; j++) {
+                    y[j].pause();
+                }
+                var songvalue = event.target.value;
+                    document.getElementsByTagName('audio')[songvalue].currentTime = 0;
+                    document.getElementsByTagName('audio')[songvalue].play();
+                    document.getElementById('marq').innerHTML = event.target.title;
+            }
+        </script>
+    </head>
+    <body>
+        <!-- use multiple classes to differientiate between similar names -->
+        <div class="flex-body">
+            <header>
+                <div class="flex-row">
+                    <h1>
+                    </h1>
+                </div>
+            </header>
+            <!-- flex-middle contains all left asides, main, and right asides -->
+            <main class="flex-row flex-middle">
+                <div class="flex-column leftside">
+                    <p>
+                        test
+                    </p>
+                </div>
+                <div class="flex-column rightside">
+                    <p>
+                        test 2
+                    </p>
+                </div>
+            </main>
+        </div>
+    </body>
+</html>
