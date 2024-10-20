@@ -28,11 +28,15 @@
                 }
                 .flex-middle {
                     flex-direction: column;
-                }
-                .leftside, .rightside{
                     width: 100% !important;
                 }
-                .leftside {
+                #cover {
+                    width: 100% !important;
+                }
+                #leftpage, #rightpage{
+                    width: 100% !important;
+                }
+                #leftpage {
                     margin-bottom: 1em !important;
                 }
             }
@@ -74,18 +78,19 @@
                 justify-content: space-evenly !important;
             }
             .flex-body{
-                background-color:whitesmoke;
-                max-width: 86.8% !important;
-                margin-top: 5em;
-                margin-bottom: 5em;
+                max-width: 90%;
+                margin-top: 10em;
+                margin-bottom: 10em;
             }
             .leftside, .rightside{
-                width: 48%;
-                background-color:bisque;
                 margin: 0px;
+                padding: 0px;
                 height: auto;
+                border: none;
+                background-color: aqua;
+                float: left;
             }
-            .leftside > header > h1 {
+            #leftpage > header > h1 {
                 font-size: 1.7em !important;
             }
             #piclog {
@@ -98,11 +103,14 @@
             #stamps {
                 justify-content: space-evenly;
                 flex-wrap: wrap;
-                width: auto;
+                /*
+                width: 513px; */
                 border-width: 7px;
                 border-style: solid;
                 border-image: url("https://files.catbox.moe/anp6gy.png") 7 fill round;
-                height: 500px;
+                height: 360px;
+                margin-left: 15px;
+                padding-right: 15px;
             }
             #stamps > img {
                 margin-bottom: 0.2em;
@@ -116,6 +124,62 @@
             #stamp-nav {
                 margin-top: 1.5em;
                 margin-bottom: 1.5em;
+                margin-bottom: auto !important;
+                margin-left: 3em;
+                display: block;
+            }
+            #cover{
+                width: 1080px !important;
+                height: auto;
+                border-radius: 15px;
+                background-color: #91697b;
+                margin: 0 auto;
+            }
+            #page1{
+                width: 1060px !important;
+                height: auto;
+                background-color: #fff;
+                border-radius: 15px;
+                padding: 2px;
+                box-shadow: 0px 0px 2px #57443E;
+            }
+            #page2{
+                width: 1058px;
+                height: 574px;
+                background-color: #fff;
+                border-radius: 15px;
+                box-shadow: 0px 0px 2px #574539;
+                padding: 2px;
+            }
+            #page3{
+                width: 1056px;
+                height: 574px;
+                background-color: #fff;
+                border-radius: 15px;
+                box-shadow: 0px 0px 2px #574539;
+                background-image: url('https://files.catbox.moe/lodfhk.png');
+            }
+            #line{
+                width: 1px;
+                height: 574px;
+                margin: 0 auto;
+                background-color: #A19386;
+                box-shadow: 0px 0px 10px #2e2a27;
+            }
+            #leftpage{
+                float: left;
+                width: 497px;
+                height: 544px;
+                padding: 15px;
+                background-color: #f5d1b59f;
+            }
+            #rightpage{
+                float: right;
+                width: 497px;
+                height: 574px;
+                padding-left: 15px;
+                padding-right: 15px;
+                background-color: #f5d1b59f;
             }
         </style>
         <script>
@@ -141,25 +205,37 @@
     </head>
     <body>
         <!-- use multiple classes to differientiate between similar names -->
-        <div class="flex-body">
+        <div class="flex-body" id="cover" style="margin-top: 5em; margin-bottom: 5em;">
             <!-- flex-middle contains all left asides, main, and right asides -->
-            <main class="flex-row flex-middle">
+            <main class="flex-row flex-middle" id="page1">
+                <div id="page2">
+                    <div id="page3">
+                        
+                        <div id="line"></div>
+                        
+                        
+                    </div>
+                    </div>
+                    </div>
+                        <!--
+
                 <div class="flex-column leftside">
+
                     <header>
-                        <h1 class="center">
-                            starry's scrapbook    
-                        </h1>
-                    </header>
-                    <a href="https://piclog.blue/profile.php?id=744">
-                        <img src="https://piclog.blue/latest.php?id=744" class="center" id="piclog">
-                    </a>
-                </div>
-                <div class="flex-column rightside">
-                    <h2>
-                        stamp collection
-                    </h2>
-                    <div class="flex-row center" id="stamps">
-                        <div id="1" class="center">
+                                <h1 class="center">
+                                    starry's scrapbook    
+                                </h1>
+                            </header>
+                            <a href="https://piclog.blue/profile.php?id=744">
+                                <img src="https://piclog.blue/latest.php?id=744" class="center" id="piclog">
+                            </a>
+                            </div>
+                            <div class="flex-column rightside">
+                                <h2>
+                                    stamp collection
+                                </h2>
+                            <div class="flex-row center" id="stamps">
+                                <div id="1" class="center">
                             <img src="/images/scrapbook-imgs/stamp-ilovefrogs.gif" alt="">
                             <img src="/images/scrapbook-imgs/stamp-isupportbugsaspets.png" alt="">
                             <img src="/images/scrapbook-imgs/stamp-isupportgrass.png" alt="">
@@ -190,7 +266,7 @@
                             <img src="/images/scrapbook-imgs/stamp-alien.png" alt="">
                             <img src="/images/scrapbook-imgs/stamp-turtle.jpg" alt="">
                             <img src="/images/scrapbook-imgs/stamp-pastelgoth.png" alt="">
-                        </div>
+                            </div>
                         <div id="2">
                             <img src="/images/scrapbook-imgs/stamp-ilovestamps.gif" alt="">
                             <img src="/images/scrapbook-imgs/stamp-meta7.png" alt="">
@@ -296,6 +372,7 @@
                         <img src="/" alt="">
                     </div>
                 </div>
+                -->
             </main>
         </div>
     </body>
