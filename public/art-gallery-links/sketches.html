@@ -471,4 +471,477 @@
             </div>
         </main>
     </body>
+</html><!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/style.css">
+        <link rel="icon" href="/images/icon-green-plant.ico">
+        <title>Doodles n Sketches - Starry's Grove</title>
+        <style>
+            /* Note to self: put CSS specific to this file in the style element. CSS that applies to all files goes in the style sheet CSS */
+            @media only screen and (max-width: 700px) {
+                .navbar,.main{
+                    width: auto;
+                }
+                .new-content-sticker{
+                    display: none;
+                }
+                h2, h3 {
+                    font-size: 1.3em;
+                    text-wrap: wrap;
+                }
+                p {
+                    font-size: 1em;
+                }
+            }
+            .flex-middle{
+                flex-direction: column;
+            }
+            html {
+                background-color: var(--boxbgcolor);
+            }
+            .main {
+                width: auto;
+                border: none;
+            }
+            .flex-friendsart>img{
+                width: 55%;
+                border: 2px solid #4f6c38;
+                border-radius: 65px;
+                margin:auto;
+            }
+            h3{
+                text-decoration: none;
+            }
+            .scrolling-box{
+                /*
+                background-color: #B7E1A1; */
+                height: 45rem;
+                width: auto;
+                margin-left: 10px;
+                margin-right: 10px;
+                border-bottom-left-radius: 0px !important;
+            }
+            .flex-charaart, .flex-oldart, .flex-doodlensketch, .flex-monstermania {
+                justify-content: space-evenly !important;
+            }
+            .gallery > p {
+                text-align: center !important;
+            }
+            /*
+            div.gallery:hover {
+                border: var(--bordermain);
+            } */
+            div.gallery img {
+                width: 17em;
+                padding: 15px;
+                height: auto;
+                object-fit: cover;
+                background-color: rgb(255, 255, 255);
+                border: 7px outset #b36b24;
+                box-shadow: 2px 2px 4px rgba(0,0,0,.6);
+            }
+            div.desc {
+                padding: 15px;
+                text-align: center;
+                background-image: url("/images/backgrounds/bg-blue-green-elegant.gif");
+                width: 17em !important;
+                border: 7px outset #99cccc;
+            }
+            * {
+                box-sizing: border-box;
+            }
+            .responsive {
+                padding: 10px;
+                width: auto;
+                margin-bottom: 10px;
+                height: fit-content;
+            }
+            @media only screen and (max-width: 700px) {
+                .responsive {
+                    width: auto;
+                    margin: 6px 0;
+                }
+                .scrolling-box {
+                    height: 27rem;
+                }
+                .img-divider {
+                    width: 76% !important;
+                }
+                #intro {
+                    margin: auto;
+                    width: 95% !important;
+                }
+                .flex-friendsart>img{
+                    width: 60% !important;
+                }
+            }
+            @media only screen and (max-width: 500px) {
+                .responsive {
+                    width: auto !important;
+                }
+                .scrolling-box {
+                    height: 50rem;
+                }
+                #intro {
+                    flex-direction: column;
+                    width: 90%;
+                    margin: auto;
+                    display: block; 
+                }
+                .img-divider {
+                    width: 98% !important;
+                }
+                li {
+                    margin: 0.4em;
+                }
+                h1 {
+                    margin-top: 0px;
+                    margin-bottom: 0px;
+                    display: inline-block;
+                    line-height: 1.2;
+                }
+                .flex-friendsart>img{
+                    width: 70% !important;
+                }
+            }
+            /*pulled from stack overflow, allows the home nav link to hide on desktop and show on mobile*/
+            @media screen and (max-width: 480px) {
+                .show-on-desktop {
+                    display: none;
+                }
+            }
+            @media screen and (min-width: 700px) {
+                .hide-on-desktop {
+                    display: none;
+                }
+            }
+            .flex-friendsart>img{
+                width: 50%;
+            }
+            .flex-friendsart{
+                width: 30%;
+            }
+            .clearfix:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+            section {
+                background-color:rgba(255, 255, 255, 0.934);
+                color: #0e0601;
+                border-radius: 10px;
+            }
+            .img-divider {
+                width: 76%;
+            }
+            #intro {
+                margin: auto;
+                width: 75%;
+            }
+            #banner {
+                background-image:url(/images/art-gallery-imgs/div-totoro.gif); 
+                height: 40px;
+            }
+            header > div > img {
+                width: 8%;
+                height: 8%;
+                margin: auto; 
+            }
+            p {
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <main class="main">
+            <h3>❀ Doodles & Sketches ❀</h3>
+            <div class="scrolling-box">
+                <div class="flex-row flex-doodlensketch" style="flex-wrap: wrap;">
+                    <div class="responsive">
+                        <div class="gallery">
+                            <a target="_blank" href="https://files.catbox.moe/2p1evd.jpg">
+                                <img src="/images/art-gallery-imgs/241111-full-of-fiberglass-min.jpg" alt="Chibi starry and friends eating fiberglass" width="600" height="400">
+                            </a>
+                            <div class="desc">
+                                <section>
+                                    <p><strong>Nov/11/2024</strong></p>
+                                    <p>
+                                        Me and the girls eating your insulation
+                                    </p>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="responsive">
+                        <div class="gallery">
+                            <a target="_blank" href="https://files.catbox.moe/u8utjf.jpg">
+                                <img src="/images/art-gallery-imgs/240910-isutsumi-min.jpg" alt="Izutsumi doodle" width="600" height="400">
+                            </a>
+                            <div class="desc">
+                                <section>
+                                    <p><strong>Sep/10/2024</strong></p>
+                                    <p>
+                                        Izutsumi doodle
+                                    </p>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="responsive">
+                        <div class="gallery">
+                            <a target="_blank" href="https://files.catbox.moe/udkmn7.jpg">
+                                <img src="/images/art-gallery-imgs/240910-kisuke-min.jpg" alt="Kisuke doodle" width="600" height="400">
+                            </a>
+                            <div class="desc">
+                                <section>
+                                    <p><strong>Sep/10/2024</strong></p>
+                                    <p>
+                                        Kisuke doodle
+                                    </p>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="responsive">
+                        <div class="gallery">
+                            <a target="_blank" href="https://files.catbox.moe/6pbyax.jpg">
+                                <img src="/images/art-gallery-imgs/240902-overchast-crew-min.jpg" alt="Overchast characters" width="600" height="400">
+                            </a>
+                            <div class="desc">
+                                <section>
+                                    <p><strong>Sep/02/2024</strong></p>
+                                    <p>
+                                        The Overchast party. This is some concept art for a game me and my friends imagined. It's like a 2D rpg scroller :3
+                                    </p>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="responsive">
+                        <div class="gallery">
+                            <a target="_blank" href="https://files.catbox.moe/9k8q93.jpg">
+                                <img src="/images/art-gallery-imgs/240827doodles-min.jpg" alt="Doodles" width="600" height="400">
+                            </a>
+                            <div class="desc">
+                                <section>
+                                    <p><strong>Sep/27/2024</strong></p>
+                                    <p>
+                                        Just some doodles
+                                    </p>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="responsive">
+                        <div class="gallery">
+                            <a target="_blank" href="https://files.catbox.moe/lqzx9r.jpg">
+                                <img src="/images/art-gallery-imgs/240729-eats-ur-art-min.jpg" alt="Starry eating yummy art" width="600" height="400">
+                            </a>
+                            <div class="desc">
+                                <section>
+                                    <p><strong>Jul/29/2024</strong></p>
+                                    <p>
+                                        Starry eating some yummy artwork
+                                    </p>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="responsive">
+                        <div class="gallery">
+                            <a target="_blank" href="https://files.catbox.moe/nsqp47.jpg">
+                                <img src="/images/art-gallery-imgs/240728-head-hurt-min.jpg" alt="I have a headache but I persist" width="600" height="400">
+                            </a>
+                            <div class="desc">
+                                <section>
+                                    <p><strong>Jul/28/2024</strong></p>
+                                    <p>
+                                        Me when i have a headache but I still have stuff to do
+                                    </p>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="responsive">
+                        <div class="gallery">
+                            <a target="_blank" href="https://files.catbox.moe/fts606.jpg">
+                                <img src="/images/art-gallery-imgs/2024jan18-starry-ref-unfinished.jpg" alt="Starry ref sheet sketch" width="600" height="400">
+                            </a>
+                            <div class="desc">
+                                <section>
+                                    <p><strong>Jan/18/2024</strong></p>
+                                    <p>
+                                        This was supposed to be an updated ref sheet for Starry but it didn't turn out how I liked. I still like how the sketches turned out though.
+                                    </p>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="responsive">
+                        <div class="gallery">
+                            <a target="_blank" href="https://files.catbox.moe/1l44o0.jpg">
+                                <img src="/images/art-gallery-imgs/2024jan13-hidden-holding-mabel.jpg" alt="Hidden holding Mabel" width="600" height="400">
+                            </a>
+                            <div class="desc">
+                                <section>
+                                    <p><strong>Jan/13/2024</strong></p>
+                                    <p>
+                                        My friend Hidden holding my OC,<br> 
+                                        Mabel. My friends really liked her design so I did a couple doodles with em together<br> 
+                                        o(〃＾▽＾〃)o
+                                    </p>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="responsive">
+                        <div class="gallery">
+                            <a target="_blank" href="https://files.catbox.moe/a2oo1m.jpg">
+                                <img src="/images/art-gallery-imgs/2024jan12-hidden-mabel-holding-hands.jpg" alt="Hidden and Mabel holding hands" width="600" height="400">
+                            </a>
+                            <div class="desc">
+                                <section>
+                                    <p><strong>Jan/12/2024</strong></p>
+                                    <p>
+                                        Another doodle with Hidden and Mabel（＾ω＾）
+                                    </p>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="responsive">
+                        <div class="gallery">
+                            <a target="_blank" href="https://files.catbox.moe/z4fdd2.jpg">
+                                <img loading="lazy" src="/images/art-gallery-imgs/2024jan8-random-doodles.jpg" alt="Doodles page 1" width="600" height="400">
+                            </a>
+                            <div class="desc">
+                                <section>
+                                    <p><strong>Jan/08/2024</strong></p>
+                                    <p>
+                                        Just some doodles featuring some of the things I was interested in at the time. Also, chibi Starry and fox Starry appearance!
+                                    </p>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="responsive">
+                        <div class="gallery">
+                            <a target="_blank" href="https://files.catbox.moe/l36vdq.jpg">
+                                <img loading="lazy" src="/images/art-gallery-imgs/2024jan6-whiteboard-starry-wide.jpg" alt="Wide Starry on whiteboard" width="600" height="400">
+                            </a>
+                            <div class="desc">
+                                <section>
+                                    <p><strong>Jan/06/2024</strong></p>
+                                    <p>
+                                        W I D E Starry.<br>
+                                        That's all.
+                                    </p>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="responsive">
+                        <div class="gallery">
+                            <a target="_blank" href="https://files.catbox.moe/6i35ay.jpg">
+                                <img loading="lazy" src="/images/art-gallery-imgs/2023jul27-hidden-sketch.jpg" alt="Hidden sketch" width="600" height="400">
+                            </a>
+                            <div class="desc">
+                                <section>
+                                    <p><strong>Jul/27/2023</strong></p>
+                                    <p>
+                                        A doodle of my friend Hidden. His OC is an owl/chimera and he likes to drink poison because birds can just do that yknow.<br>
+                                        He's pretty cool
+                                    </p>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="responsive">
+                        <div class="gallery">
+                            <a target="_blank" href="https://files.catbox.moe/zdcj09.jpg">
+                                <img loading="lazy" src="/images/art-gallery-imgs/2024-doodle-starry-looking-up.jpg" alt="Starry looking up at you" width="600" height="400">
+                            </a>
+                            <div class="desc">
+                                <section>
+                                    <p><strong>Jul/17/2023</strong></p>
+                                    <p>
+                                        A zoom in on one of the doodles from the next page. I really liked this one so I went back and darkened the lineart. It's based off a silly reaction image from twitter but I can't find it anymore<br>
+                                        o(╥﹏╥)
+                                    </p>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="responsive">
+                        <div class="gallery">
+                            <a target="_blank" href="https://files.catbox.moe/oq52c9.jpg">
+                                <img loading="lazy" src="/images/art-gallery-imgs/2023jul15-starry-ref-color.jpg" alt="Starry ref sheet" width="600" height="400">
+                            </a>
+                            <div class="desc">
+                                <section>
+                                    <p><strong>Jul/15/2023</strong></p>
+                                    <p>
+                                        An older doodle/ ref sheet for Starry.
+                                    </p>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="responsive">
+                        <div class="gallery">
+                            <a target="_blank" href="https://files.catbox.moe/cgn65k.jpg">
+                                <img loading="lazy" src="/images/art-gallery-imgs/2023-beatrix-bust.jpg" alt="Beatrix OC" width="600" height="400">
+                            </a>
+                            <div class="desc">
+                                <section>
+                                    <p><strong>2023</strong></p>
+                                    <p>
+                                        This is Beatrix! She was drawn based off <a href="https://www.pinterest.com/pin/52002570693073616/">this</a> image of different ears based on zodiac signs so I just<br>
+                                        decided to draw a character based off mine. I couldn't find<br> the source of this image so I linked the Pinterest post.
+                                    </p>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="responsive">
+                        <div class="gallery">
+                            <a target="_blank" href="https://files.catbox.moe/4ij9qh.jpg">
+                                <img loading="lazy" src="/images/art-gallery-imgs/2023-purple-hair-girl-hoodie.jpg" alt="Girl in hoodie" width="600" height="400">
+                            </a>
+                            <div class="desc">
+                                <section>
+                                    <p><strong>2023</strong></p>
+                                    <p>
+                                        A lil doodle and fun with some new colored pencils I had.
+                                    </p>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="responsive">
+                        <div class="gallery">
+                            <a target="_blank" href="https://files.catbox.moe/db7c06.jpg">
+                                <img loading="lazy" src="/images/art-gallery-imgs/2023-burnie-doodle.jpg" alt="Dragon plush doodle" width="600" height="400">
+                            </a>
+                            <div class="desc">
+                                <section>
+                                    <p><strong>2023</strong></p>
+                                    <p>
+                                        This is Burmie, the beloved plushie of someone I know. I did a doodle of him for fun （＾ω＾）
+                                    </p>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            </div>
+        </main>
+    </body>
 </html>
