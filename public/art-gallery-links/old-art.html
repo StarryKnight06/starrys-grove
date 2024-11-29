@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/style.css">
+        <link rel="icon" href="/images/icon-green-plant.ico">
+        <title>Old Art - Starry's Grove</title>
+        <style>
+            /* Note to self: put CSS specific to this file in the style element. CSS that applies to all files goes in the style sheet CSS */
+            @media only screen and (max-width: 700px) {
+                .navbar,.main{
+                    width: auto;
+                }
+                .new-content-sticker{
+                    display: none;
+                }
+                h2, h3 {
+                    font-size: 1.3em;
+                    text-wrap: wrap;
+                }
+                p {
+                    font-size: 1em;
+                }
+            }
+            .flex-middle{
+                flex-direction: column;
+            }
+            html {
+                background-color: var(--boxbgcolor);
+            }
+            .main {
+                width: auto;
+                border: none;
+            }
+            .flex-friendsart>img{
+                width: 55%;
+                border: 2px solid #4f6c38;
+                border-radius: 65px;
+                margin:auto;
+            }
+            h3{
+                text-decoration: none;
+            }
+            .scrolling-box{
+                /*
+                background-color: #B7E1A1; */
+                height: 45rem;
+                width: auto;
+                margin-left: 10px;
+                margin-right: 10px;
+                border-bottom-left-radius: 0px !important;
+            }
+            .flex-charaart, .flex-oldart, .flex-doodlensketch, .flex-monstermania {
+                justify-content: space-evenly !important;
+            }
+            .gallery > p {
+                text-align: center !important;
+            }
+            /*
+            div.gallery:hover {
+                border: var(--bordermain);
+            } */
+            div.gallery img {
+                width: 17em;
+                padding: 15px;
+                height: auto;
+                object-fit: cover;
+                background-color: rgb(255, 255, 255);
+                border: 7px outset #b36b24;
+                box-shadow: 2px 2px 4px rgba(0,0,0,.6);
+            }
+            div.desc {
+                padding: 15px;
+                text-align: center;
+                background-image: url("/images/backgrounds/bg-blue-green-elegant.gif");
+                width: 17em !important;
+                border: 7px outset #99cccc;
+            }
+            * {
+                box-sizing: border-box;
+            }
+            .responsive {
+                padding: 10px;
+                width: auto;
+                margin-bottom: 10px;
+                height: fit-content;
+            }
+            @media only screen and (max-width: 700px) {
+                .responsive {
+                    width: auto;
+                    margin: 6px 0;
+                }
+                .scrolling-box {
+                    height: 27rem;
+                }
+                .img-divider {
+                    width: 76% !important;
+                }
+                #intro {
+                    margin: auto;
+                    width: 95% !important;
+                }
+                .flex-friendsart>img{
+                    width: 60% !important;
+                }
+            }
+            @media only screen and (max-width: 500px) {
+                .responsive {
+                    width: auto !important;
+                }
+                .scrolling-box {
+                    height: 50rem;
+                }
+                #intro {
+                    flex-direction: column;
+                    width: 90%;
+                    margin: auto;
+                    display: block; 
+                }
+                .img-divider {
+                    width: 98% !important;
+                }
+                li {
+                    margin: 0.4em;
+                }
+                h1 {
+                    margin-top: 0px;
+                    margin-bottom: 0px;
+                    display: inline-block;
+                    line-height: 1.2;
+                }
+                .flex-friendsart>img{
+                    width: 70% !important;
+                }
+            }
+            /*pulled from stack overflow, allows the home nav link to hide on desktop and show on mobile*/
+            @media screen and (max-width: 480px) {
+                .show-on-desktop {
+                    display: none;
+                }
+            }
+            @media screen and (min-width: 700px) {
+                .hide-on-desktop {
+                    display: none;
+                }
+            }
+            .flex-friendsart>img{
+                width: 50%;
+            }
+            .flex-friendsart{
+                width: 30%;
+            }
+            .clearfix:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+            section {
+                background-color:rgba(255, 255, 255, 0.934);
+                color: #0e0601;
+                border-radius: 10px;
+            }
+            .img-divider {
+                width: 76%;
+            }
+            #intro {
+                margin: auto;
+                width: 75%;
+            }
+            #banner {
+                background-image:url(/images/art-gallery-imgs/div-totoro.gif); 
+                height: 40px;
+            }
+            header > div > img {
+                width: 8%;
+                height: 8%;
+                margin: auto; 
+            }
+            p {
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <main class="main">
+            <h3>❀ Old Art ❀</h3>
+            <div class="scrolling-box">
+                <div class="flex-row flex-oldart" style="flex-wrap: wrap;">
+                    <div class="responsive">
+                        <div class="gallery">
+                            <a target="_blank" href="https://files.catbox.moe/1q6nq2.jpg">
+                                <img src="/images/art-gallery-imgs/2021jan7-axel-muffin-top-new.jpg" alt="Axel and Muffin Top" width="600" height="400">
+                            </a>
+                            <div class="desc">
+                                <section>
+                                    <p><strong>Jan/07/2021</strong></p>
+                                    <p>
+                                        This is Axel and Muffin Top! I originally made them in middle school and this is a redraw. I love both designs. It's funny how they looked older since I was older too.
+                                    </p>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="responsive">
+                        <div class="gallery">
+                            <a target="_blank" href="https://files.catbox.moe/rg3xz0.jpg">
+                                <img src="/images/art-gallery-imgs/2013-axel-muffin-top.jpg" alt="Axel and Muffin Top old" width="600" height="400">
+                            </a>
+                            <div class="desc">
+                                <section>
+                                    <p><strong>Middle School</strong></p>
+                                    <p>
+                                        Here's what they looked like originally!
+                                    </p>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="responsive">
+                        <div class="gallery">
+                            <a target="_blank" href="https://files.catbox.moe/mo8qm4.jpg">
+                                <img src="/images/art-gallery-imgs/2021-old-starry-ref.jpg" alt="Starry ref 2021" width="600" height="400">
+                            </a>
+                            <div class="desc">
+                                <section>
+                                    <p><strong>2021</strong></p>
+                                    <p>
+                                        Here's another ref of Starry. It's kinda outdated because I changed her design but I still like it.
+                                    </p>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="responsive">
+                        <div class="gallery">
+                            <a target="_blank" href="https://files.catbox.moe/moix7c.jpg">
+                                <img loading="lazy" src="/images/art-gallery-imgs/2021-starry-emotions.jpg" alt="Starry and her emotions" width="600" height="400">
+                            </a>
+                            <div class="desc">
+                                <section>
+                                    <p><strong>2021?</strong></p>
+                                    <p>
+                                        I actually don't remember when I drew this but I think it was 2021? I decided to return to an old idea<br>
+                                        for Starry in which her emotions where personified. The bottom left is saddness and bottom right is anger.
+                                    </p>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="responsive">
+                        <div class="gallery">
+                            <a target="_blank" href="https://files.catbox.moe/gwmn08.jpg">
+                                <img loading="lazy" src="/images/art-gallery-imgs/2021-friend-portrait.jpg" alt="Friend's portrait" width="600" height="400">
+                            </a>
+                            <div class="desc">
+                                <section>
+                                    <p><strong>2021</strong></p>
+                                    <p>
+                                        Here's a portrait I drew of a friend. Once again, I love how I did the coloring. I love coloring (灬╹ω╹灬)
+                                    </p>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            </div>
+        </main>
+    </body>
+</html>
