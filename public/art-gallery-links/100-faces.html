@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/style.css">
+        <link rel="icon" href="/images/icon-green-plant.ico">
+        <title>Doodles n Sketches - Starry's Grove</title>
+        <style>
+            /* Note to self: put CSS specific to this file in the style element. CSS that applies to all files goes in the style sheet CSS */
+            @media only screen and (max-width: 700px) {
+                .navbar,.main{
+                    width: auto;
+                }
+                .new-content-sticker{
+                    display: none;
+                }
+                h2, h3 {
+                    font-size: 1.3em;
+                    text-wrap: wrap;
+                }
+                p {
+                    font-size: 1em;
+                }
+            }
+            .flex-middle{
+                flex-direction: column;
+            }
+            html {
+                background-color: var(--boxbgcolor);
+            }
+            .main {
+                width: auto;
+                border: none;
+            }
+            .flex-friendsart>img{
+                width: 55%;
+                border: 2px solid #4f6c38;
+                border-radius: 65px;
+                margin:auto;
+            }
+            h3{
+                text-decoration: none;
+            }
+            .scrolling-box{
+                /*
+                background-color: #B7E1A1; */
+                height: 45rem;
+                width: auto;
+                margin-left: 10px;
+                margin-right: 10px;
+                border-bottom-left-radius: 0px !important;
+            }
+            .flex-charaart, .flex-oldart, .flex-doodlensketch, .flex-monstermania {
+                justify-content: space-evenly !important;
+            }
+            .gallery > p {
+                text-align: center !important;
+            }
+            /*
+            div.gallery:hover {
+                border: var(--bordermain);
+            } */
+            div.gallery img {
+                width: 17em;
+                padding: 15px;
+                height: auto;
+                object-fit: cover;
+                background-color: rgb(255, 255, 255);
+                border: 7px outset #b36b24;
+                box-shadow: 2px 2px 4px rgba(0,0,0,.6);
+            }
+            div.desc {
+                padding: 15px;
+                text-align: center;
+                background-image: url("/images/backgrounds/bg-blue-green-elegant.gif");
+                width: 17em !important;
+                border: 7px outset #99cccc;
+            }
+            * {
+                box-sizing: border-box;
+            }
+            .responsive {
+                padding: 10px;
+                width: auto;
+                margin-bottom: 10px;
+                height: fit-content;
+            }
+            @media only screen and (max-width: 700px) {
+                .responsive {
+                    width: auto;
+                    margin: 6px 0;
+                }
+                .scrolling-box {
+                    height: 27rem;
+                }
+                .img-divider {
+                    width: 76% !important;
+                }
+                #intro {
+                    margin: auto;
+                    width: 95% !important;
+                }
+                .flex-friendsart>img{
+                    width: 60% !important;
+                }
+            }
+            @media only screen and (max-width: 500px) {
+                .responsive {
+                    width: auto !important;
+                }
+                .scrolling-box {
+                    height: 50rem;
+                }
+                #intro {
+                    flex-direction: column;
+                    width: 90%;
+                    margin: auto;
+                    display: block; 
+                }
+                .img-divider {
+                    width: 98% !important;
+                }
+                li {
+                    margin: 0.4em;
+                }
+                h1 {
+                    margin-top: 0px;
+                    margin-bottom: 0px;
+                    display: inline-block;
+                    line-height: 1.2;
+                }
+                .flex-friendsart>img{
+                    width: 70% !important;
+                }
+            }
+            /*pulled from stack overflow, allows the home nav link to hide on desktop and show on mobile*/
+            @media screen and (max-width: 480px) {
+                .show-on-desktop {
+                    display: none;
+                }
+            }
+            @media screen and (min-width: 700px) {
+                .hide-on-desktop {
+                    display: none;
+                }
+            }
+            .flex-friendsart>img{
+                width: 50%;
+            }
+            .flex-friendsart{
+                width: 30%;
+            }
+            .clearfix:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+            section {
+                background-color:rgba(255, 255, 255, 0.934);
+                color: #0e0601;
+                border-radius: 10px;
+            }
+            .img-divider {
+                width: 76%;
+            }
+            #intro {
+                margin: auto;
+                width: 75%;
+            }
+            #banner {
+                background-image:url(/images/art-gallery-imgs/div-totoro.gif); 
+                height: 40px;
+            }
+            header > div > img {
+                width: 8%;
+                height: 8%;
+                margin: auto; 
+            }
+            p {
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <main class="main">
+            <h3>❀ 100 Faces Challenge ❀</h3>
+            <p>These pieces of art are based on a sheet with 100 different expression on them. I wanted to draw a character for each expression. Here's
+                <a href="https://x.com/MagicalPouch/status/1198908142655901696?lang=en">the original post</a>.</p>
+            <div class="scrolling-box">
+                <div class="flex-row flex-doodlensketch" style="flex-wrap: wrap;">
+                    <div class="responsive">
+                        <div class="gallery">
+                            <a target="_blank" href="https://files.catbox.moe/mn1v9h.jpg">
+                                <img src="/images/art-gallery-imgs/241114-nokotan-min.jpg" alt="" width="600" height="400">
+                            </a>
+                            <div class="desc">
+                                <section>
+                                    <p><strong>Nov/14/2024</strong></p>
+                                    <p>
+                                        Nokotan (1G)
+                                    </p>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="responsive">
+                        <div class="gallery">
+                            <a target="_blank" href="https://files.catbox.moe/9j02dl.jpg">
+                                <img src="/images/art-gallery-imgs/241114-detective-conan-min.jpg" alt="" width="600" height="400">
+                            </a>
+                            <div class="desc">
+                                <section>
+                                    <p><strong>Nov/14/2024</strong></p>
+                                    <p>
+                                        Detective Conan (1F)
+                                    </p>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="responsive">
+                        <div class="gallery">
+                            <a target="_blank" href="https://files.catbox.moe/1ikoe9.jpg">
+                                <img src="/images/art-gallery-imgs/241111-hidden-min.jpg" alt="" width="600" height="400">
+                            </a>
+                            <div class="desc">
+                                <section>
+                                    <p><strong>Nov/11/2024</strong></p>
+                                    <p>
+                                        Hidden (1E)
+                                    </p>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="responsive">
+                        <div class="gallery">
+                            <a target="_blank" href="https://files.catbox.moe/xoyhgi.jpg">
+                                <img src="/images/art-gallery-imgs/241108-maya-anya-bocchi-min.jpg" alt="" width="600" height="400">
+                            </a>
+                            <div class="desc">
+                                <section>
+                                    <p><strong>Nov/08/2024</strong></p>
+                                    <p>
+                                      Maya (1A), Bocchi (1B), Anya (1C)
+                                    </p>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            </div>
+        </main>
+    </body>
+</html>
