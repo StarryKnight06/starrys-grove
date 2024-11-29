@@ -85,6 +85,10 @@
                 #communities {
                     width: auto !important;
                 }
+                #fanlistings {
+                    width: auto !important;
+                    justify-content: space-around !important;
+                }
                 .flex-counters {
                     width: 50% !important;
                 }
@@ -97,7 +101,7 @@
             }
             @media only screen and (max-width: 500px) {
                 #rightside {
-                    flex-direction: row !important;
+                    flex-direction: column !important;
                 }
                 body {
                     margin: 0px !important;
@@ -136,7 +140,11 @@
                     display: none !important;
                 }
                 #communities {
-                    width: 99% !important;
+                    width: auto !important;
+                }
+                #fanlistings {
+                    width: auto !important;
+                    justify-content: space-around !important;
                 }
             }
             /*pulled from stack overflow, allows the home nav link to hide on desktop and show on mobile*/
@@ -535,7 +543,10 @@
                                 Here you'll find my artwork, my favorite webcomics, cool plant and nature info, my pixel collection, and more.
                                 Feel free to look around and be curious! (✿◠‿◠)<br>
                                 <br>
-                                Also, this site contains <em><b>swearing</b></em> and is <em><b>not</b></em> intended for younger audiences.<br>
+                                Also, this site contains <em><b>some swearing</b></em> and is rated 
+                                <a href="https://www.mabsland.com/Adoption.html" style="a:link{color: #0077b6;text-decoration: none;}">
+                                    WEB 14
+                                </a>.<br>
                                 <br>
                                 <em>If the site looks weird, please clear your cache
                                 or press ctrl + f5. I am constantly updating things.</em> 
@@ -772,14 +783,54 @@
                                 <iframe src="https://silly.city/embed.html?user=StarryKnight" id="silly-city" title="silly.city webring" frameborder="no" style="height: 80px; width: 160px; border-radius: 15px; margin: 0em;"></iframe>
                             </div>
                     </aside>
-                    <!--
-                    <aside class="rightside" id="featured-art">
-                        <h3>
-                            Featured Art
+                    <aside class="rightside" id="fanlistings">
+                        <h3 style="text-decoration: none;">
+                            Fanlistings
                         </h3>
-                        <img src="/images/art-gallery-imgs/2024jan11-old-bulma.jpg">
+                        <p style="text-align: center; margin-top: -30px;">
+                            <a href="https://starry-knight.neocities.org/my-room-links/fanlists">
+                                Full list
+                            </a>
+                        </p>
+                        <div class="flex-row" style="flex-wrap: wrap; justify-content: space-evenly;">
+                            <a href="https://flonne.net/sans/fanlist/" target="_blank">
+                                <img src="/images/fanlists-imgs/button-fanlisting-sans.png" alt="">
+                            </a>
+                            <a href="https://fan.hopeslair.haliya.net/fl/kirby/index.php" target="_blank">
+                                <img src="/images/fanlists-imgs/button-fanlisting-kirby.png" alt="">
+                            </a>
+                            <a href="https://fan.glast-heim.net/undertale//index.php" target="_blank">
+                                <img src="/images/fanlists-imgs/button-fanlisting-undertale-small.png" alt="">
+                            </a>
+                            <a href="https://fan.surlybutterfly.net/stardewvalley/" target="_blank">
+                                <img src="/images/fanlists-imgs/button-fanlisting-stardew.png" alt="">
+                            </a>
+                            <a href="https://fan.after-death.org/p3/index.php" target="_blank">
+                                <img src="/images/fanlists-imgs/button-fanlisting-persona3.gif" alt="">
+                            </a>
+                            <a href="https://rabanastre.org/zero/" target="_blank">
+                                <img src="/images/fanlists-imgs/button-fanlisting-twilight-princess-small.gif.crdownload" alt="">
+                            </a>
+                            <a href="https://nature.i-heart-you.net/forests/" target="_blank">
+                                <img src="/images/fanlists-imgs/button-fanlisting-forests2.gif" alt="">
+                            </a>
+                            <a href="https://thewildrose.org/rice/index.php" target="_blank">
+                                <img src="/images/fanlists-imgs/button-fanlisting-ricesmall.gif" alt="">
+                            </a>
+                            <a href="https://www.ladyrose.buruma.net/stuffedanimals/general/index.php" target="_blank">
+                                <img src="/images/fanlists-imgs/button-fanlisting-stuffed-animals-small.jpg.crdownload" alt="">
+                            </a>
+                            <a href="https://fan.kalechips.net/pikmin/index.php" target="_blank">
+                                <img src="/images/fanlists-imgs/button-fanlisting-pikmin2.png" alt="">
+                            </a>
+                            <a href="https://sunnypark.buruma.net/splatoon//index.php" target="_blank">
+                                <img src="/images/fanlists-imgs/button-fanlisting-splatoon-small.png.crdownload" alt="">
+                            </a>
+                            <a href="https://creativeburst.org/animalcrossing/index.php" target="_blank">
+                                <img src="/images/fanlists-imgs/button-fanlisting-acnh3.jpg" alt="">
+                            </a>
+                        </div>
                     </aside>
-                    -->
                     <aside class="rightside flex-column decor-end">
                         <img src="https://files.catbox.moe/1wg10t.gif" alt="" style="transform: scaleX(-1)">
                     </aside>
